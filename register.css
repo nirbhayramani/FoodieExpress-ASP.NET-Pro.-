@@ -1,0 +1,72 @@
+/* register.css */
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+.modern-checkbox.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.modern-register-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.modern-register-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.required-indicator {
+  color: #ff4444;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.terms-checkbox {
+  border: 2px solid transparent;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.terms-checkbox.error {
+  border-color: #ff4444;
+  background-color: rgba(255, 68, 68, 0.05);
+}
+
+.terms-checkbox input:checked + .checkmark {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.terms-checkbox .label-text strong {
+  color: #333;
+}
+
+.terms-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
