@@ -11,7 +11,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
 
 
-    public partial class login
+    public partial class profile
     {
     }
 }

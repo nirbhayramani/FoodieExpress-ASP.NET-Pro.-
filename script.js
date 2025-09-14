@@ -353,7 +353,7 @@ function updateNavigation() {
     } else {
         if (loginBtn) {
             loginBtn.innerHTML = 'Login';
-            loginBtn.href = 'login.html';
+            loginBtn.href = 'login.aspx';
             loginBtn.classList.remove('user-logged-in');
         }
     }
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPage = window.location.pathname.split('/').pop();
     navLinks.forEach(link => {
         const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.aspx')) {
             link.classList.add('active');
         }
     });

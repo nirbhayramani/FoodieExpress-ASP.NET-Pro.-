@@ -14,7 +14,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
         {
             if (Session["username"] != null)
             {
-                //btnlog.Text = "Logout";
+                btnlog.Text = "Logout";
             }
         }
 

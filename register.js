@@ -148,7 +148,7 @@ document
       // Check if user already exists
       const existingUser = registeredUsers.find(user => user.email === email);
       if (existingUser) {
-        showNotification("An account with this email already exists. <br><a href='login.html' style='color: #fff; text-decoration: underline; font-weight: bold;'>Click here to login</a>", "error");
+        showNotification("An account with this email already exists. <br><a href='login.aspx' style='color: #fff; text-decoration: underline; font-weight: bold;'>Click here to login</a>", "error");
         submitBtn.querySelector(".btn-text").textContent = originalText;
         submitBtn.disabled = false;
         return;
@@ -184,7 +184,7 @@ document
         "success"
       );
       setTimeout(() => {
-        window.location.href = "index.html";
+        window.location.href = "index.aspx";
       }, 2000);
 
       // Reset button state

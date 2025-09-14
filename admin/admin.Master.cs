@@ -13,5 +13,14 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         {
 
         }
+
+        protected void btnlogout_Click(object sender, EventArgs e)
+        {
+            if (Session["admin"] != null)
+            {
+                Session.Clear();
+                Response.Redirect("admin-login.aspx");
+            }
+        }
     }
 }

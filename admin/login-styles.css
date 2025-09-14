@@ -1,0 +1,141 @@
+.admin-login-hero {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 107, 53, 0.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(247, 147, 30, 0.25),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 50% 80%,
+      rgba(127, 176, 105, 0.25),
+      transparent 40%
+    ),
+    var(--admin-bg-secondary);
+  padding: 24px;
+}
+.admin-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--admin-white);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-border-radius-md);
+  box-shadow: var(--admin-card-shadow);
+  overflow: hidden;
+  animation: fadeIn 0.25s ease both;
+}
+.admin-login-header {
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    var(--admin-primary),
+    var(--admin-secondary)
+  );
+  color: var(--admin-white);
+}
+.admin-login-header h1 {
+  font-size: 1.3rem;
+}
+.admin-login-body {
+  padding: 22px;
+}
+.admin-login-body .field {
+  margin-bottom: 14px;
+}
+.admin-login-body .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.admin-login-footer {
+  padding: 16px 22px;
+  background: var(--admin-light);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.brand i {
+  font-size: 1.4rem;
+}
+.muted {
+  color: var(--admin-text-light);
+}
+
+/* Inputs */
+.admin-login-body .field label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--admin-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.admin-login-body .field input[type="email"],
+.admin-login-body .field input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--admin-border);
+  border-radius: var(--admin-border-radius-sm);
+  background: var(--admin-white);
+  color: var(--admin-text-color);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--admin-transition);
+}
+.admin-login-body .field input:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Card micro-interactions */
+.admin-login-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--admin-shadow-lg);
+}
+.btn.btn-primary {
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(255, 107, 53, 0.25);
+}
+.btn.btn-outline:hover {
+  transform: translateY(-1px);
+}
+
+/* Subtle float animation on background */
+.admin-login-hero::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    600px 600px at var(--x, 20%) var(--y, 30%),
+    rgba(255, 107, 53, 0.08),
+    transparent 60%
+  );
+  animation: orbMove 12s ease-in-out infinite alternate;
+}
+@keyframes orbMove {
+  0% {
+    --x: 20%;
+    --y: 30%;
+  }
+  50% {
+    --x: 70%;
+    --y: 20%;
+  }
+  100% {
+    --x: 40%;
+    --y: 75%;
+  }
+}

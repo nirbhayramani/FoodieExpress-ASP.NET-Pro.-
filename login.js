@@ -47,7 +47,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
       const user = registeredUsers.find(user => user.email === email);
       
       if (!user) {
-        showNotification("Account not found. Please register first to create an account.<br><a href='register.html' style='color: #fff; text-decoration: underline; font-weight: bold;'>Click here to register</a>", "error");
+        showNotification("Account not found. Please register first to create an account.<br><a href='register.aspx' style='color: #fff; text-decoration: underline; font-weight: bold;'>Click here to register</a>", "error");
         submitBtn.querySelector(".btn-text").textContent = originalText;
         submitBtn.disabled = false;
         return;
@@ -77,7 +77,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
         "success"
       );
       setTimeout(() => {
-        window.location.href = "index.html";
+        window.location.href = "index.aspx";
       }, 2000);
     } else {
       showNotification("Please fill in all required fields.", "error");

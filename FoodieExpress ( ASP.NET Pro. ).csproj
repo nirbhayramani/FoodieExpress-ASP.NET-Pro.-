@@ -68,7 +68,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="about.aspx" />
-    <Content Include="admin\login.aspx" />
+    <Content Include="admin\add-category.aspx" />
+    <Content Include="admin\add-food.aspx" />
+    <Content Include="admin\admin-script.js" />
+    <Content Include="admin\admin-scripts.js" />
+    <Content Include="admin\admin-styles.css" />
+    <Content Include="admin\category-management.aspx" />
+    <Content Include="admin\dashboard.aspx" />
+    <Content Include="admin\admin-login.aspx" />
+    <Content Include="admin\edit-category.aspx" />
+    <Content Include="admin\edit-food.aspx" />
+    <Content Include="admin\food-management.aspx" />
+    <Content Include="admin\login-styles.css" />
+    <Content Include="admin\profile.aspx" />
+    <Content Include="admin\user-management.aspx" />
+    <Content Include="analytics.aspx" />
     <Content Include="App_Data\FoodEx_db.mdf" />
     <Content Include="App_Data\FoodEx_db_log.ldf">
       <DependentUpon>FoodEx_db.mdf</DependentUpon>
@@ -129,18 +143,89 @@
     <Compile Include="about.aspx.designer.cs">
       <DependentUpon>about.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\add-category.aspx.cs">
+      <DependentUpon>add-category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\add-category.aspx.designer.cs">
+      <DependentUpon>add-category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\add-food.aspx.cs">
+      <DependentUpon>add-food.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\add-food.aspx.designer.cs">
+      <DependentUpon>add-food.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\admin.Master.cs">
       <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\admin.Master.designer.cs">
       <DependentUpon>admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="admin\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="admin\category-management.aspx.cs">
+      <DependentUpon>category-management.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
+    <Compile Include="admin\category-management.aspx.designer.cs">
+      <DependentUpon>category-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\admin-login.aspx.cs">
+      <DependentUpon>admin-login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin-login.aspx.designer.cs">
+      <DependentUpon>admin-login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\edit-category.aspx.cs">
+      <DependentUpon>edit-category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit-category.aspx.designer.cs">
+      <DependentUpon>edit-category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\edit-food.aspx.cs">
+      <DependentUpon>edit-food.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit-food.aspx.designer.cs">
+      <DependentUpon>edit-food.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\food-management.aspx.cs">
+      <DependentUpon>food-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\food-management.aspx.designer.cs">
+      <DependentUpon>food-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\user-management.aspx.cs">
+      <DependentUpon>user-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\user-management.aspx.designer.cs">
+      <DependentUpon>user-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="analytics.aspx.cs">
+      <DependentUpon>analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="analytics.aspx.designer.cs">
+      <DependentUpon>analytics.aspx</DependentUpon>
     </Compile>
     <Compile Include="cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
@@ -204,7 +289,10 @@
     </None>
     <Content Include="WebSite.Master" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="data\prodPics\" />
+    <Folder Include="data\userPro_pics\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

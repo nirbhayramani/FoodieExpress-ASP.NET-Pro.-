@@ -11,61 +11,61 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
 
 
-    public partial class admin
+    public partial class edit_category
     {
 
         /// <summary>
-        /// head control.
+        /// txtcnam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.TextBox txtcnam;
 
         /// <summary>
-        /// form1 control.
+        /// txtcslug control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtcslug;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// txtcdesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox txtcdesc;
 
         /// <summary>
-        /// btnlogout control.
+        /// ddlicon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnlogout;
+        protected global::System.Web.UI.WebControls.DropDownList ddlicon;
 
         /// <summary>
-        /// ContentPlaceHolder2 control.
+        /// ddlstat control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlstat;
 
         /// <summary>
-        /// ContentPlaceHolder3 control.
+        /// btnupd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder3;
+        protected global::System.Web.UI.WebControls.Button btnupd;
     }
 }

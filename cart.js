@@ -188,9 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const isLoggedIn = checkUserLoginStatus();
 
   if (!isLoggedIn) {
-    showNotification("Please log in to view your cart<br><a href='login.html' style='color: #fff; text-decoration: underline; font-weight: bold;'>Click here to login</a>", "error");
+    showNotification("Please log in to view your cart<br><a href='login.aspx' style='color: #fff; text-decoration: underline; font-weight: bold;'>Click here to login</a>", "error");
     setTimeout(() => {
-      window.location.href = "login.html";
+      window.location.href = "login.aspx";
     }, 3000);
     return;
   }

@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - FoodieExpress</title>
+    <title>Admin Panel - FoodieExpress</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,303 +21,26 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <!-- Admin Navigation -->
                 <nav class="admin-navbar">
-                    <div class="nav-container">
-                        <a href="dashboard.html" class="admin-logo">
-                            <i class="fas fa-utensils"></i>
-                            FoodieExpress Admin
-                        </a>
-                        <ul class="nav-menu">
-                            <li><a href="dashboard.html" class="active">Dashboard</a></li>
-                            <li><a href="menu-management.html">Menu</a></li>
-                            <li><a href="orders.html">Orders</a></li>
-                            <li><a href="customers.html">Customers</a></li>
-                            <li><a href="analytics.html">Analytics</a></li>
-                            <li><a href="settings.html">Settings</a></li>
-                        </ul>
-                        <div class="nav-actions">
-                            <div class="admin-profile">
-                                <img src="../images/Head chef.jpg" alt="Admin" class="profile-img">
-                                <span>Admin</span>
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
-                            <a href="../index.html" class="btn btn-sm btn-outline">View Site</a>
+                    <div class="admin-nav-container">
+                        <div class="admin-logo">
+                            <i class="fas fa-utensils" style="color: white"></i><span style="color: white">FoodieExpress Admin</span>
+                        </div>
+                        <div class="admin-nav-menu">
+                            <a href="dashboard.aspx"><i class="fas fa-tachometer-alt"></i>Dashboard </a>
+                            <a href="food-management.aspx"><i class="fas fa-hamburger"></i>Food Management </a>
+                            <a href="category-management.aspx"><i class="fas fa-tags"></i>Category Management </a>
+                            <a href="user-management.aspx"><i class="fas fa-users"></i>User Management </a>
+                        </div>
+                        <div class="admin-user-menu">
+                            <%--<a href="#" class="btn btn-secondary" onclick="handleLogout()"><i class="fas fa-sign-out-alt"></i>--%>
+                            <asp:Button ID="btnlogout" runat="server" Text="logout" OnClick="btnlogout_Click" class="btn btn-secondary" />
                         </div>
                     </div>
                 </nav>
             </asp:ContentPlaceHolder>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-                <!-- Main Content -->
-    <main class="admin-main">
-        <div class="container">
-            <!-- Dashboard Header -->
-            <div class="dashboard-header">
-                <h1>Dashboard Overview</h1>
-                <p>Welcome back! Here's what's happening with your restaurant today.</p>
-            </div>
-
-            <!-- Search Box -->
-            <div class="search-container">
-                <input type="text" class="search-box" placeholder="Search orders, customers, or menu items...">
-                <i class="fas fa-search search-icon"></i>
-            </div>
-
-            <!-- Stats Cards -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3>Total Orders</h3>
-                        <p class="stat-number">1,247</p>
-                        <span class="stat-change positive">+12% from last month</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3>Revenue</h3>
-                        <p class="stat-number">$24,580</p>
-                        <span class="stat-change positive">+8% from last month</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3>Customers</h3>
-                        <p class="stat-number">3,421</p>
-                        <span class="stat-change positive">+15% from last month</span>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3>Rating</h3>
-                        <p class="stat-number">4.8</p>
-                        <span class="stat-change positive">+0.2 from last month</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Charts and Tables Section -->
-            <div class="dashboard-content">
-                <div class="dashboard-left">
-                    <!-- Recent Orders -->
-                    <div class="dashboard-card">
-                        <div class="recent-orders-header">
-                            <h3>Recent Orders</h3>
-                            <a href="orders.html" class="view-all-btn">
-                                <i class="fas fa-external-link-alt"></i>
-                                View All
-                            </a>
-                        </div>
-                        <div class="recent-orders-list">
-                            <div class="order-item-card">
-                                <div class="order-info">
-                                    <div>
-                                        <div class="order-number">#1234</div>
-                                        <div class="order-customer">John Doe</div>
-                                        <div class="order-time">2 minutes ago</div>
-                                    </div>
-                                </div>
-                                <div class="order-status status-pending">Pending</div>
-                            </div>
-                            <div class="order-item-card">
-                                <div class="order-info">
-                                    <div>
-                                        <div class="order-number">#1233</div>
-                                        <div class="order-customer">Jane Smith</div>
-                                        <div class="order-time">15 minutes ago</div>
-                                    </div>
-                                </div>
-                                <div class="order-status status-preparing">Preparing</div>
-                            </div>
-                            <div class="order-item-card">
-                                <div class="order-info">
-                                    <div>
-                                        <div class="order-number">#1232</div>
-                                        <div class="order-customer">Mike Johnson</div>
-                                        <div class="order-time">1 hour ago</div>
-                                    </div>
-                                </div>
-                                <div class="order-status status-delivered">Delivered</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Popular Items -->
-                    <div class="dashboard-card">
-                        <div class="popular-items-header">
-                            <h3>Popular Items</h3>
-                            <a href="menu-management.html" class="manage-menu-btn">
-                                <i class="fas fa-cog"></i>
-                                Manage Menu
-                            </a>
-                        </div>
-                        <div class="popular-items">
-                            <div class="popular-item-card">
-                                <img src="../images/margherita-pizza.jpg" alt="Margherita Pizza" class="popular-item-img">
-                                <div class="popular-item-info">
-                                    <h4>Margherita Pizza</h4>
-                                    <p>127 orders this week</p>
-                                </div>
-                                <div class="popular-item-stats">
-                                    <div class="popular-item-rating">
-                                        <span>4.9</span>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="popular-item-orders">127 orders</div>
-                                </div>
-                            </div>
-                            <div class="popular-item-card">
-                                <img src="../images/grilled-salmon.jpg" alt="Grilled Salmon" class="popular-item-img">
-                                <div class="popular-item-info">
-                                    <h4>Grilled Salmon</h4>
-                                    <p>89 orders this week</p>
-                                </div>
-                                <div class="popular-item-stats">
-                                    <div class="popular-item-rating">
-                                        <span>4.8</span>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="popular-item-orders">89 orders</div>
-                                </div>
-                            </div>
-                            <div class="popular-item-card">
-                                <img src="../images/Classic Burger.jpg" alt="Gourmet Burger" class="popular-item-img">
-                                <div class="popular-item-info">
-                                    <h4>Gourmet Burger</h4>
-                                    <p>156 orders this week</p>
-                                </div>
-                                <div class="popular-item-stats">
-                                    <div class="popular-item-rating">
-                                        <span>4.7</span>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <div class="popular-item-orders">156 orders</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-right">
-                    <!-- Quick Actions -->
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <h3>Quick Actions</h3>
-                        </div>
-                        <div class="quick-actions">
-                            <a href="menu-management.html" class="quick-action">
-                                <i class="fas fa-plus"></i>
-                                <span>Add Menu Item</span>
-                                <div class="action-description">Create new dishes</div>
-                            </a>
-                            <a href="orders.html" class="quick-action">
-                                <i class="fas fa-list"></i>
-                                <span>View Orders</span>
-                                <div class="action-description">Track all orders</div>
-                            </a>
-                            <a href="customers.html" class="quick-action">
-                                <i class="fas fa-users"></i>
-                                <span>Manage Customers</span>
-                                <div class="action-description">Customer database</div>
-                            </a>
-                            <a href="analytics.html" class="quick-action">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>View Analytics</span>
-                                <div class="action-description">Business insights</div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Recent Reviews -->
-                    <div class="dashboard-card">
-                        <div class="card-header">
-                            <h3>Recent Reviews</h3>
-                        </div>
-                        <div class="reviews-list">
-                            <div class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="../images/Chef Sofia.jpg" alt="Customer" class="reviewer-img">
-                                        <div>
-                                            <h4>Sarah Wilson</h4>
-                                            <div class="review-rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span class="review-date">2 hours ago</span>
-                                </div>
-                                <p class="review-text">"Amazing food! The pizza was perfect and delivery was super fast."</p>
-                            </div>
-                            <div class="review-item">
-                                <div class="review-header">
-                                    <div class="reviewer-info">
-                                        <img src="../images/Chef Antonio.jpeg" alt="Customer" class="reviewer-img">
-                                        <div>
-                                            <h4>David Brown</h4>
-                                            <div class="review-rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <span class="review-date">5 hours ago</span>
-                                </div>
-                                <p class="review-text">"Great quality food, will definitely order again!"</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <script src="admin-script.js"></script>
-    <%--<script>
-        // Theme Toggle Functionality
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('admin-theme', newTheme);
-        }
-
-        // Load saved theme on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('admin-theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-        });
-
-        // Search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchBox = document.querySelector('.search-box');
-            if (searchBox) {
-                searchBox.addEventListener('input', function(e) {
-                    const searchTerm = e.target.value.toLowerCase();
-                    // Add search functionality here
-                    console.log('Searching for:', searchTerm);
-                });
-            }
-        });
-    </script>--%>
+            </asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
             </asp:ContentPlaceHolder>
         </div>
     </form>
