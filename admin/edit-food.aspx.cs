@@ -19,7 +19,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         DataSet ds;
         SqlCommand cmd;     //SQL Operations: Insert, Update, Delete
         string fnm;
-        int id;
+        int id,catId;
         void getcon()
         {
             con = new SqlConnection(s);
@@ -72,13 +72,19 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
                 txtcalr.Text = ds.Tables[0].Rows[0]["Fo_Calr"].ToString();
                 txtfingr.Text = ds.Tables[0].Rows[0]["Fo_ingr"].ToString();
                 txtprc.Text = ds.Tables[0].Rows[0]["Fo_Price"].ToString();
+                catId = Convert.ToInt32(ds.Tables[0].Rows[0]["Cat_ID"].ToString());
+                if (ddlcat.Items.Count > 0)
+                {
+                    ddlcat.SelectedIndex = catId;
+                }
+
             }
         }
         protected void btnupd_Click(object sender, EventArgs e)
         {
             getcon();
             cmd = new SqlCommand("UPDATE food_tbl SET Fo_Name='" + txtfnam.Text +
-                                 "', Cat_ID='" + ViewState["cid"].ToString() +
+                                 "', Cat_Name='" + ddlcat.SelectedItem.Text +
                                  "', Fo_Price='" + txtprc.Text +
                                  "', Fo_desc='" + txtfdesc.Text+
                                  "', Fo_Calr='" + txtcalr.Text +
@@ -90,11 +96,11 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 
         protected void ddlcat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            da = new SqlDataAdapter("Select * from cat_tbl where Cat_Name='" + ddlcat.SelectedItem.ToString() + "'", con);
-            ds = new DataSet();
-            da.Fill(ds);
+            //da = new SqlDataAdapter("Select * from cat_tbl where Cat_Name='" + ddlcat.SelectedItem.ToString() + "'", con);
+            //ds = new DataSet();
+            //da.Fill(ds);
 
-            ViewState["cid"] = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+            //ViewState["cid"] = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
         }
     }
 }

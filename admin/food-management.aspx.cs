@@ -18,7 +18,9 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         SqlDataAdapter da;
         DataSet ds;
         SqlCommand cmd;     //SQL Operations: Insert, Update, Delete
+        PagedDataSource pg = new PagedDataSource();
         string fnm;
+        int row;
 
         void getcon()
         {
@@ -39,7 +41,19 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             ds = new DataSet();
             da.Fill(ds);
 
-            gridvufod.DataSource = ds;
+            row = ds.Tables[0].Rows.Count;
+
+            pg.AllowPaging = true;
+            pg.PageSize = 2;
+            pg.CurrentPageIndex = Convert.ToInt32(ViewState["pid"]);
+
+            pg.DataSource = ds.Tables[0].DefaultView;
+
+            lnkbtnprev.Enabled = !pg.IsFirstPage;
+            lnkbtnnxt.Enabled = !pg.IsLastPage;
+
+
+            gridvufod.DataSource = pg;
             gridvufod.DataBind();
         }
 
@@ -58,6 +72,22 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             {
                 Response.Redirect("edit-food.aspx?id=" + id);
             }
+        }
+
+        protected void lnkbtnnxt_Click(object sender, EventArgs e)
+        {
+            int currentPage = Convert.ToInt32(ViewState["pid"]);
+            currentPage++;
+            ViewState["pid"] = currentPage;
+            fillgrid();
+        }
+
+        protected void lnkbtnprev_Click(object sender, EventArgs e)
+        {
+            int currentPage = Convert.ToInt32(ViewState["pid"]);
+            currentPage--;
+            ViewState["pid"] = currentPage;
+            fillgrid();
         }
     }
 }

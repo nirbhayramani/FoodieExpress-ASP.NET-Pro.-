@@ -78,7 +78,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             getcon();
             imgUpload();
 
-            cmd = new SqlCommand("Insert into food_tbl (Fo_Name,Cat_ID,Fo_Price,Fo_Desc,Fo_Img,Fo_Calr,Fo_ingr)values('" + txtfnam.Text + "','" + ViewState["cid"].ToString() + "','" + txtprc.Text + "','" + txtfdesc.Text + "','"+fnm+"','"+txtcalr.Text+"','"+txtfing.Text+"')", con);
+            cmd = new SqlCommand("Insert into food_tbl (Fo_Name,Cat_Name,Fo_Price,Fo_Desc,Fo_Img,Fo_Calr,Fo_ingr)values('" + txtfnam.Text + "','" + ddlcat.SelectedItem.Text + "','" + txtprc.Text + "','" + txtfdesc.Text + "','"+fnm+"','"+txtcalr.Text+"','"+txtfing.Text+"')", con);
             cmd.ExecuteNonQuery();
             Response.Write("<script>alert('Food dish added successfully.')</script>");
             clear();
@@ -86,11 +86,11 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 
         protected void ddlcat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            da = new SqlDataAdapter("Select * from cat_tbl where Cat_Name='" + ddlcat.SelectedItem.ToString() + "'", con);
-            ds = new DataSet();
-            da.Fill(ds);
+            //da = new SqlDataAdapter("Select * from cat_tbl where Cat_Name='" + ddlcat.SelectedItem.ToString() + "'", con);
+            //ds = new DataSet();
+            //da.Fill(ds);
 
-            ViewState["cid"] = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+            //ViewState["cid"] = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
         }
     }
 }

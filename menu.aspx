@@ -42,7 +42,7 @@
     <section class="menu-section">
         <div class="container">
             <div class="menu-grid">
-                <!-- Appetizers -->
+                <%--<!-- Appetizers -->
                 <div class="menu-item" data-category="appetizers">
                     <div class="menu-item-image">
                         <img src="images/bruschetta.jpg" alt="Bruschetta">
@@ -71,40 +71,6 @@
                         </p>
                         <div class="menu-item-footer">
                             <span class="price">$12.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="appetizers">
-                    <div class="menu-item-image">
-                        <img src="images/caprese-salad.jpg" alt="Caprese Salad">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Caprese Salad</h3>
-                        <p>
-                            Fresh mozzarella, ripe tomatoes, and basil with balsamic glaze
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$10.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="appetizers">
-                    <div class="menu-item-image">
-                        <img src="images/spinach-dip.jpg" alt="Spinach Artichoke Dip">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Spinach Artichoke Dip</h3>
-                        <p>
-                            Creamy dip with spinach, artichokes, and melted cheese
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$9.99</span>
                             <button class="btn btn-primary">
                                 Add to Cart
                             </button>
@@ -147,108 +113,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu-item" data-category="main-courses">
-                    <div class="menu-item-image">
-                        <img src="images/beef-tenderloin.jpg" alt="Beef Tenderloin">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Beef Tenderloin</h3>
-                        <p>
-                            8oz tenderloin with roasted potatoes and red wine reduction
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$32.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="main-courses">
-                    <div class="menu-item-image">
-                        <img src="images/pasta-carbonara.jpg" alt="Pasta Carbonara">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Pasta Carbonara</h3>
-                        <p>
-                            Spaghetti with pancetta, eggs, and parmesan cheese
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$18.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="main-courses">
-                    <div class="menu-item-image">
-                        <img src="images/Classic Burger.jpg" alt="Gourmet Burger">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Gourmet Burger</h3>
-                        <p>
-                            Angus beef patty with aged cheddar, caramelized onions, and special sauce
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$19.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="main-courses">
-                    <div class="menu-item-image">
-                        <img src="images/Pepperoni Pizza.jpg" alt="Pepperoni Pizza">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Pepperoni Pizza</h3>
-                        <p>
-                            Spicy pepperoni with mozzarella and our signature tomato sauce
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$18.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="main-courses">
-                    <div class="menu-item-image">
-                        <img src="images/Veggie Burger.jpg" alt="Veggie Burger">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Veggie Burger</h3>
-                        <p>
-                            Plant-based patty with avocado, sprouts, and vegan mayo
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$16.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="main-courses">
-                    <div class="menu-item-image">
-                        <img src="images/Chef's Special.jpg" alt="Chef's Special Pasta">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Chef's Special Pasta</h3>
-                        <p>
-                            Homemade fettuccine with wild mushrooms and truffle cream sauce
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$22.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Desserts -->
                 <div class="menu-item" data-category="desserts">
@@ -285,40 +149,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu-item" data-category="desserts">
-                    <div class="menu-item-image">
-                        <img src="images/Chocolate Cake.png" alt="New York Cheesecake">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>New York Cheesecake</h3>
-                        <p>
-                            Creamy cheesecake with berry compote and graham cracker crust
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$8.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="desserts">
-                    <div class="menu-item-image">
-                        <img src="images/creme-brulee.jpg" alt="Crème Brûlée">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Crème Brûlée</h3>
-                        <p>
-                            Classic French custard with caramelized sugar crust
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$10.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Beverages -->
                 <div class="menu-item" data-category="beverages">
@@ -337,58 +167,45 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div class="menu-item" data-category="beverages">
-                    <div class="menu-item-image">
-                        <img src="images/italian-coffee.jpg" alt="Italian Coffee">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Italian Coffee</h3>
-                        <p>
-                            Rich espresso served with a twist of orange
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$3.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
+                </div>--%>
+                <%--<asp:DataList ID="DtLsFod" runat="server"
+                    RepeatColumns="3"
+                    RepeatDirection="Horizontal"
+                    CellPadding="10"
+                    CssClass="menu-grid" Width="1777px">
+                    <ItemTemplate>
+                        <div class="menu-card">
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("Fo_Img") %>' AlternateText="Food Image" />
+                            <h3><%# Eval("Fo_Name") %></h3>
+                            <p><%# Eval("Fo_Desc") %></p>
+                            <span class="price">$<%# Eval("Fo_Price") %></span><asp:LinkButton ID="LinkButton1" runat="server"
+                                CommandArgument='<%# Eval("Id") %>' CssClass="btn-cart">
+                Add To Cart
+                            </asp:LinkButton>
                         </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="beverages">
-                    <div class="menu-item-image">
-                        <img src="images/berry-smoothie.jpg" alt="Berry Smoothie">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Berry Smoothie</h3>
-                        <p>
-                            Mixed berries with yogurt and honey
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$6.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
+                    </ItemTemplate>
+                </asp:DataList>--%>
+                <asp:DataList ID="DtLsFod" runat="server"
+                    RepeatColumns="3"
+                    RepeatDirection="Horizontal"
+                    CellPadding="10"
+                    CssClass="menu-grid" Width="1777px">
+                    <ItemTemplate>
+                        <div class="menu-card">
+                            <asp:Image ID="Image1" runat="server"
+                                ImageUrl='<%# Eval("Fo_Img") %>'
+                                Height="200" Width="100%" />
+                            <h3><%# Eval("Fo_Name") %></h3>
+                            <p><%# Eval("Fo_Desc") %></p>
+                            <div class="menu-card-footer">
+                                <span class="price"><%# Eval("Fo_Price") %></span>
+                                <asp:LinkButton ID="LinkButton1" runat="server"
+                                    CommandArgument='<%# Eval("Id") %>'
+                                    CssClass="btn">Add To Cart</asp:LinkButton>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="menu-item" data-category="beverages">
-                    <div class="menu-item-image">
-                        <img src="images/iced-tea.jpg" alt="Iced Tea">
-                    </div>
-                    <div class="menu-item-content">
-                        <h3>Iced Tea</h3>
-                        <p>
-                            Refreshing black tea with lemon and mint
-                        </p>
-                        <div class="menu-item-footer">
-                            <span class="price">$3.99</span>
-                            <button class="btn btn-primary">
-                                Add to Cart
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                    </ItemTemplate>
+                </asp:DataList>
             </div>
         </div>
     </section>
@@ -428,5 +245,204 @@
             </div>
         </div>
     </section>
+    <%--<style>
+        /* Grid layout for DataList */
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px; /* uniform gap between cards */
+            margin-top: 20px;
+        }
+
+        /* Each card */
+        .menu-card {
+            width: 365.33px;
+            height: 398.6px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin: 0 15px; /* 🔹 adds only left-right spacing */
+        }
+
+
+            .menu-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            }
+
+            /* Force same image size */
+            .menu-card img {
+                width: 100%;
+                height: 200px; /* fixed image height */
+                object-fit: cover; /* keeps proportion, crops if needed */
+                display: block;
+            }
+
+            /* Title */
+            .menu-card h3 {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin: 15px 10px 5px;
+                color: #333;
+            }
+
+            /* Description */
+            .menu-card p {
+                font-size: 0.95rem;
+                color: #666;
+                margin: 0 15px 10px;
+                flex-grow: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+
+            /* Price */
+            .menu-card .price {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: #ff5722;
+                margin-bottom: 10px;
+                display: block;
+            }
+
+        /* Add to Cart button */
+        .btn-cart {
+            background: linear-gradient(45deg, #ff7b54, #ff4b2b);
+            border: none;
+            color: #fff !important;
+            font-size: 0.95rem;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 25px;
+            margin: 15px auto 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+            .btn-cart:hover {
+                background: linear-gradient(45deg, #ff4b2b, #ff7b54);
+                box-shadow: 0 4px 12px rgba(255,75,43,0.4);
+            }
+    </style>--%>
+    <style>
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .menu-card {
+            width: 365.33px;
+            height: 398.6px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden; /* keep hover text contained */
+            margin: 0 15px; /* 🔹 adds only left-right spacing */
+        }
+
+            .menu-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            .menu-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 12px;
+            }
+
+            .menu-card h3 {
+                font-size: 20px;
+                font-weight: bold;
+                margin: 8px 0;
+            }
+
+            /* Truncated description */
+            .menu-card p {
+                font-size: 14px;
+                color: #555;
+                margin: 6px 0;
+                display: -webkit-box;
+                -webkit-line-clamp: 1; /* show only 3 lines */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transition: all 0.3s ease;
+            }
+
+            /* Show full description on hover */
+            .menu-card:hover p {
+                -webkit-line-clamp: unset;
+                max-height: none;
+                overflow: visible;
+                background: #fff;
+                position: relative;
+                z-index: 2;
+            }
+
+        .menu-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .menu-card .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+
+        .menu-card .btn {
+            background: #e63946;
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 14px;
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: var(--button-shadow);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+            .menu-card .btn:hover {
+                background: #d62828;
+            }
+    </style>
 </asp:Content>
 
