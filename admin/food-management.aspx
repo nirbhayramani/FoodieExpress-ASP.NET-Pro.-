@@ -48,10 +48,10 @@
 
             <!-- Search and Filter -->
             <div class="search-filter-bar">
-                <div class="search-box">
+                <%--<div class="search-box">--%>
                     <i class="fas fa-search"></i>
-                    <input type="text" id="search-food" placeholder="Search foods...">
-                </div>
+                    <input type="text" id="search-food" placeholder="Search foods..." class="search-box">
+                <%--</div>--%>
                 <div class="filter-options">
                     <select id="category-filter">
                         <option value="">All Categories</option>
@@ -222,6 +222,7 @@
                             <ItemTemplate>
                                 <div class="food-name"><%# Eval("Fo_Name") %></div>
                                 <div class="food-desc"><%# Eval("Fo_desc") %></div>
+                                <div class="food-desc"><%# Eval("Fo_Ingr") %></div>
                             </ItemTemplate>
                         </asp:TemplateField>
 

@@ -72,11 +72,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
                 txtcalr.Text = ds.Tables[0].Rows[0]["Fo_Calr"].ToString();
                 txtfingr.Text = ds.Tables[0].Rows[0]["Fo_ingr"].ToString();
                 txtprc.Text = ds.Tables[0].Rows[0]["Fo_Price"].ToString();
-                catId = Convert.ToInt32(ds.Tables[0].Rows[0]["Cat_ID"].ToString());
-                if (ddlcat.Items.Count > 0)
-                {
-                    ddlcat.SelectedIndex = catId;
-                }
+                ddlcat.SelectedValue = ds.Tables[0].Rows[0]["Cat_Name"].ToString();
 
             }
         }

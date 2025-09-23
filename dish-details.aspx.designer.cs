@@ -11,34 +11,25 @@ namespace FoodieExpress___ASP.NET_Pro.__
 {
 
 
-    public partial class menu
+    public partial class dish_details
     {
 
         /// <summary>
-        /// btnAllCat control.
+        /// lbldnam control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAllCat;
+        protected global::System.Web.UI.WebControls.Label lbldnam;
 
         /// <summary>
-        /// DtLsCat control.
+        /// DtLsDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DtLsCat;
-
-        /// <summary>
-        /// DtLsFod control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DtLsFod;
+        protected global::System.Web.UI.WebControls.DataList DtLsDet;
     }
 }

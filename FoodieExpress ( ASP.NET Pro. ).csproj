@@ -91,6 +91,7 @@
     <Content Include="cart.css" />
     <Content Include="cart.js" />
     <Content Include="contact.aspx" />
+    <Content Include="dish-details.aspx" />
     <Content Include="images\beef-tenderloin.jpg" />
     <Content Include="images\berry-smoothie.jpg" />
     <Content Include="images\bruschetta.jpg" />
@@ -240,6 +241,13 @@
     </Compile>
     <Compile Include="contact.aspx.designer.cs">
       <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dish-details.aspx.cs">
+      <DependentUpon>dish-details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dish-details.aspx.designer.cs">
+      <DependentUpon>dish-details.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

@@ -29,10 +29,10 @@ namespace FoodieExpress___ASP.NET_Pro.__
         protected void Page_Load(object sender, EventArgs e)
         {
             getcon();
-            fillDataList();
-            if (Session["user"] == null)
+            if (!IsPostBack)
             {
-                //lnkadcart.Enabled = false;
+                fillCatList();
+                fillDataList();
             }
         }
 
@@ -45,10 +45,47 @@ namespace FoodieExpress___ASP.NET_Pro.__
 
             DtLsFod.DataSource = ds;
             DtLsFod.DataBind();
-
-
         }
 
+        void fillCatList()
+        {
+            getcon();
+            da = new SqlDataAdapter("select * from cat_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
 
+            DtLsCat.DataSource = ds;
+            DtLsCat.DataBind();
+        }
+
+        protected void lnkadcart_Click(object sender, EventArgs e)
+        {
+            if (Session["user"] == null)
+            {
+                Response.Redirect("login.aspx");
+            }
+        }
+
+        protected void DtLsCat_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            string name = e.CommandArgument.ToString();
+
+            if (e.CommandName == "cmd_cat")
+            {
+                getcon();
+                da = new SqlDataAdapter("select * from food_tbl where Cat_Name='" + name + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                DtLsFod.DataSource = ds;
+                DtLsFod.DataBind();
+            }
+        }
+
+        protected void btnAllCat_Click(object sender, EventArgs e)
+        {
+            getcon();
+            fillDataList();
+        }
     }
 }
