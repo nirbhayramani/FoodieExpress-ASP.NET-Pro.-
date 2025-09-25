@@ -69,7 +69,7 @@
                         <div class="form-group">
                             <label for="food-price">Price *</label>
                             <%--<input type="number" id="food-price" name="price" step="0.01" min="0" required>--%>
-                            <asp:TextBox ID="txtprc" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtprc" runat="server" TextMode="Number"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="food-status">Status</label>

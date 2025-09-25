@@ -60,7 +60,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
 
         protected void lnkadcart_Click(object sender, EventArgs e)
         {
-            if (Session["user"] == null)
+            if (Session["username"] == null)
             {
                 Response.Redirect("login.aspx");
             }
@@ -86,6 +86,32 @@ namespace FoodieExpress___ASP.NET_Pro.__
         {
             getcon();
             fillDataList();
+        }
+
+        protected void DtLsFod_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "cmd_cart")
+            {
+                da = new SqlDataAdapter("Select * from users_tbl where Email='" + Session["username"] + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+                int userid = Convert.ToInt32(ds.Tables[0].Rows[0]["Id"]);
+
+                int fodid = Convert.ToInt32(e.CommandArgument);
+                da = new SqlDataAdapter("Select * from food_tbl where Id='" + fodid + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+
+                string fodnm = ds.Tables[0].Rows[0]["Fo_Name"].ToString();
+                string fodesc = ds.Tables[0].Rows[0]["Fo_desc"].ToString();
+                string fodpri = ds.Tables[0].Rows[0]["Fo_Price"].ToString();
+                int quant = 1;
+                double tot = Convert.ToDouble(fodpri) * quant;
+                string fodimg = ds.Tables[0].Rows[0]["Fo_Img"].ToString();
+
+                cmd = new SqlCommand("Insert into Cart_tbl (User_Cart_ID,Fod_Cart_ID,C_Fod_Name,C_Fod_Desc,C_Fod_Quantity,C_Fod_Price,C_Fod_Total,C_Fod_Img)values('" + userid + "','" + fodid + "','" + fodnm + "','" + fodesc + "','" + quant + "','" + fodpri + "','" + tot + "','" + fodimg + "')", con);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

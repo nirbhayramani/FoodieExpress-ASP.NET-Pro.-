@@ -1,12 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebSite.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="FoodieExpress___ASP.NET_Pro.__.cart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="cart.css">
+    <script src="script.js"></script>
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="ContentPlaceHolder2">
     <!-- Cart Hero Section -->
-    <section class="cart-hero">
-        <div class="container">
-            <div class="cart-hero-content">
+    <section class="cart-hero" style="height: 334.17px">
+        <div class="cart-hero-content">
+            <div class="container" style="padding: 75px;">
                 <h1 class="cart-hero-title">Your Cart</h1>
                 <p class="cart-hero-subtitle">
                     Review your delicious selections
@@ -23,10 +25,12 @@
                 <div class="cart-items-container">
                     <div class="cart-header">
                         <h2>Shopping Cart</h2>
-                        <span class="cart-item-count">0 items</span>
+                        <span class="cart-item-count">
+                            <asp:Label ID="lblCrt" runat="server" Text="Label"></asp:Label>
+                            items</span>
                     </div>
 
-                    <!-- Empty Cart State -->
+                    <%--<!-- Empty Cart State -->
                     <div id="emptyCart" class="empty-cart">
                         <div class="empty-cart-icon">
                             <i class="fas fa-shopping-cart"></i>
@@ -41,7 +45,19 @@
                     <!-- Cart Items List -->
                     <div id="cartItemsList" class="cart-items-list" style="display: none;">
                         <!-- Cart items will be dynamically added here -->
-                    </div>
+                    </div>--%>
+                    <asp:DataList ID="DtLsCrt" runat="server">
+                        <ItemTemplate>
+                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' Height="80px" Width="100%" />
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("C_Fod_Total") %>'></asp:Label>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'></asp:LinkButton>
+                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
+                            <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'></asp:LinkButton>
+                            <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'>LinkButton</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:DataList>
                 </div>
 
                 <!-- Order Summary -->
@@ -49,6 +65,7 @@
                     <div class="summary-card">
                         <h3>Order Summary</h3>
                         <div class="summary-items">
+
                             <div class="summary-item">
                                 <span>Subtotal</span> <span id="subtotal">$0.00</span>
                             </div>
@@ -87,13 +104,13 @@
                         </div>
                         <div class="promo-code">
                             <div class="promo-input">
-                                <input type="text" id="promoCode" style="font-size:14.4px" placeholder="Enter promo code">
-                                <button type="button" id="applyPromo" class="btn btn-sm" style="font-size:14.4px">
+                                <input type="text" id="promoCode" style="font-size: 14.4px" placeholder="Enter promo code">
+                                <button type="button" id="applyPromo" class="btn btn-sm" style="font-size: 14.4px">
                                     Apply
                                 </button>
                             </div>
                         </div>
-                        <button id="checkoutBtn" class="btn btn-primary checkout-btn" disabled>
+                        <button class="checkoutBtn btn btn-primary checkout-btn">
                             <span class="btn-text">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i>
                         </button>
                         <div class="continue-shopping">
@@ -104,7 +121,4 @@
             </div>
         </div>
     </section>
-    <link rel="stylesheet" href="cart.css">
-    <script src="script.js"></script>
 </asp:Content>
-

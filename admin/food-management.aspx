@@ -234,7 +234,7 @@
 
                         <asp:TemplateField HeaderText="Price">
                             <ItemTemplate>
-                                <%# Eval("Fo_Price") %>
+                                $<%# Eval("Fo_Price") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 

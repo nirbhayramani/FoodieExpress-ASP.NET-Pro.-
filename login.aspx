@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <center>
-                            <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
+                            <asp:Label ID="lblmsg" runat="server" Text="Label" Visible="False"></asp:Label>
                         </center>
                         <div class="form-options">
                             <label class="modern-checkbox">

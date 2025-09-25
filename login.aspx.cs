@@ -51,6 +51,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
             }
             else
             {
+                lblmsg.Visible = true;
                 lblmsg.Text = "Invalid Username or Password";
             }
         }

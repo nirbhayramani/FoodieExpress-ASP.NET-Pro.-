@@ -35,7 +35,7 @@
                     RepeatColumns="3"
                     RepeatDirection="Horizontal"
                     CellPadding="10"
-                    CssClass="menu-grid" Width="1777px">
+                    CssClass="menu-grid" Width="1777px" OnItemCommand="DtLsFod_ItemCommand">
                     <ItemTemplate>
                         <a href='dish-details.aspx?id=<%# Eval("Id") %>' class="menu-card-link">
                             <div class="menu-card">
@@ -45,10 +45,10 @@
                                 <h3><%# Eval("Fo_Name") %></h3>
                                 <p><%# Eval("Fo_Desc") %></p>
                                 <div class="menu-card-footer">
-                                    <span class="price"><%# Eval("Fo_Price") %></span>
+                                    <span class="price">$<%# Eval("Fo_Price") %></span>
                                     <asp:LinkButton ID="lnkadcart" runat="server"
                                         CommandArgument='<%# Eval("Id") %>'
-                                        CssClass="btn" OnClick="lnkadcart_Click">Add To Cart</asp:LinkButton>
+                                        CssClass="btn" CommandName="cmd_cart" OnClick="lnkadcart_Click">Add To Cart</asp:LinkButton>
                                 </div>
                             </div>
                         </a>

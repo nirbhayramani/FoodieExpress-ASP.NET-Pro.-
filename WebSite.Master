@@ -31,7 +31,8 @@
                             <li><a href="contact.aspx">Contact</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </li>
                         </ul>
                         <div class="nav-actions">
-                            <a href="cart.aspx" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span> </a>
+                            <a href="cart.aspx" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">
+                                <asp:Label ID="lblCrt" runat="server" Text="Label"></asp:Label></span> </a>
                             <asp:Button ID="btnlog" runat="server" Text="Login" CssClass="btn btn-sm" OnClick="btnlog_Click" />
                         </div>
                         <div class="hamburger">
