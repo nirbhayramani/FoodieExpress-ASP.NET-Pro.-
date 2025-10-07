@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Get form (guarded)
     const loginForm = document.getElementById("loginForm");
     if (loginForm) {
-        loginForm.addEventListener("submit", function () {
+        loginForm.addEventListener("submit", function (e) {
             e.preventDefault();
 
             const emailEl = document.getElementById("email");
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (btnTextEl) btnTextEl.textContent = originalText;
                 if (submitBtn) submitBtn.disabled = false;
             }, 1500);
-        });
+        };
     } // end if loginForm
 
     // Add floating label effect (safe even if there are 0 inputs)
