@@ -35,7 +35,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         {
             id = Convert.ToInt32(Request.QueryString["id"].ToString());
             getcon();
-            da = new SqlDataAdapter("SELECT * FROM cat_tbl WHERE ID='" + id + "'", con);
+            da = new SqlDataAdapter("SELECT * FROM cate_tbl WHERE ID='" + id + "'", con);
             ds = new DataSet();
             da.Fill(ds);
             if (ds.Tables[0].Rows.Count > 0)
@@ -43,7 +43,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
                 txtcnam.Text = ds.Tables[0].Rows[0]["Cat_Name"].ToString();
                 txtcdesc.Text = ds.Tables[0].Rows[0]["Cat_Desc"].ToString();
                 txtcslug.Text = ds.Tables[0].Rows[0]["Cat_slug"].ToString();
-                ddlicon.SelectedItem.Text = ds.Tables[0].Rows[0]["Cat_Desc"].ToString();
+                ddlicon.SelectedItem.Text = ds.Tables[0].Rows[0]["Cat_Icon"].ToString();
                 ddlstat.SelectedItem.Text = ds.Tables[0].Rows[0]["Cat_stat"].ToString();
             }
         }
@@ -51,7 +51,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         protected void btnupd_Click(object sender, EventArgs e)
         {
             getcon();
-            cmd = new SqlCommand("UPDATE cat_tbl SET Cat_Name='" + txtcnam.Text +
+            cmd = new SqlCommand("UPDATE cate_tbl SET Cat_Name='" + txtcnam.Text +
                                  "', Cat_slug='" + txtcslug.Text +
                                  "', Cat_Desc='" + txtcdesc.Text +
                                  "', Cat_Icon='" + ddlicon.SelectedItem.Text +

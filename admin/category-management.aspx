@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <!-- Admin Content -->
     <div class="admin-container">
         <div class="admin-sidebar">
@@ -246,7 +247,7 @@
                     <asp:TemplateField HeaderText="Category Name">
                         <ItemTemplate>
                             <div class="category-name">
-                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("Cat_Name") %>' />
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("Cat_Name") %>' />
                             </div>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -259,7 +260,7 @@
 
                     <asp:TemplateField HeaderText="Icon">
                         <ItemTemplate>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("Cat_icon") %>' />
+                            <asp:Label ID="LabelIcon" runat="server" Text='<%# "<i class=\"" + Eval("Cat_icon") + "\"></i>" %>' EnableViewState="false" />
                         </ItemTemplate>
                     </asp:TemplateField>
 

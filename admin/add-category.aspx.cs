@@ -46,7 +46,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         {
             getcon();
 
-            cmd = new SqlCommand("Insert into cat_tbl(Cat_Name,Cat_slug,Cat_Desc,Cat_Icon,Cat_stat)values('" +txtname.Text+ "','"+txtslug.Text+"','"+txtdesc.Text+"','"+ddlicon.SelectedItem.Text+"','"+ddlstat.SelectedItem.Text+"')", con);
+            cmd = new SqlCommand("Insert into cate_tbl(Cat_Name,Cat_slug,Cat_Desc,Cat_Icon,Cat_stat)values('" +txtname.Text+ "','"+txtslug.Text+"','"+txtdesc.Text+"','"+ddlicon.SelectedItem.Text+"','"+ddlstat.SelectedItem.Text+"')", con);
             cmd.ExecuteNonQuery();
             Response.Write("<script>alert('Category added successfully.')</script>");
             clear();

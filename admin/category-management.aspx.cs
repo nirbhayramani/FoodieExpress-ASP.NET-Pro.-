@@ -37,7 +37,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         void fillgrid()
         {
             getcon();
-            da = new SqlDataAdapter("SELECT * FROM cat_tbl", con);
+            da = new SqlDataAdapter("SELECT * FROM cate_tbl", con);
             ds = new DataSet();
             da.Fill(ds);
 
@@ -51,7 +51,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             if (e.CommandName == "cmd_dlt")
             {
                 getcon();
-                cmd = new SqlCommand("DELETE FROM cat_tbl WHERE ID='" + id + "'", con);
+                cmd = new SqlCommand("DELETE FROM cate_tbl WHERE ID='" + id + "'", con);
                 cmd.ExecuteNonQuery();
                 fillgrid();
             }

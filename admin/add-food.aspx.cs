@@ -62,7 +62,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         void fillCategory()
         {
             getcon();
-            da = new SqlDataAdapter("Select * from cat_tbl", con);
+            da = new SqlDataAdapter("Select * from cate_tbl", con);
             ds = new DataSet();
             da.Fill(ds);
 
@@ -86,7 +86,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 
         protected void ddlcat_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //da = new SqlDataAdapter("Select * from cat_tbl where Cat_Name='" + ddlcat.SelectedItem.ToString() + "'", con);
+            //da = new SqlDataAdapter("Select * from cate_tbl where Cat_Name='" + ddlcat.SelectedItem.ToString() + "'", con);
             //ds = new DataSet();
             //da.Fill(ds);
 
