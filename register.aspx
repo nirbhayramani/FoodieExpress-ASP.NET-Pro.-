@@ -86,7 +86,7 @@
                                         <i class="fas fa-lock"></i>
                                     </div>
                                     <%--<input type="password" id="password" name="password" placeholder="Password" required>--%>
-                                    <asp:TextBox ID="txtpass" runat="server" placeholder="Password" Style="width: 365px;"></asp:TextBox>
+                                    <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" Style="width: 365px;"></asp:TextBox>
                                     <%--<button type="button" class="password-toggle" onclick="togglePassword('password')">
                                     <i class="fas fa-eye"></i>
                                 </button>--%>

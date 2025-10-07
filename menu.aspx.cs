@@ -50,7 +50,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
         void fillCatList()
         {
             getcon();
-            da = new SqlDataAdapter("select * from cat_tbl", con);
+            da = new SqlDataAdapter("select * from cate_tbl", con);
             ds = new DataSet();
             da.Fill(ds);
 

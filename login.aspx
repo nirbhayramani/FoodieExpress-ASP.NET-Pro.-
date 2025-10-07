@@ -39,7 +39,7 @@
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <%--<input type="password" id="password" name="password" placeholder="Password" required>--%>
-                                <asp:TextBox ID="txtpass" runat="server" placeholder="Password"></asp:TextBox>
+                                <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password"></asp:TextBox>
                                 <%--<button type="button" class="password-toggle" onclick="togglePassword('password')">
                                 <i class="fas fa-eye"></i>
                             </button>--%>
@@ -67,7 +67,7 @@
                         <asp:Button ID="btnlogin" runat="server" Text="Sign In" CssClass="modern-login-btn btn-text" OnClick="btnlogin_Click" />
                     </form>
                     <div class="divider">
-                        <span>or continue with>
+                        <span>or continue with</span>
                     </div>
                     <div class="social-login">
                         <button class="social-btn google-btn">
@@ -87,6 +87,5 @@
         </div>
     </section>
     <script src="login.js"></script>
-    </span>
 </asp:Content>
 
