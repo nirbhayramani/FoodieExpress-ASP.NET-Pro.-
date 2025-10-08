@@ -35,7 +35,65 @@ namespace FoodieExpress___ASP.NET_Pro.__
             {
                 Response.Redirect("login.aspx");
             }
+            da = new SqlDataAdapter("Select * from users_tbl where Email='" + Session["username"].ToString() + "'", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            int userid = Convert.ToInt32(ds.Tables[0].Rows[0][0]);
+
+            cmd = new SqlCommand("SELECT count(*) FROM Cart_tbl WHERE User_Cart_Id='" + userid + "'", con);
+            cmd.ExecuteNonQuery();
+            int crt = Convert.ToInt32(cmd.ExecuteScalar());
+            lblCrt.Text = crt.ToString();
             fillDatalist();
+        }
+
+        protected void DtLsCrt_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            if (e.CommandName == "cmd_rem")
+            {
+                int cartid = Convert.ToInt32(e.CommandArgument);
+                getcon();
+                cmd = new SqlCommand("Delete from Cart_tbl where Cart_Id='" + cartid + "'", con);
+                cmd.ExecuteNonQuery();
+                Response.Redirect("cart.aspx");
+            }
+            else if (e.CommandName == "cmd_decre")
+            {
+                int cartid = Convert.ToInt32(e.CommandArgument);
+                getcon();
+                da = new SqlDataAdapter("Select * from Cart_tbl where Cart_Id='" + cartid + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+                int quant = Convert.ToInt32(ds.Tables[0].Rows[0]["C_Fod_Quantity"]);
+                double price = Convert.ToDouble(ds.Tables[0].Rows[0]["C_Fod_Price"]);
+                if (quant > 1)
+                {
+                    quant--;
+                    double tot = quant * price;
+                    cmd = new SqlCommand("Update Cart_tbl set C_Fod_Quantity='" + quant + "', C_Fod_Total='" + tot + "' where Cart_Id='" + cartid + "'", con);
+                    cmd.ExecuteNonQuery();
+                    fillDatalist();
+                }
+            }
+            else if (e.CommandName == "cmd_incre")
+            {
+                int cartid = Convert.ToInt32(e.CommandArgument);
+                getcon();
+                da = new SqlDataAdapter("Select * from Cart_tbl where Cart_Id='" + cartid + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+                int quant = Convert.ToInt32(ds.Tables[0].Rows[0]["C_Fod_Quantity"]);
+                double price = Convert.ToDouble(ds.Tables[0].Rows[0]["C_Fod_Price"]);
+                quant++;
+                double tot = quant * price;
+                cmd = new SqlCommand("Update Cart_tbl set C_Fod_Quantity='" + quant + "', C_Fod_Total='" + tot + "' where Cart_Id='" + cartid + "'", con);
+                cmd.ExecuteNonQuery();
+                if (quant > 1)
+                {
+
+                }
+                fillDatalist();
+            }
         }
 
         void fillDatalist()

@@ -46,16 +46,76 @@
                     <div id="cartItemsList" class="cart-items-list" style="display: none;">
                         <!-- Cart items will be dynamically added here -->
                     </div>--%>
-                    <asp:DataList ID="DtLsCrt" runat="server">
+                    <%--<asp:DataList ID="DtLsCrt" runat="server">
                         <ItemTemplate>
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' Height="80px" Width="100%" />
-                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("C_Fod_Total") %>'></asp:Label>
-                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'></asp:LinkButton>
-                            <asp:Label ID="Label4" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
-                            <asp:LinkButton ID="LinkButton2" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'></asp:LinkButton>
-                            <asp:LinkButton ID="LinkButton3" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'>LinkButton</asp:LinkButton>
+                            <asp:Image ID="imgFod" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' />
+                            <asp:Label ID="lblnm" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
+                            <asp:Label ID="lbldesc" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
+                            <asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Total") %>'></asp:Label>
+                            <asp:LinkButton ID="lnkmin" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'>Minus</asp:LinkButton>
+                            <asp:Label ID="lblquant" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
+                            <asp:LinkButton ID="lnkplu" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'>Plus</asp:LinkButton>
+                            <asp:LinkButton ID="lnkrem" runat="server" CommandArgument='<%# Eval("Cart_Id") %>'>Remove</asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:DataList>--%>
+                    <%--with css<asp:DataList ID="DtLsCrt" runat="server">
+                        <ItemTemplate>
+                            <div class="cart-item">
+                                <asp:Image ID="imgFod" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' CssClass="cart-item-image" />
+
+                                <div class="cart-item-details">
+                                    <div class="cart-item-name">
+                                        <asp:Label ID="lblnm" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
+                                    </div>
+                                    <div class="cart-item-description">
+                                        <asp:Label ID="lbldesc" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
+                                    </div>
+                                    <div class="cart-item-price">
+                                        $<asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Total") %>'></asp:Label>
+                                    </div>
+                                </div>
+
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <asp:LinkButton ID="lnkmin" runat="server" CommandName="Decrement" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="quantity-btn">-</asp:LinkButton>
+                                        <div class="quantity-display">
+                                            <asp:Label ID="lblquant" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
+                                        </div>
+                                        <asp:LinkButton ID="lnkplu" runat="server" CommandName="Increment" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="quantity-btn">+</asp:LinkButton>
+                                    </div>
+                                    <asp:LinkButton ID="lnkrem" runat="server" CommandName="RemoveItem" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="remove-link">Remove</asp:LinkButton>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:DataList>--%>
+                    <asp:DataList ID="DtLsCrt" runat="server" OnItemCommand="DtLsCrt_ItemCommand">
+                        <ItemTemplate>
+                            <div class="cart-item">
+                                <asp:Image ID="imgFod" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' CssClass="cart-item-image" />
+
+                                <div class="cart-item-details">
+                                    <div class="cart-item-name">
+                                        <asp:Label ID="lblnm" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
+                                    </div>
+                                    <div class="cart-item-description">
+                                        <asp:Label ID="lbldesc" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
+                                    </div>
+                                    <div class="cart-item-price">
+                                        $<asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Price") %>'></asp:Label>
+                                    </div>
+                                </div>
+
+                                <div class="cart-item-actions">
+                                    <div class="quantity-control">
+                                        <asp:LinkButton ID="lnkmin" runat="server" CommandName="cmd_decre" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="quantity-btn">-</asp:LinkButton>
+                                        <div class="quantity-display">
+                                            <asp:Label ID="lblquant" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
+                                        </div>
+                                        <asp:LinkButton ID="lnkplu" runat="server" CommandName="cmd_incre" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="quantity-btn">+</asp:LinkButton>
+                                    </div>
+                                    <asp:LinkButton ID="lnkrem" runat="server" CommandName="cmd_rem" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="remove-link">Remove</asp:LinkButton>
+                                </div>
+                            </div>
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
@@ -71,9 +131,6 @@
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span> <span id="deliveryFee">$2.99</span>
-                            </div>
-                            <div class="summary-item">
-                                <span>Tax</span> <span id="tax">$0.00</span>
                             </div>
                             <div class="summary-divider">
                             </div>
@@ -121,4 +178,186 @@
             </div>
         </div>
     </section>
+    <style>
+        /* --- Styling for the Cart Items DataList --- */
+        .cart-items-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Adds space between each cart item */
+        }
+
+        /* Style for each individual cart item */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            .cart-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            }
+
+        /* Cart item image */
+        .cart-item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Details section (name, description, price) */
+        .cart-item-details {
+            flex-grow: 1; /* Allows this section to take up available space */
+        }
+
+        .cart-item-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-description {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .cart-item-price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #e74c3c;
+        }
+
+        /* Quantity control and removal links */
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quantity-control {
+            /*            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            overflow: hidden;*/
+            display: flex;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 25px;
+            padding: 5px;
+        }
+
+            .quantity-control .quantity-btn {
+                padding: 8px 12px;
+                background: transparent;
+                border: none;
+                color: #555;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+
+                .quantity-control .quantity-btn:hover {
+                    background-color: #f0f0f0;
+                }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: none;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn-disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .quantity-control .quantity-display {
+            padding: 0 12px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .remove-link {
+            font-size: 0.9rem;
+            color: #e74c3c;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+            .remove-link:hover {
+                color: #c0392b;
+                text-decoration: underline;
+            }
+
+        /* Quantity control and removal links */
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Spacing between quantity control and remove button */
+        }
+
+        /* Styles for the quantity control box (the - 1 + part) */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd; /* Light gray border */
+            border-radius: 50px; /* Makes the box pill-shaped */
+            overflow: hidden;
+        }
+
+            /* Styles for the minus and plus buttons */
+            .quantity-control .quantity-btn {
+                padding: 8px 12px;
+                background: transparent;
+                border: none;
+                color: #555;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+                text-decoration: none; /* Remove underline from link button */
+            }
+
+                .quantity-control .quantity-btn:hover {
+                    background-color: #f0f0f0; /* Light gray background on hover */
+                }
+
+            /* Styles for the quantity display number */
+            .quantity-control .quantity-display {
+                padding: 0 12px;
+                font-weight: 600;
+                font-size: 1rem;
+                color: #333;
+            }
+
+        /* Styles for the "Remove" link */
+        .remove-link {
+            font-size: 0.9rem;
+            color: #e74c3c; /* A reddish color for the remove action */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.2s ease;
+        }
+
+            .remove-link:hover {
+                color: #c0392b; /* Darker red on hover */
+                text-decoration: underline; /* Add underline on hover */
+            }
+    </style>
 </asp:Content>

@@ -12,9 +12,13 @@ namespace FoodieExpress___ASP.NET_Pro.__
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] != null)
+            if (!IsPostBack)
             {
-                btnlog.Text = "Logout";
+                if (Session["username"] != null)
+                {
+                    btnlog.Text = "Logout";
+                    //lnklog.Text = "Logout";
+                }
             }
         }
 
@@ -24,11 +28,24 @@ namespace FoodieExpress___ASP.NET_Pro.__
             {
                 Response.Redirect("login.aspx");
             }
-            else if(btnlog.Text == "Logout")
+            else if (btnlog.Text == "Logout")
             {
                 Session.Abandon();
                 Response.Redirect("login.aspx");
             }
         }
+
+        //protected void lnklog_Click(object sender, EventArgs e)
+        //{
+        //    if (lnklog.Text == "Login")
+        //    {
+        //        Response.Redirect("login.aspx");
+        //    }
+        //    else if (lnklog.Text == "Logout")
+        //    {
+        //        Session.Abandon();
+        //        Response.Redirect("login.aspx");
+        //    }
+        //}
     }
 }

@@ -356,3 +356,9 @@ document.head.insertAdjacentHTML('beforeend', `
     }
 </style>
 `);
+
+// Check if a user is logged in
+function checkUserLoginStatus() {
+    const currentUser = localStorage.getItem("currentUser");
+    return currentUser !== null; // true if logged in, false otherwise
+}
