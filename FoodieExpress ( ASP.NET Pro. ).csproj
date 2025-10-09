@@ -90,41 +90,64 @@
     <Content Include="cart.aspx" />
     <Content Include="cart.css" />
     <Content Include="cart.js" />
+    <Content Include="checkout.aspx" />
+    <Content Include="checkout.css" />
+    <Content Include="checkout.js" />
     <Content Include="contact.aspx" />
     <Content Include="dish-details.aspx" />
+    <Content Include="images\bbq_chicken_pizza.jpeg" />
     <Content Include="images\beef-tenderloin.jpg" />
     <Content Include="images\berry-smoothie.jpg" />
     <Content Include="images\bruschetta.jpg" />
     <Content Include="images\Caesar Salad.jpg" />
     <Content Include="images\calamari.jpg" />
     <Content Include="images\caprese-salad.jpg" />
+    <Content Include="images\carrot_cake.jpeg" />
     <Content Include="images\Chef Antonio.jpeg" />
     <Content Include="images\Chef Sofia.jpg" />
     <Content Include="images\Chef%27s Special.jpg" />
     <Content Include="images\Chef%27s Special.png" />
+    <Content Include="images\chicken_curry.jpeg" />
+    <Content Include="images\chicken_hakka_noodles.jpeg" />
     <Content Include="images\Chocolate Cake.png" />
     <Content Include="images\chocolate-lava-cake.jpg" />
+    <Content Include="images\chocolate_muffin.jpeg" />
     <Content Include="images\Classic Burger.jpg" />
     <Content Include="images\creme-brulee.jpg" />
+    <Content Include="images\cucumber_salad.jpeg" />
     <Content Include="images\Delicious Pizza.jpg" />
+    <Content Include="images\filter_coffee.jpeg" />
     <Content Include="images\Fresh Salad.png" />
     <Content Include="images\Garden Fresh Salad.jpg" />
     <Content Include="images\Gourmet Burger.png" />
+    <Content Include="images\greek_veg_salad.jpg" />
+    <Content Include="images\green_salad.jpeg" />
     <Content Include="images\grilled-salmon.jpg" />
     <Content Include="images\Head chef.jpg" />
     <Content Include="images\iced-tea.jpg" />
+    <Content Include="images\iced_americano.jpg" />
     <Content Include="images\italian-coffee.jpg" />
+    <Content Include="images\jalebi.jpg" />
     <Content Include="images\kitchen.jpg" />
     <Content Include="images\lemonade.jpg" />
+    <Content Include="images\lemon_rice_khichdi.jpg" />
     <Content Include="images\margherita-pizza.jpg" />
+    <Content Include="images\oreo_shake.jpeg" />
+    <Content Include="images\palak_paneer.jpeg" />
+    <Content Include="images\paneer_lababdar.jpg" />
     <Content Include="images\pasta-carbonara.jpg" />
     <Content Include="images\Pepperoni Pizza.jpg" />
+    <Content Include="images\rabri.jpeg" />
     <Content Include="images\salad.jpg" />
     <Content Include="images\Signature Dish.png" />
     <Content Include="images\Sous Chef.jpg" />
     <Content Include="images\spinach-dip.jpg" />
+    <Content Include="images\spring_rolls.jpg" />
+    <Content Include="images\tandoori_paneer_pizza.jpg" />
     <Content Include="images\tiramisu.jpg" />
+    <Content Include="images\vegetable_khichdi.jpg" />
     <Content Include="images\Veggie Burger.jpg" />
+    <Content Include="images\veg_supreme_pizza.jpg" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="login.js" />
@@ -234,6 +257,13 @@
     </Compile>
     <Compile Include="cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="contact.aspx.cs">
       <DependentUpon>contact.aspx</DependentUpon>

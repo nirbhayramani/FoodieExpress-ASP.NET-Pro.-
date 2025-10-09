@@ -89,7 +89,7 @@
                         </ItemTemplate>
                     </asp:DataList>--%>
                     <asp:DataList ID="DtLsCrt" runat="server" OnItemCommand="DtLsCrt_ItemCommand">
-                        <ItemTemplate>
+                        <itemtemplate>
                             <div class="cart-item">
                                 <asp:Image ID="imgFod" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' CssClass="cart-item-image" />
 
@@ -116,7 +116,7 @@
                                     <asp:LinkButton ID="lnkrem" runat="server" CommandName="cmd_rem" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="remove-link">Remove</asp:LinkButton>
                                 </div>
                             </div>
-                        </ItemTemplate>
+                        </itemtemplate>
                     </asp:DataList>
                 </div>
 
@@ -125,9 +125,8 @@
                     <div class="summary-card">
                         <h3>Order Summary</h3>
                         <div class="summary-items">
-
                             <div class="summary-item">
-                                <span>Subtotal</span> <span id="subtotal">$0.00</span>
+                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="Label"></asp:Label>
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span> <span id="deliveryFee">$2.99</span>
@@ -135,10 +134,10 @@
                             <div class="summary-divider">
                             </div>
                             <div class="summary-item total">
-                                <span>Total</span> <span id="total">$0.00</span>
+                                <span>Total</span><asp:Label ID="lblFnlTot" runat="server" Text="Label"></asp:Label>
                             </div>
                         </div>
-                        <div class="delivery-options">
+                        <%--<div class="delivery-options">
                             <h4>Delivery Options</h4>
                             <div class="delivery-option">
                                 <input type="radio" id="standard" name="delivery" value="standard" checked>
@@ -158,7 +157,7 @@
                                     <span class="option-price">$4.99</span>
                                 </label>
                             </div>
-                        </div>
+                        </div>--%>
                         <div class="promo-code">
                             <div class="promo-input">
                                 <input type="text" id="promoCode" style="font-size: 14.4px" placeholder="Enter promo code">
@@ -167,11 +166,14 @@
                                 </button>
                             </div>
                         </div>
-                        <button class="checkoutBtn btn btn-primary checkout-btn">
+                        <%--<button class="checkoutBtn btn btn-primary checkout-btn">
                             <span class="btn-text">Proceed to Checkout</span> <i class="fas fa-arrow-right"></i>
-                        </button>
+                        </button>--%>
+                        <div class="checkoutBtn btn btn-primary checkout-btn">
+                            <asp:LinkButton ID="lnkChkOut" runat="server" class="btn-text" OnClick="lnkChkOut_Click">Proceed to Checkout&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></asp:LinkButton>
+                        </div>
                         <div class="continue-shopping">
-                            <a href="menu.aspx" class="btn btn-secondary"><i class="fas fa-arrow-left"></i>Continue Shopping </a>
+                            <a href="menu.aspx" class="btn btn-secondary" style="background: #0000001a;"><i class="fas fa-arrow-left"></i>Continue Shopping </a>
                         </div>
                     </div>
                 </div>
@@ -359,5 +361,11 @@
                 color: #c0392b; /* Darker red on hover */
                 text-decoration: underline; /* Add underline on hover */
             }
+
+        .btn-text {
+            z-index: 5;
+            color: white;
+            text-decoration: none;
+        }
     </style>
 </asp:Content>

@@ -45,6 +45,8 @@ namespace FoodieExpress___ASP.NET_Pro.__
             int crt = Convert.ToInt32(cmd.ExecuteScalar());
             lblCrt.Text = crt.ToString();
             fillDatalist();
+
+            TotalPri();
         }
 
         protected void DtLsCrt_ItemCommand(object source, DataListCommandEventArgs e)
@@ -112,6 +114,25 @@ namespace FoodieExpress___ASP.NET_Pro.__
             DtLsCrt.DataBind();
         }
 
+        protected void lnkChkOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("checkout.aspx");
+        }
 
+        void TotalPri()
+        {
+            da = new SqlDataAdapter("Select * from users_tbl where Email='" + Session["username"].ToString() + "'", con);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+            da = new SqlDataAdapter("Select sum(C_Fod_Total) from Cart_tbl where User_Cart_Id='" + userid + "'", con);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            lblSubTot.Text = "$" + ds.Tables[0].Rows[0][0].ToString();
+            double finalTotal = Convert.ToDouble(ds.Tables[0].Rows[0][0])+2.99;
+            lblFnlTot.Text = "$" + finalTotal.ToString();
+        }
     }
 }
