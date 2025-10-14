@@ -1,4 +1,6 @@
-﻿using System;
+﻿//checkout.aspx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -43,20 +45,49 @@ namespace FoodieExpress___ASP.NET_Pro.__
             fillDatalist();
         }
 
-        void fillDatalist()
+        //void fillDatalist()
+        //{
+        //    getcon();
+        //    da = new SqlDataAdapter("Select * from users_tbl where Email='" + Session["username"].ToString() + "'", con);
+        //    ds = new DataSet();
+        //    da.Fill(ds);
+
+
+        //    int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+        //    da = new SqlDataAdapter("Select * from Cart_tbl where User_Cart_Id='" + userid + "'", con);
+        //    ds = new DataSet();
+        //    da.Fill(ds);
+        //    DtLsOrdSum.DataSource = ds;
+        //    DtLsOrdSum.DataBind();
+        //}
+
+        void fillDatalist()  // with css working
         {
             getcon();
             da = new SqlDataAdapter("Select * from users_tbl where Email='" + Session["username"].ToString() + "'", con);
             ds = new DataSet();
             da.Fill(ds);
 
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+                da = new SqlDataAdapter("Select * from Cart_tbl where User_Cart_Id='" + userid + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
 
-            int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
-            da = new SqlDataAdapter("Select * from Cart_tbl where User_Cart_Id='" + userid + "'", con);
-            ds = new DataSet();
-            da.Fill(ds);
-            DtLsOrdSum.DataSource = ds;
-            DtLsOrdSum.DataBind();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DtLsOrdSum.DataSource = ds;
+                    DtLsOrdSum.DataBind();
+                    lblEmptyCart.Visible = false;
+                }
+                else
+                {
+                    DtLsOrdSum.DataSource = null;
+                    DtLsOrdSum.DataBind();
+                    lblEmptyCart.Visible = true;
+                }
+            }
         }
     }
 }

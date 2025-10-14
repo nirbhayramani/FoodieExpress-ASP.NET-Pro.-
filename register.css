@@ -1,6 +1,6 @@
 /* register.css */
 
-@keyframes shake {
+/*@keyframes shake {
   0%,
   100% {
     transform: translateX(0);
@@ -42,7 +42,7 @@
 
 .terms-checkbox {
   border: 2px solid transparent;
-  padding: 10px;
+  padding: 0px;
   border-radius: 8px;
   transition: all 0.3s ease;
 }
@@ -69,4 +69,176 @@
 
 .terms-link:hover {
   text-decoration: underline;
+}*/
+
+
+
+
+
+
+/* register.css - COMPLETE WORKING VERSION */
+
+/* Password Toggle Styles */
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+    .password-toggle:hover {
+        color: #333;
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
+.password-input {
+    padding-right: 45px !important;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+    margin-top: 8px;
+    width: 100%;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    background-color: #ddd;
+}
+
+.strength-text {
+    font-size: 12px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Form Styles */
+.form-input {
+    width: 100%;
+    padding: 12px 45px 12px 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fff;
+}
+
+    .form-input:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    z-index: 2;
+}
+
+/* Existing styles from your CSS */
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+.modern-checkbox.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.modern-register-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+    .modern-register-btn:disabled:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+.required-indicator {
+    color: #ff4444;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.terms-checkbox {
+    border: 2px solid transparent;
+    padding: 0px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+    .terms-checkbox.error {
+        border-color: #ff4444;
+        background-color: rgba(255, 68, 68, 0.05);
+    }
+
+    .terms-checkbox input:checked + .checkmark {
+        background-color: #4caf50;
+        border-color: #4caf50;
+    }
+
+    .terms-checkbox .label-text strong {
+        color: #333;
+    }
+
+.terms-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    .terms-link:hover {
+        text-decoration: underline;
+    }
+
+/* Form layout */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 20px;
 }

@@ -139,10 +139,10 @@ class Checkout {
     });
 
     // Form submission
-    document.getElementById("checkoutForm").addEventListener("submit", () => {
-      e.preventDefault();
-      this.placeOrder();
-    });
+    //document.getElementById("checkoutForm").addEventListener("submit", () => {
+    //  e.preventDefault();
+    //  this.placeOrder();
+    //});
 
     // Modal close button
     document.querySelector(".close-modal").addEventListener("click", () => {
@@ -283,30 +283,30 @@ class Checkout {
     }
     
     // Order items
-    const orderItemsReview = document.getElementById("orderItemsReview");
-    if (this.cart.length === 0) {
-      orderItemsReview.innerHTML = "<p>Your cart is empty</p>";
-    } else {
-      let itemsHtml = "";
-      this.cart.forEach((item) => {
-        itemsHtml += `
-          <div class="review-item">
-            <p>${item.quantity} x ${item.name} - $${(item.price * item.quantity).toFixed(2)}</p>
-          </div>
-        `;
-      });
-      orderItemsReview.innerHTML = itemsHtml;
-    }
+    //const orderItemsReview = document.getElementById("orderItemsReview");
+    //if (this.cart.length === 0) {
+    //  orderItemsReview.innerHTML = "<p>Your cart is empty</p>";
+    //} else {
+    //  let itemsHtml = "";
+    //  this.cart.forEach((item) => {
+    //    itemsHtml += `
+    //      <div class="review-item">
+    //        <p>${item.quantity} x ${item.name} - $${(item.price * item.quantity).toFixed(2)}</p>
+    //      </div>
+    //    `;
+    //  });
+    //  orderItemsReview.innerHTML = itemsHtml;
+    //}
   }
 
   displayCartItems() {
     const checkoutItems = document.getElementById("checkout-items");
     
-    if (this.cart.length === 0) {
-      checkoutItems.innerHTML = "<p>Your cart is empty</p>";
-      //window.location.href = "cart.aspx"; // Redirect back to cart if empty
-      return;
-    }
+    //if (this.cart.length === 0) {
+    //  checkoutItems.innerHTML = "<p>Your cart is empty</p>";
+    //  //window.location.href = "cart.aspx"; // Redirect back to cart if empty
+    //  return;
+    //}
     
     let itemsHtml = "";
     this.cart.forEach((item) => {
@@ -336,9 +336,9 @@ class Checkout {
 
   updateOrderSummary() {
     if (this.cart.length === 0) {
-      document.getElementById("subtotal").textContent = "$0.00";
-      document.getElementById("tax").textContent = "$0.00";
-      document.getElementById("total").textContent = "$0.00";
+      //document.getElementById("subtotal").textContent = "$0.00";
+      //document.getElementById("tax").textContent = "$0.00";
+      //document.getElementById("total").textContent = "$0.00";
       return;
     }
     

@@ -145,6 +145,7 @@
     <Content Include="images\spring_rolls.jpg" />
     <Content Include="images\tandoori_paneer_pizza.jpg" />
     <Content Include="images\tiramisu.jpg" />
+    <Content Include="data\userPro_pics\user-icon.jpg" />
     <Content Include="images\vegetable_khichdi.jpg" />
     <Content Include="images\Veggie Burger.jpg" />
     <Content Include="images\veg_supreme_pizza.jpg" />
@@ -152,6 +153,7 @@
     <Content Include="login.aspx" />
     <Content Include="login.js" />
     <Content Include="menu.aspx" />
+    <Content Include="my-profile.aspx" />
     <Content Include="register.aspx" />
     <Content Include="register.css" />
     <Content Include="register.js" />
@@ -300,6 +302,13 @@
     <Compile Include="menu.aspx.designer.cs">
       <DependentUpon>menu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="my-profile.aspx.cs">
+      <DependentUpon>my-profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="my-profile.aspx.designer.cs">
+      <DependentUpon>my-profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -329,7 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="data\prodPics\" />
-    <Folder Include="data\userPro_pics\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -29,7 +29,7 @@
                             <li><a href="about.aspx">About</a></li>
                             <li><a href="menu.aspx">Menu</a></li>
                             <li><a href="contact.aspx">Contact</a></li>
-                            <%--<li><a href="my-profile.aspx">My Profile</a></li>--%>
+                            <li><a href="my-profile.aspx">My Profile</a></li>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </ul>
                         <div class="nav-actions">

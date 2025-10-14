@@ -33,6 +33,15 @@ namespace FoodieExpress___ASP.NET_Pro.__
         protected global::System.Web.UI.WebControls.DataList DtLsCrt;
 
         /// <summary>
+        /// lblEmptyCart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmptyCart;
+
+        /// <summary>
         /// lblSubTot control.
         /// </summary>
         /// <remarks>

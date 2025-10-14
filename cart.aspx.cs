@@ -45,8 +45,6 @@ namespace FoodieExpress___ASP.NET_Pro.__
             int crt = Convert.ToInt32(cmd.ExecuteScalar());
             lblCrt.Text = crt.ToString();
             fillDatalist();
-
-            TotalPri();
         }
 
         protected void DtLsCrt_ItemCommand(object source, DataListCommandEventArgs e)
@@ -105,13 +103,28 @@ namespace FoodieExpress___ASP.NET_Pro.__
             ds = new DataSet();
             da.Fill(ds);
 
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+                da = new SqlDataAdapter("Select * from Cart_tbl where User_Cart_Id='" + userid + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
 
-            int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
-            da = new SqlDataAdapter("Select * from Cart_tbl where User_Cart_Id='" + userid + "'", con);
-            ds = new DataSet();
-            da.Fill(ds);
-            DtLsCrt.DataSource = ds;
-            DtLsCrt.DataBind();
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DtLsCrt.DataSource = ds;
+                    DtLsCrt.DataBind();
+                    lblEmptyCart.Visible = false;
+                    TotalPri();
+                }
+                else
+                {
+                    DtLsCrt.DataSource = null;
+                    DtLsCrt.DataBind();
+                    lblEmptyCart.Visible = true;
+                    lnkChkOut.Enabled = false;
+                }
+            }
         }
 
         protected void lnkChkOut_Click(object sender, EventArgs e)
@@ -131,7 +144,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
             da.Fill(ds);
 
             lblSubTot.Text = "$" + ds.Tables[0].Rows[0][0].ToString();
-            double finalTotal = Convert.ToDouble(ds.Tables[0].Rows[0][0])+2.99;
+            double finalTotal = Convert.ToDouble(ds.Tables[0].Rows[0][0]) + 2.99;
             lblFnlTot.Text = "$" + finalTotal.ToString();
         }
     }

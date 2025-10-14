@@ -89,7 +89,7 @@
                         </ItemTemplate>
                     </asp:DataList>--%>
                     <asp:DataList ID="DtLsCrt" runat="server" OnItemCommand="DtLsCrt_ItemCommand">
-                        <itemtemplate>
+                        <ItemTemplate>
                             <div class="cart-item">
                                 <asp:Image ID="imgFod" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' CssClass="cart-item-image" />
 
@@ -116,8 +116,10 @@
                                     <asp:LinkButton ID="lnkrem" runat="server" CommandName="cmd_rem" CommandArgument='<%# Eval("Cart_Id") %>' CssClass="remove-link">Remove</asp:LinkButton>
                                 </div>
                             </div>
-                        </itemtemplate>
+                        </ItemTemplate>
                     </asp:DataList>
+                    <asp:Label ID="lblEmptyCart" runat="server" Text="Your cart is empty"
+                        CssClass="empty-cart-message" Visible="false"></asp:Label>
                 </div>
 
                 <!-- Order Summary -->
@@ -126,7 +128,7 @@
                         <h3>Order Summary</h3>
                         <div class="summary-items">
                             <div class="summary-item">
-                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="Label"></asp:Label>
+                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="$0.00"></asp:Label>
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span> <span id="deliveryFee">$2.99</span>
@@ -134,7 +136,7 @@
                             <div class="summary-divider">
                             </div>
                             <div class="summary-item total">
-                                <span>Total</span><asp:Label ID="lblFnlTot" runat="server" Text="Label"></asp:Label>
+                                <span>Total</span><asp:Label ID="lblFnlTot" runat="server" Text="$0.00"></asp:Label>
                             </div>
                         </div>
                         <%--<div class="delivery-options">

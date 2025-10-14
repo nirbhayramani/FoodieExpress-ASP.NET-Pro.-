@@ -12,13 +12,10 @@ namespace FoodieExpress___ASP.NET_Pro.__
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["username"] != null)
             {
-                if (Session["username"] != null)
-                {
-                    btnlog.Text = "Logout";
-                    //lnklog.Text = "Logout";
-                }
+                btnlog.Text = "Logout";
+                //lnklog.Text = "Logout";
             }
         }
 
