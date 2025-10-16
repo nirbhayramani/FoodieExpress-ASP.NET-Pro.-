@@ -235,7 +235,7 @@
 
 
                             <asp:DataList ID="DtLsOrdSum" runat="server">
-                                <ItemTemplate>
+                                <itemtemplate>
                                     <div class="checkout-item">
                                         <div class="checkout-item-image">
                                             <asp:Image ID="FodImg" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' />
@@ -253,7 +253,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </ItemTemplate>
+                                </itemtemplate>
                             </asp:DataList>
 
                             <asp:Label ID="lblEmptyCart" runat="server" Text="Your cart is empty"
@@ -266,19 +266,21 @@
                             <div class="summary-item">
                                 <span>Subtotal</span>
                                 <%--<span id="subtotal">₹0.00</span>--%>
-
+                                <asp:Label ID="lblSubTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span>
                                 <%--<span id="deliveryFee">₹2.99</span>--%>
+                                <asp:Label ID="lblDelFee" runat="server" Text="₹100"></asp:Label>
                             </div>
-                            <div class="summary-item">
+                            <%--<div class="summary-item">
                                 <span>Tax</span>
-                                <%--<span id="tax">₹0.00</span>--%>
-                            </div>
+                                <span id="tax">₹0.00</span>
+                            </div>--%>
                             <div class="summary-item total">
                                 <span>Total</span>
                                 <%--<span id="total">₹2.99</span>--%>
+                                <asp:Label ID="lblTot" runat="server" Text="₹100"></asp:Label>
                             </div>
                         </div>
                     </div>

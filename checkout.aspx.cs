@@ -155,7 +155,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
                     Response.Redirect("login.aspx");
                 }
                 fillDatalist();
-                CalculateTotals();
+                CalcTots();
             }
         }
 
@@ -192,7 +192,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
             }
         }
 
-        void CalculateTotals()
+        void CalcTots()
         {
             getcon();
 
@@ -203,40 +203,19 @@ namespace FoodieExpress___ASP.NET_Pro.__
 
             if (ds.Tables[0].Rows.Count > 0)
             {
+                da = new SqlDataAdapter("Select * from users_tbl where Email='" + Session["username"].ToString() + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
+
                 int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+                da = new SqlDataAdapter("Select sum(C_Fod_Total) from Cart_tbl where User_Cart_Id='" + userid + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
 
-                // Calculate subtotal
-                string subtotalQuery = "SELECT SUM(CAST(C_Fod_Price AS FLOAT) * CAST(C_Fod_Quantity AS INT)) FROM Cart_tbl WHERE User_Cart_Id = '" + userid + "'";
-                SqlCommand cmd = new SqlCommand(subtotalQuery, con);
-                object subtotalObj = cmd.ExecuteScalar();
-
-                decimal subtotal = 0;
-                if (subtotalObj != DBNull.Value && subtotalObj != null)
-                {
-                    subtotal = Convert.ToDecimal(subtotalObj);
-                }
-
-                decimal deliveryFee = 2.99m;
-                decimal tax = Math.Round(subtotal * 0.08m, 2); // 8% tax
-                decimal total = subtotal + deliveryFee + tax;
-
-                // Update the summary display
-                UpdateSummaryDisplay(subtotal, deliveryFee, tax, total);
+                lblSubTot.Text = "₹" + ds.Tables[0].Rows[0][0].ToString();
+                double finalTotal = Convert.ToDouble(ds.Tables[0].Rows[0][0]) + 100;
+                lblTot.Text = "₹" + finalTotal.ToString();
             }
-        }
-
-        void UpdateSummaryDisplay(decimal subtotal, decimal deliveryFee, decimal tax, decimal total)
-        {
-            // Register startup script to update the values
-            string script = @"
-                <script>
-                    document.getElementById('subtotal').textContent = '₹{subtotal:F2}';
-                    document.getElementById('deliveryFee').textContent = '₹{deliveryFee:F2}';
-                    document.getElementById('tax').textContent = '₹{tax:F2}';
-                    document.getElementById('total').textContent = '₹{total:F2}';
-                </script>";
-
-            ClientScript.RegisterStartupScript(this.GetType(), "UpdateSummary", script);
         }
     }
 }
