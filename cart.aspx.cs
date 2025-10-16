@@ -143,9 +143,9 @@ namespace FoodieExpress___ASP.NET_Pro.__
             ds = new DataSet();
             da.Fill(ds);
 
-            lblSubTot.Text = "$" + ds.Tables[0].Rows[0][0].ToString();
+            lblSubTot.Text = "₹" + ds.Tables[0].Rows[0][0].ToString();
             double finalTotal = Convert.ToDouble(ds.Tables[0].Rows[0][0]) + 2.99;
-            lblFnlTot.Text = "$" + finalTotal.ToString();
+            lblFnlTot.Text = "₹" + finalTotal.ToString();
         }
     }
 }

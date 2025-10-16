@@ -187,110 +187,73 @@
                         <div class="summary-items">
                             <div class="summary-item">
                                 <span>Subtotal</span>
-                                <span id="subtotal">$0.00</span>
+                                <span id="subtotal">₹0.00</span>
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span>
-                                <span id="deliveryFee">$2.99</span>
+                                <span id="deliveryFee">₹2.99</span>
                             </div>
                             <div class="summary-item">
                                 <span>Tax</span>
-                                <span id="tax">$0.00</span>
+                                <span id="tax">₹0.00</span>
                             </div>
                             <div class="summary-item discount" id="discountRow" style="display: none;">
                                 <span>Discount</span>
-                                <span id="discount">-$0.00</span>
+                                <span id="discount">-₹0.00</span>
                             </div>
                             <div class="summary-divider"></div>
                             <div class="summary-item total">
                                 <span>Total</span>
-                                <span id="total">$0.00</span>
+                                <span id="total">₹0.00</span>
                             </div>
                         </div>
                     </div>
                 </div>--%>
-                <!-- Order Summary with css-->
-                <%--<div class="order-summary">
-                    <div class="summary-card">
-                        <h3>Order Summary</h3>
-                        <div id="checkout-items" class="checkout-items">
-                            <asp:DataList ID="DtLsOrdSum" runat="server" CssClass="cart-items-list" RepeatLayout="Flow">
-                                <ItemTemplate>
-                                    <div class="cart-item">
-                                        <div class="item-image">
-                                            <asp:Image ID="Image1" runat="server"
-                                                ImageUrl='<%# Eval("C_Fod_Img") %>'
-                                                CssClass="item-img"
-                                                AlternateText="Food Image" />
-                                        </div>
-                                        <div class="item-details">
-                                            <asp:Label ID="Label1" runat="server"
-                                                Text='<%# Eval("C_Fod_Name") %>'
-                                                CssClass="item-name"></asp:Label>
-                                            <div class="item-price-quantity">
-                                                <asp:Label ID="Label2" runat="server"
-                                                    Text='<%# "₹" + Eval("C_Fod_Price") %>'
-                                                    CssClass="item-price"></asp:Label>
-                                                <span class="quantity">Qty: 
-                                    <asp:Label ID="Label3" runat="server"
-                                        Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </ItemTemplate>
-                                <SeparatorTemplate>
-                                    <div class="item-separator"></div>
-                                </SeparatorTemplate>
-                            </asp:DataList>
 
-                            <!-- Fallback message if cart is empty -->
-                            <asp:Label ID="lblEmptyCart" runat="server" Text="Your cart is empty"
-                                CssClass="empty-cart-message" Visible="false"></asp:Label>
-                        </div>
 
-                        <!-- Rest of your summary code remains the same -->
-                        <div class="summary-divider"></div>
-                        <!-- ... existing summary items code ... -->
-                    </div>
-                </div>--%>
-                <!-- Order Summary with updated css-->
                 <!-- Order Summary -->
                 <div class="order-summary">
                     <div class="summary-card">
                         <h3>Order Summary</h3>
-                        <div id="checkout-items" class="checkout-items">
 
-                            <asp:DataList ID="DtLsOrdSum" runat="server" RepeatLayout="Table" RepeatDirection="Vertical"
-                                CssClass="cart-items-list" Width="100%" CellPadding="0" CellSpacing="0">
+                        <div id="checkout-items" class="checkout-items">
+                            <%--<asp:DataList ID="DtLsOrdSum" runat="server" RepeatLayout="Flow" CssClass="cart-items-datalist">
                                 <ItemTemplate>
-                                    <div class="cart-item">
-                                        <div class="item-image">
-                                            <asp:Image ID="Image1" runat="server"
-                                                ImageUrl='<%# Eval("C_Fod_Img") %>'
-                                                CssClass="item-img"
-                                                AlternateText='<%# Eval("C_Fod_Name") %>'
-                                                Width="60" Height="60" />
-                                        </div>
-                                        <div class="item-details">
-                                            <asp:Label ID="Label1" runat="server"
-                                                Text='<%# Eval("C_Fod_Name") %>'
-                                                CssClass="item-name"></asp:Label>
-                                            <div class="item-price-quantity">
-                                                <asp:Label ID="Label2" runat="server"
-                                                    Text='<%# "$" + Eval("C_Fod_Price") %>'
-                                                    CssClass="item-price"></asp:Label>
-                                                <span class="quantity">Qty:
-                                                    <asp:Label ID="Label3" runat="server"
-                                                        Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
-                                                </span>
+                                    <div class="datalist-cart-item">
+                                        <div class="item-info">
+                                            <div class="item-name"><%# Eval("C_Fod_Name") %></div>
+                                            <div class="item-meta">
+                                                <span class="item-price">₹<%# Eval("C_Fod_Price") %></span><span class="item-quantity">Qty: <%# Eval("C_Fod_Quantity") %></span>
                                             </div>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                                 <SeparatorTemplate>
-                                    <hr class="item-separator" />
+                                    <div class="item-separator-light"></div>
                                 </SeparatorTemplate>
+                            </asp:DataList>--%>
+
+
+                            <asp:DataList ID="DtLsOrdSum" runat="server">
+                                <ItemTemplate>
+                                    <div class="checkout-item">
+                                        <div class="checkout-item-image">
+                                            <asp:Image ID="FodImg" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' />
+                                        </div>
+                                        <div class="checkout-item-details">
+                                            <div class="checkout-item-name">
+                                                <asp:Label ID="FodName" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
+                                            </div>
+                                            <div class="checkout-item-price">
+                                                ₹<asp:Label ID="FodPrice" runat="server" Text='<%# Eval("C_Fod_Price") %>'></asp:Label>
+                                            </div>
+                                            <div class="checkout-item-quantity">
+                                                Qty:
+                                                <asp:Label ID="FodQuantity" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ItemTemplate>
                             </asp:DataList>
 
                             <asp:Label ID="lblEmptyCart" runat="server" Text="Your cart is empty"
@@ -302,19 +265,20 @@
                         <div class="summary-items">
                             <div class="summary-item">
                                 <span>Subtotal</span>
-                                <span id="subtotal">$0.00</span>
+                                <%--<span id="subtotal">₹0.00</span>--%>
+
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span>
-                                <span id="deliveryFee">$2.99</span>
+                                <%--<span id="deliveryFee">₹2.99</span>--%>
                             </div>
                             <div class="summary-item">
                                 <span>Tax</span>
-                                <span id="tax">$0.00</span>
+                                <%--<span id="tax">₹0.00</span>--%>
                             </div>
                             <div class="summary-item total">
                                 <span>Total</span>
-                                <span id="total">$2.99</span>
+                                <%--<span id="total">₹2.99</span>--%>
                             </div>
                         </div>
                     </div>
@@ -349,171 +313,94 @@
     </div>
     <link rel="stylesheet" href="checkout.css" />
     <script src="checkout.js"></script>
-    <style>
-        /* DataList Styling */
-        .cart-items-list {
-            width: 100%;
-        }
 
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .item-image {
-            margin-right: 12px;
-        }
-
-        .item-img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .item-details {
-            flex: 1;
-        }
-
-        .item-name {
-            font-weight: 600;
-            color: #333;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .item-price-quantity {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .item-price {
-            color: #e74c3c;
-            font-weight: 600;
-        }
-
-        .quantity {
-            color: #666;
-            font-size: 14px;
-        }
-
-        .item-separator {
-            height: 1px;
-            background-color: #eee;
-            margin: 8px 0;
-        }
-
-        .empty-cart-message {
-            text-align: center;
-            color: #666;
-            padding: 20px;
-            font-style: italic;
-        }
-
-        /* Ensure DataList items are visible */
-        #checkout-items {
-            min-height: 100px;
-        }
-
-        .summary-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-
-
-
-        /* DataList Container */
-        .cart-items-list {
+    <%--<style>
+        /* DataList Specific Styles */
+        .cart-items-datalist {
             width: 100% !important;
             display: block !important;
         }
 
-        /* Cart Item Styling */
-        .cart-item {
+        .datalist-cart-item {
             display: flex !important;
-            align-items: center !important;
-            padding: 15px 0 !important;
-            border-bottom: 1px solid #eee !important;
+            align-items: flex-start !important;
+            padding: 12px 0 !important;
+            border-bottom: 1px solid #f0f0f0 !important;
             width: 100% !important;
         }
 
-        .item-image {
-            margin-right: 15px !important;
-            flex-shrink: 0 !important;
-        }
+            .datalist-cart-item:last-child {
+                border-bottom: none !important;
+            }
 
-        .item-img {
-            width: 60px !important;
-            height: 60px !important;
-            object-fit: cover !important;
-            border-radius: 8px !important;
-            border: 1px solid #e0e0e0 !important;
-        }
-
-        .item-details {
+        .item-info {
             flex: 1 !important;
             min-width: 0 !important;
         }
 
         .item-name {
-            font-weight: 600 !important;
-            color: #333 !important;
-            font-size: 16px !important;
-            margin-bottom: 5px !important;
-            display: block !important;
+            font-weight: 500 !important;
+            color: #2d3748 !important;
+            font-size: 14px !important;
+            margin-bottom: 6px !important;
+            line-height: 1.4 !important;
         }
 
-        .item-price-quantity {
+        .item-meta {
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
         }
 
         .item-price {
-            color: #e74c3c !important;
+            color: #e53e3e !important;
             font-weight: 600 !important;
-            font-size: 16px !important;
-        }
-
-        .quantity {
-            color: #666 !important;
             font-size: 14px !important;
-            background: #f8f9fa !important;
-            padding: 4px 12px !important;
-            border-radius: 20px !important;
-            border: 1px solid #dee2e6 !important;
         }
 
-        .item-separator {
+        .item-quantity {
+            color: #718096 !important;
+            font-size: 12px !important;
+            background: #f7fafc !important;
+            padding: 2px 8px !important;
+            border-radius: 12px !important;
+            border: 1px solid #e2e8f0 !important;
+        }
+
+        .item-separator-light {
             height: 1px !important;
-            background-color: #eee !important;
-            margin: 10px 0 !important;
-            border: none !important;
+            background: linear-gradient(90deg, transparent, #e2e8f0, transparent) !important;
+            margin: 8px 0 !important;
         }
 
-        /* Ensure DataList items are visible */
-        #DtLsOrdSum {
-            display: block !important;
-            visibility: visible !important;
+        /* Ensure proper spacing in checkout items container */
+        .checkout-items {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 8px;
+            margin-bottom: 20px;
         }
 
-            #DtLsOrdSum tr {
-                display: block !important;
+            /* Custom scrollbar for checkout items */
+            .checkout-items::-webkit-scrollbar {
+                width: 4px;
             }
 
-            #DtLsOrdSum td {
-                display: block !important;
-                padding: 0 !important;
-                border: none !important;
+            .checkout-items::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
             }
 
-        /* Summary Card */
+            .checkout-items::-webkit-scrollbar-thumb {
+                background: #cbd5e0;
+                border-radius: 10px;
+            }
+
+                .checkout-items::-webkit-scrollbar-thumb:hover {
+                    background: #a0aec0;
+                }
+
+        /* Summary Card Styling */
         .summary-card {
             background: white;
             border-radius: 12px;
@@ -531,20 +418,14 @@
                 padding-bottom: 12px;
             }
 
-        /* Empty Cart Message */
-        .empty-cart-message {
-            text-align: center;
-            color: #a0aec0;
-            padding: 40px 20px;
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-
-        /* Summary Items */
         .summary-divider {
             height: 1px;
             background: #e2e8f0;
             margin: 20px 0;
+        }
+
+        .summary-items {
+            space-y: 12px;
         }
 
         .summary-item {
@@ -564,6 +445,82 @@
                 border-top: 2px solid #e2e8f0;
                 margin-top: 8px;
             }
+
+        .empty-cart-message {
+            text-align: center;
+            color: #a0aec0;
+            padding: 40px 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .summary-card {
+                padding: 16px;
+                margin-top: 20px;
+            }
+
+            .datalist-cart-item {
+                padding: 10px 0 !important;
+            }
+
+            .item-name {
+                font-size: 13px !important;
+            }
+
+            .item-price {
+                font-size: 13px !important;
+            }
+
+            .item-quantity {
+                font-size: 11px !important;
+                padding: 1px 6px !important;
+            }
+        }
+    </style>--%>
+
+
+
+    <style>
+        .checkout-items {
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .checkout-item {
+            display: flex;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .checkout-item-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .checkout-item-details {
+            flex-grow: 1;
+        }
+
+        .checkout-item-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .checkout-item-price {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .checkout-item-quantity {
+            color: #888;
+            font-size: 0.85rem;
+        }
     </style>
 </asp:Content>
 

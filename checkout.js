@@ -1,4 +1,4 @@
-// checkout.js
+﻿// checkout.js
 
 // Checkout functionality
 class Checkout {
@@ -291,7 +291,7 @@ class Checkout {
     //  this.cart.forEach((item) => {
     //    itemsHtml += `
     //      <div class="review-item">
-    //        <p>${item.quantity} x ${item.name} - $${(item.price * item.quantity).toFixed(2)}</p>
+    //        <p>${item.quantity} x ${item.name} - ₹${(item.price * item.quantity).toFixed(2)}</p>
     //      </div>
     //    `;
     //  });
@@ -317,14 +317,14 @@ class Checkout {
           </div>
           <div class="checkout-item-details">
             <div class="checkout-item-name">${item.name}</div>
-            <div class="checkout-item-price">$${item.price.toFixed(2)}</div>
+            <div class="checkout-item-price">₹${item.price.toFixed(2)}</div>
             <div class="checkout-item-quantity">Qty: ${item.quantity}</div>
           </div>
         </div>
       `;
     });
     
-    checkoutItems.innerHTML = itemsHtml;
+    //checkoutItems.innerHTML = itemsHtml;
     
     // Update cart count in navbar
     const cartCount = document.querySelector(".cart-count");
@@ -336,9 +336,9 @@ class Checkout {
 
   updateOrderSummary() {
     if (this.cart.length === 0) {
-      //document.getElementById("subtotal").textContent = "$0.00";
-      //document.getElementById("tax").textContent = "$0.00";
-      //document.getElementById("total").textContent = "$0.00";
+      //document.getElementById("subtotal").textContent = "₹0.00";
+      //document.getElementById("tax").textContent = "₹0.00";
+      //document.getElementById("total").textContent = "₹0.00";
       return;
     }
     
@@ -346,18 +346,18 @@ class Checkout {
     const tax = subtotal * this.taxRate;
     const total = subtotal + tax + this.deliveryFee - this.discount;
     
-    document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById("deliveryFee").textContent = `$${this.deliveryFee.toFixed(2)}`;
-    document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
+    document.getElementById("subtotal").textContent = `₹${subtotal.toFixed(2)}`;
+      document.getElementById("deliveryFee").textContent = `₹${this.deliveryFee.toFixed(2)}`;
+      document.getElementById("tax").textContent = `₹${tax.toFixed(2)}`;
     
     if (this.discount > 0) {
       document.getElementById("discountRow").style.display = "flex";
-      document.getElementById("discount").textContent = `-$${this.discount.toFixed(2)}`;
+        document.getElementById("discount").textContent = `-₹${this.discount.toFixed(2)}`;
     } else {
       document.getElementById("discountRow").style.display = "none";
     }
     
-    document.getElementById("total").textContent = `$${total.toFixed(2)}`;
+      document.getElementById("total").textContent = `₹${total.toFixed(2)}`;
   }
 
   placeOrder() {
@@ -385,7 +385,7 @@ class Checkout {
       id: orderNumber,
       date: new Date().toISOString(),
       items: this.cart,
-      total: parseFloat(document.getElementById("total").textContent.replace("$", "")),
+        total: parseFloat(document.getElementById("total").textContent.replace("₹", "")),
       status: "Processing"
     };
     

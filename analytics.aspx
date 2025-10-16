@@ -55,7 +55,7 @@
                     </div>
                     <div class="stat-content">
                         <h3>Average Order Value</h3>
-                        <p class="stat-number">$24.50</p>
+                        <p class="stat-number">₹24.50</p>
                         <span class="stat-change positive">+$2.30 vs last month</span>
                     </div>
                 </div>

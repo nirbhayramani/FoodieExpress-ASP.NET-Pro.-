@@ -71,7 +71,7 @@
                                         <asp:Label ID="lbldesc" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
                                     </div>
                                     <div class="cart-item-price">
-                                        $<asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Total") %>'></asp:Label>
+                                        ₹<asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Total") %>'></asp:Label>
                                     </div>
                                 </div>
 
@@ -101,7 +101,7 @@
                                         <asp:Label ID="lbldesc" runat="server" Text='<%# Eval("C_Fod_Desc") %>'></asp:Label>
                                     </div>
                                     <div class="cart-item-price">
-                                        $<asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Price") %>'></asp:Label>
+                                        ₹<asp:Label ID="lbltot" runat="server" Text='<%# Eval("C_Fod_Price") %>'></asp:Label>
                                     </div>
                                 </div>
 
@@ -128,15 +128,15 @@
                         <h3>Order Summary</h3>
                         <div class="summary-items">
                             <div class="summary-item">
-                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="$0.00"></asp:Label>
+                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                             <div class="summary-item">
-                                <span>Delivery Fee</span> <span id="deliveryFee">$2.99</span>
+                                <span>Delivery Fee</span> <span id="deliveryFee">₹2.99</span>
                             </div>
                             <div class="summary-divider">
                             </div>
                             <div class="summary-item total">
-                                <span>Total</span><asp:Label ID="lblFnlTot" runat="server" Text="$0.00"></asp:Label>
+                                <span>Total</span><asp:Label ID="lblFnlTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                         </div>
                         <%--<div class="delivery-options">
@@ -147,7 +147,7 @@
                                     <div class="option-info">
                                         <span class="option-name">Standard Delivery</span> <span class="option-time">30-45 minutes</span>
                                     </div>
-                                    <span class="option-price">$2.99</span>
+                                    <span class="option-price">₹2.99</span>
                                 </label>
                             </div>
                             <div class="delivery-option">
@@ -156,7 +156,7 @@
                                     <div class="option-info">
                                         <span class="option-name">Express Delivery</span> <span class="option-time">15-25 minutes</span>
                                     </div>
-                                    <span class="option-price">$4.99</span>
+                                    <span class="option-price">₹4.99</span>
                                 </label>
                             </div>
                         </div>--%>
