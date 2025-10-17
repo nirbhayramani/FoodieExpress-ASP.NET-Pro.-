@@ -131,12 +131,16 @@
                                 <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                             <div class="summary-item">
-                                <span>Delivery Fee</span> <span id="deliveryFee">₹2.99</span>
+                                <span>Delivery Fee</span><span id="deliveryFee">₹100.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Goods and Services Tax</span>
+                                <span id="tax"><asp:Label ID="lblTax" runat="server" Text="₹0.00"></asp:Label></span>
                             </div>
                             <div class="summary-divider">
                             </div>
                             <div class="summary-item total">
-                                <span>Total</span><asp:Label ID="lblFnlTot" runat="server" Text="₹0.00"></asp:Label>
+                                <span>Grand Total</span><asp:Label ID="lblFnlTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                         </div>
                         <%--<div class="delivery-options">

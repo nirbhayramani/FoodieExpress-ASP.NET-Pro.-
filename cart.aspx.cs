@@ -139,12 +139,16 @@ namespace FoodieExpress___ASP.NET_Pro.__
             da.Fill(ds);
 
             int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
+
             da = new SqlDataAdapter("Select sum(C_Fod_Total) from Cart_tbl where User_Cart_Id='" + userid + "'", con);
             ds = new DataSet();
             da.Fill(ds);
 
             lblSubTot.Text = "₹" + ds.Tables[0].Rows[0][0].ToString();
-            double finalTotal = Convert.ToDouble(ds.Tables[0].Rows[0][0]) + 2.99;
+            decimal subTot = Convert.ToDecimal(ds.Tables[0].Rows[0][0]);
+            decimal tax = Math.Round(subTot * 0.05m, 2); // 5% tax
+            lblTax.Text = "₹" + tax.ToString();
+            decimal finalTotal = Convert.ToDecimal(ds.Tables[0].Rows[0][0]) + 100 + tax;
             lblFnlTot.Text = "₹" + finalTotal.ToString();
         }
     }

@@ -48,13 +48,12 @@ namespace FoodieExpress___ASP.NET_Pro.__
                     Session["username"] = txteml.Text;
                     Response.Redirect("index.aspx");
                 }
-            }
-            else
-            {
-                lblmsg.Visible = true;
-                lblmsg.Text = "Invalid Username or Password";
+                else
+                {
+                    lblmsg.Visible = true;
+                    lblmsg.Text = "Invalid Username or Password";
+                }
             }
         }
-
     }
 }

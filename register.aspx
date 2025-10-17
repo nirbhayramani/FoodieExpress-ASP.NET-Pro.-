@@ -27,7 +27,7 @@
                                     <div class="input-icon">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtfnm" runat="server" placeholder="First name" CssClass="form-input"></asp:TextBox>
+                                    <asp:TextBox ID="txtfnm" runat="server" placeholder="First name" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="ReqValdFnm" runat="server" ErrorMessage="Please fill first name" ControlToValidate="txtfnm"></asp:RequiredFieldValidator>
                                     <div class="input-focus-border"></div>
                                 </div>
                             </div>
@@ -76,17 +76,17 @@
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" CssClass="form-input password-input"></asp:TextBox>
-                                <button type="button" class="password-toggle" id="passwordToggle">
+                                <%--<button type="button" class="password-toggle" id="passwordToggle">
                                     <i class="fas fa-eye"></i>
-                                </button>
+                                </button>--%>
                                 <div class="input-focus-border"></div>
                             </div>
-                            <div class="password-strength">
+                            <%--<div class="password-strength">
                                 <div class="strength-bar">
                                     <div class="strength-fill" id="strengthFill"></div>
                                 </div>
                                 <span class="strength-text" id="strengthText">Password strength</span>
-                            </div>
+                            </div>--%>
                         </div>
 
                         <!-- Confirm Password Field with Toggle -->
@@ -96,9 +96,9 @@
                                     <i class="fas fa-lock"></i>
                                 </div>
                                 <asp:TextBox ID="txtcon" runat="server" TextMode="Password" placeholder="Confirm password" CssClass="form-input password-input"></asp:TextBox>
-                                <button type="button" class="password-toggle" id="confirmPasswordToggle">
+                                <%--<button type="button" class="password-toggle" id="confirmPasswordToggle">
                                     <i class="fas fa-eye"></i>
-                                </button>
+                                </button>--%>
                                 <div class="input-focus-border"></div>
                             </div>
                         </div>
