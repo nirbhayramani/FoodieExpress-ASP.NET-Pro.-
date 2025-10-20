@@ -17,9 +17,9 @@
                 <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-color-light); font-weight: 700; color: var(--text-color);">My Panel</div>
                 <nav style="display: flex; flex-direction: column;">
                     <a href="my-profile.aspx" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">My Profile</a>
-                    <a href="order-history.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">Order History</a>
-                    <a href="my-reviews.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">My Reviews</a>
-                    <a href="reviews.html" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">Write a Review</a>
+                    <a href="order-history.aspx" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">Order History</a>
+                    <a href="my-reviews.aspx" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">My Reviews</a>
+                    <a href="reviews.aspx" style="padding: 12px 16px; text-decoration: none; color: var(--text-color);">Write a Review</a>
                 </nav>
             </aside>
             <div>

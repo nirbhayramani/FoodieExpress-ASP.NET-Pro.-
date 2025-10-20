@@ -2,78 +2,78 @@
 
 // Checkout functionality
 class Checkout {
-  constructor() {
-    this.cart = JSON.parse(localStorage.getItem("cart")) || [];
-    this.deliveryFee = 2.99;
-    this.taxRate = 0.08; // 8% tax
-    this.discount = 0;
-    this.init();
-  }
-
-  init() {
-    this.updateOrderSummary();
-    this.displayCartItems();
-    this.bindEvents();
-  }
-
-  bindEvents() {
-    // Form submission
-    document.getElementById("checkoutForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-      if (this.validateCheckoutInfo()) {
-        this.placeOrder();
-      }
-    });
-
-    // Modal close button
-    document.querySelector(".close-modal").addEventListener("click", () => {
-      document.getElementById("confirmationModal").classList.remove("active");
-    });
-    
-    // Generate Bill button
-    document.getElementById("generateBill").addEventListener("click", (e) => {
-      e.preventDefault();
-      this.generateBill();
-    });
-  }
-
-  // Removed showSection method as we now have a single-page checkout
-
-  validateCheckoutInfo() {
-    const requiredFields = [
-      "address",
-      "zipCode"
-    ];
-    
-    let isValid = true;
-    
-    requiredFields.forEach((field) => {
-      const input = document.getElementById(field);
-      if (!input.value.trim()) {
-        input.style.borderColor = "#ff3860";
-        isValid = false;
-      } else {
-        input.style.borderColor = "#ddd";
-      }
-    });
-    
-    return isValid;
-  }
-
-  // Removed email and card validation methods as they're no longer needed
-
-  displayCartItems() {
-    const checkoutItems = document.getElementById("checkout-items");
-    
-    if (this.cart.length === 0) {
-      checkoutItems.innerHTML = "<p>Your cart is empty</p>";
-      window.location.href = "cart.html"; // Redirect back to cart if empty
-      return;
+    constructor() {
+        this.cart = JSON.parse(localStorage.getItem("cart")) || [];
+        this.deliveryFee = 2.99;
+        this.taxRate = 0.08; // 8% tax
+        this.discount = 0;
+        this.init();
     }
-    
-    let itemsHtml = "";
-    this.cart.forEach((item) => {
-      itemsHtml += `
+
+    init() {
+        this.updateOrderSummary();
+        this.displayCartItems();
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        // Form submission
+        document.getElementById("checkoutForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            if (this.validateCheckoutInfo()) {
+                this.placeOrder();
+            }
+        });
+
+        // Modal close button
+        document.querySelector(".close-modal").addEventListener("click", () => {
+            document.getElementById("confirmationModal").classList.remove("active");
+        });
+
+        // Generate Bill button
+        document.getElementById("generateBill").addEventListener("click", (e) => {
+            e.preventDefault();
+            this.generateBill();
+        });
+    }
+
+    // Removed showSection method as we now have a single-page checkout
+
+    validateCheckoutInfo() {
+        const requiredFields = [
+            "address",
+            "zipCode"
+        ];
+
+        let isValid = true;
+
+        requiredFields.forEach((field) => {
+            const input = document.getElementById(field);
+            if (!input.value.trim()) {
+                input.style.borderColor = "#ff3860";
+                isValid = false;
+            } else {
+                input.style.borderColor = "#ddd";
+            }
+        });
+
+        return isValid;
+    }
+
+    // Removed email and card validation methods as they're no longer needed
+
+    displayCartItems() {
+        const checkoutItems = document.getElementById("checkout-items");
+
+        if (this.cart.length === 0) {
+            checkoutItems.innerHTML = "<p>Your cart is empty</p>";
+            window.location.href = "cart.aspx"; // Redirect back to cart if empty
+            return;
+        }
+
+        let itemsHtml = "";
+        this.cart.forEach((item) => {
+            itemsHtml += `
         <div class="checkout-item">
           <div class="checkout-item-image">
             <img src="${item.image}" alt="${item.name}">
@@ -85,111 +85,111 @@ class Checkout {
           </div>
         </div>
       `;
-    });
-    
-    checkoutItems.innerHTML = itemsHtml;
-    
-    // Update cart count in navbar
-    const cartCount = document.querySelector(".cart-count");
-    if (cartCount) {
-      const totalItems = this.cart.reduce((total, item) => total + item.quantity, 0);
-      cartCount.textContent = totalItems;
-    }
-  }
+        });
 
-  updateOrderSummary() {
-    if (this.cart.length === 0) {
-      document.getElementById("subtotal").textContent = "$0.00";
-      document.getElementById("tax").textContent = "$0.00";
-      document.getElementById("total").textContent = "$0.00";
-      return;
-    }
-    
-    const subtotal = this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
-    const tax = subtotal * this.taxRate;
-    const total = subtotal + tax + this.deliveryFee - this.discount;
-    
-    document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById("deliveryFee").textContent = `$${this.deliveryFee.toFixed(2)}`;
-    document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
-    
-    if (this.discount > 0) {
-      document.getElementById("discountRow").style.display = "flex";
-      document.getElementById("discount").textContent = `-$${this.discount.toFixed(2)}`;
-    } else {
-      document.getElementById("discountRow").style.display = "none";
-    }
-    
-    document.getElementById("total").textContent = `$${total.toFixed(2)}`;
-  }
+        checkoutItems.innerHTML = itemsHtml;
 
-  placeOrder() {
-    // Generate order number
-    const orderNumber = "ORD-" + Math.floor(100000 + Math.random() * 900000);
-    
-    // Calculate estimated delivery time (30-45 minutes from now)
-    const now = new Date();
-    const deliveryTime = new Date(now.getTime() + (30 + Math.floor(Math.random() * 15)) * 60000);
-    const formattedDeliveryTime = deliveryTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    
-    // Set confirmation details
-    document.getElementById("orderNumber").textContent = orderNumber;
-    document.getElementById("estimatedDelivery").textContent = `Today, ${formattedDeliveryTime}`;
-    
-    // Get payment method
-    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-    let paymentMethodText = "";
-    if (paymentMethod === "cod") {
-      paymentMethodText = "Cash on Delivery";
-    } else if (paymentMethod === "upi") {
-      paymentMethodText = "UPI Payment";
-    } else if (paymentMethod === "card") {
-      paymentMethodText = "Card Payment";
+        // Update cart count in navbar
+        const cartCount = document.querySelector(".cart-count");
+        if (cartCount) {
+            const totalItems = this.cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
     }
-    
-    // Set payment method in confirmation
-    document.getElementById("paymentMethod").textContent = paymentMethodText;
-    
-    // Show confirmation modal
-    document.getElementById("confirmationModal").classList.add("active");
-    
-    // Clear cart
-    localStorage.removeItem("cart");
-    
-    // Save order to order history (simplified)
-    const order = {
-      id: orderNumber,
-      date: new Date().toISOString(),
-      items: this.cart,
-      total: parseFloat(document.getElementById("total").textContent.replace("$", "")),
-      status: "Processing",
-      address: document.getElementById("address").value,
-      zipCode: document.getElementById("zipCode").value,
-      paymentMethod: paymentMethodText
-    };
-    
-    // Save current order for bill generation
-    localStorage.setItem("currentOrder", JSON.stringify(order));
-    
-    const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
-    orderHistory.push(order);
-    localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
-  }
-  
-  generateBill() {
-    // Get the current order from localStorage
-    const order = JSON.parse(localStorage.getItem("currentOrder"));
-    
-    if (!order) {
-      alert("Order information not found!");
-      return;
+
+    updateOrderSummary() {
+        if (this.cart.length === 0) {
+            document.getElementById("subtotal").textContent = "$0.00";
+            document.getElementById("tax").textContent = "$0.00";
+            document.getElementById("total").textContent = "$0.00";
+            return;
+        }
+
+        const subtotal = this.cart.reduce((total, item) => total + item.price * item.quantity, 0);
+        const tax = subtotal * this.taxRate;
+        const total = subtotal + tax + this.deliveryFee - this.discount;
+
+        document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById("deliveryFee").textContent = `$${this.deliveryFee.toFixed(2)}`;
+        document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
+
+        if (this.discount > 0) {
+            document.getElementById("discountRow").style.display = "flex";
+            document.getElementById("discount").textContent = `-$${this.discount.toFixed(2)}`;
+        } else {
+            document.getElementById("discountRow").style.display = "none";
+        }
+
+        document.getElementById("total").textContent = `$${total.toFixed(2)}`;
     }
-    
-    // Create a new window for the bill
-    const billWindow = window.open('', '_blank', 'width=800,height=600');
-    
-    // Generate bill HTML
-    const billHTML = `
+
+    placeOrder() {
+        // Generate order number
+        const orderNumber = "ORD-" + Math.floor(100000 + Math.random() * 900000);
+
+        // Calculate estimated delivery time (30-45 minutes from now)
+        const now = new Date();
+        const deliveryTime = new Date(now.getTime() + (30 + Math.floor(Math.random() * 15)) * 60000);
+        const formattedDeliveryTime = deliveryTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        // Set confirmation details
+        document.getElementById("orderNumber").textContent = orderNumber;
+        document.getElementById("estimatedDelivery").textContent = `Today, ${formattedDeliveryTime}`;
+
+        // Get payment method
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        let paymentMethodText = "";
+        if (paymentMethod === "cod") {
+            paymentMethodText = "Cash on Delivery";
+        } else if (paymentMethod === "upi") {
+            paymentMethodText = "UPI Payment";
+        } else if (paymentMethod === "card") {
+            paymentMethodText = "Card Payment";
+        }
+
+        // Set payment method in confirmation
+        document.getElementById("paymentMethod").textContent = paymentMethodText;
+
+        // Show confirmation modal
+        document.getElementById("confirmationModal").classList.add("active");
+
+        // Clear cart
+        localStorage.removeItem("cart");
+
+        // Save order to order history (simplified)
+        const order = {
+            id: orderNumber,
+            date: new Date().toISOString(),
+            items: this.cart,
+            total: parseFloat(document.getElementById("total").textContent.replace("$", "")),
+            status: "Processing",
+            address: document.getElementById("address").value,
+            zipCode: document.getElementById("zipCode").value,
+            paymentMethod: paymentMethodText
+        };
+
+        // Save current order for bill generation
+        localStorage.setItem("currentOrder", JSON.stringify(order));
+
+        const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
+        orderHistory.push(order);
+        localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+    }
+
+    generateBill() {
+        // Get the current order from localStorage
+        const order = JSON.parse(localStorage.getItem("currentOrder"));
+
+        if (!order) {
+            alert("Order information not found!");
+            return;
+        }
+
+        // Create a new window for the bill
+        const billWindow = window.open('', '_blank', 'width=800,height=600');
+
+        // Generate bill HTML
+        const billHTML = `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -312,20 +312,19 @@ class Checkout {
           <p>Tax (8%): $${(order.total - (order.total / 1.08)).toFixed(2)}</p>
           <p>Total: $${order.total.toFixed(2)}</p>
         </div>
-        
         <button class="print-button" onclick="window.print()">Print Invoice</button>
       </body>
       </html>
     `;
-    
-    // Write the bill HTML to the new window
-    billWindow.document.open();
-    billWindow.document.write(billHTML);
-    billWindow.document.close();
-  }
+
+        // Write the bill HTML to the new window
+        billWindow.document.open();
+        billWindow.document.write(billHTML);
+        billWindow.document.close();
+    }
 }
 
 // Initialize checkout
 document.addEventListener("DOMContentLoaded", () => {
-  new Checkout();
+    new Checkout();
 });

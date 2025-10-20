@@ -65,12 +65,12 @@ namespace FoodieExpress___ASP.NET_Pro.__
                 ds = new DataSet();
                 da.Fill(ds);
                 int quant = Convert.ToInt32(ds.Tables[0].Rows[0]["C_Fod_Quantity"]);
-                double price = Convert.ToDouble(ds.Tables[0].Rows[0]["C_Fod_Price"]);
+                //double price = Convert.ToDouble(ds.Tables[0].Rows[0]["C_Fod_Price"]);
                 if (quant > 1)
                 {
                     quant--;
-                    double tot = quant * price;
-                    cmd = new SqlCommand("Update Cart_tbl set C_Fod_Quantity='" + quant + "', C_Fod_Total='" + tot + "' where Cart_Id='" + cartid + "'", con);
+                    //double tot = quant * price;
+                    cmd = new SqlCommand("Update Cart_tbl set C_Fod_Quantity='" + quant + "' where Cart_Id='" + cartid + "'", con);
                     cmd.ExecuteNonQuery();
                     fillDatalist();
                 }
@@ -83,10 +83,10 @@ namespace FoodieExpress___ASP.NET_Pro.__
                 ds = new DataSet();
                 da.Fill(ds);
                 int quant = Convert.ToInt32(ds.Tables[0].Rows[0]["C_Fod_Quantity"]);
-                double price = Convert.ToDouble(ds.Tables[0].Rows[0]["C_Fod_Price"]);
+                //double price = Convert.ToDouble(ds.Tables[0].Rows[0]["C_Fod_Price"]);
                 quant++;
-                double tot = quant * price;
-                cmd = new SqlCommand("Update Cart_tbl set C_Fod_Quantity='" + quant + "', C_Fod_Total='" + tot + "' where Cart_Id='" + cartid + "'", con);
+                //double tot = quant * price;
+                cmd = new SqlCommand("Update Cart_tbl set C_Fod_Quantity='" + quant + "' where Cart_Id='" + cartid + "'", con);
                 cmd.ExecuteNonQuery();
                 if (quant > 1)
                 {
@@ -140,7 +140,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
 
             int userid = Convert.ToInt16(ds.Tables[0].Rows[0][0]);
 
-            da = new SqlDataAdapter("Select sum(C_Fod_Total) from Cart_tbl where User_Cart_Id='" + userid + "'", con);
+            da = new SqlDataAdapter("SELECT Cast(Sum(C_Fod_Quantity * C_Fod_Price) AS DECIMAL(10, 2)) From Cart_tbl where User_Cart_Id='" + userid + "'", con);
             ds = new DataSet();
             da.Fill(ds);
 

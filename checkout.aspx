@@ -19,94 +19,38 @@
             <div class="checkout-layout">
                 <!-- Checkout Form -->
                 <div class="checkout-form-container">
-                    <form id="checkoutForm">
-                        <div class="form-section active">
-                            <h2>Checkout</h2>
+                    <div class="form-section active">
+                        <h2>Checkout</h2>
 
-                            <div class="form-group">
-                                <label for="address">Shipping Address</label>
-                                <input type="text" id="address" name="address" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="zipCode">Zip Code</label>
-                                <input type="text" id="zipCode" name="zipCode" required>
-                            </div>
-
-                            <div class="payment-methods">
-                                <div>
-                                    <h3>Payment Method</h3>
-                                </div>
-                                <br />
-                                <div>
-                                    <div class="payment-method">
-                                        <input type="radio" id="cod" name="paymentMethod" value="cod" checked>
-                                        <label for="cod">Cash on Delivery (COD)</label>
-                                    </div>
-                                    <div class="payment-method">
-                                        <input type="radio" id="upi" name="paymentMethod" value="upi">
-                                        <label for="upi">UPI (GPay, PhonePe, PayTm)</label>
-                                    </div>
-                                    <div class="payment-method">
-                                        <input type="radio" id="card" name="paymentMethod" value="card">
-                                        <label for="card">Card (Visa/MasterCard)</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-actions">
-                                <a href="cart.html" class="btn btn-secondary">Back to Cart</a>
-                                <button type="submit" id="placeOrderBtn" class="btn btn-primary">Place Order</button>
-                            </div>
+                        <div class="form-group">
+                            <label for="txtShipAdd">Shipping Address</label>
+                            <asp:TextBox ID="txtShipAdd" runat="server" placeholder="12B, Anay Apartment, Civil Lines, Delhi" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter shipping address" ControlToValidate="txtShipAdd" Style="color: red;"></asp:RequiredFieldValidator>
                         </div>
-                    </form>
+
+                        <div class="form-group">
+                            <label for="txtZipCod">Zip Code</label>
+                            <asp:TextBox ID="txtZipCod" runat="server" placeholder="110054" TextMode="Number" MaxLength="6" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter zip-code for address" ControlToValidate="txtZipCod" Style="color: red;"></asp:RequiredFieldValidator>
+                        </div>
+
+                        <div class="payment-methods">
+                            <div>
+                                <h3>Payment Method</h3>
+                            </div>
+                            <asp:RadioButtonList ID="rblPayMeth" runat="server" Width="369px" CssClass="payment-radio-list">
+                                <asp:ListItem Value="Cash on Delivery (COD)" Selected="True">Cash on Delivery (COD)</asp:ListItem>
+                                <asp:ListItem Value="UPI (GPay/PhonePe/PayTm)">UPI (GPay, PhonePe, PayTm)</asp:ListItem>
+                                <asp:ListItem Value="Card (Visa/MasterCard)">Card (Visa/MasterCard)</asp:ListItem>
+                            </asp:RadioButtonList>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="cart.aspx" class="btn btn-secondary">Back to Cart</a>
+                            <asp:Button ID="btnPlcOrd" runat="server" Text="Place Order" CssClass="btn btn-primary" OnClick="btnPlcOrd_Click" OnClientClick="return validateAndShowModal();" />
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Order Summary without css-->
-                <%--<div class="order-summary">
-    <div class="summary-card">
-        <h3>Order Summary</h3>
-        <h1>Nirbhay</h1>
-        <div id="checkout-items" class="checkout-items">
-            <!-- Order items will be dynamically added here -->
-            <asp:DataList ID="DtLsOrdSum" runat="server">
-                <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' Height="25px" Width="25px" />
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("C_Fod_Name") %>'></asp:Label>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("C_Fod_Price") %>'></asp:Label>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:DataList>
-        </div>
-
-        <div class="summary-divider"></div>
-
-        <div class="summary-items">
-            <div class="summary-item">
-                <span>Subtotal</span>
-                <span id="subtotal">₹0.00</span>
-            </div>
-            <div class="summary-item">
-                <span>Delivery Fee</span>
-                <span id="deliveryFee">₹2.99</span>
-            </div>
-            <div class="summary-item">
-                <span>Tax</span>
-                <span id="tax">₹0.00</span>
-            </div>
-            <div class="summary-item discount" id="discountRow" style="display: none;">
-                <span>Discount</span>
-                <span id="discount">-₹0.00</span>
-            </div>
-            <div class="summary-divider"></div>
-            <div class="summary-item total">
-                <span>Total</span>
-                <span id="total">₹0.00</span>
-            </div>
-        </div>
-    </div>
-</div>--%>
-
 
                 <!-- Order Summary -->
                 <div class="order-summary">
@@ -114,25 +58,8 @@
                         <h3>Order Summary</h3>
 
                         <div id="checkout-items" class="checkout-items">
-                            <%--<asp:DataList ID="DtLsOrdSum" runat="server" RepeatLayout="Flow" CssClass="cart-items-datalist">
-                <ItemTemplate>
-                    <div class="datalist-cart-item">
-                        <div class="item-info">
-                            <div class="item-name"><%# Eval("C_Fod_Name") %></div>
-                            <div class="item-meta">
-                                <span class="item-price">₹<%# Eval("C_Fod_Price") %></span><span class="item-quantity">Qty: <%# Eval("C_Fod_Quantity") %></span>
-                            </div>
-                        </div>
-                    </div>
-                </ItemTemplate>
-                <SeparatorTemplate>
-                    <div class="item-separator-light"></div>
-                </SeparatorTemplate>
-            </asp:DataList>--%>
-
-
                             <asp:DataList ID="DtLsOrdSum" runat="server">
-                                <itemtemplate>
+                                <ItemTemplate>
                                     <div class="checkout-item">
                                         <div class="checkout-item-image">
                                             <asp:Image ID="FodImg" runat="server" ImageUrl='<%# Eval("C_Fod_Img") %>' />
@@ -146,11 +73,11 @@
                                             </div>
                                             <div class="checkout-item-quantity">
                                                 Qty:
-                                <asp:Label ID="FodQuantity" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
+                                                <asp:Label ID="FodQuantity" runat="server" Text='<%# Eval("C_Fod_Quantity") %>'></asp:Label>
                                             </div>
                                         </div>
                                     </div>
-                                </itemtemplate>
+                                </ItemTemplate>
                             </asp:DataList>
 
                             <asp:Label ID="lblEmptyCart" runat="server" Text="Your cart is empty"
@@ -162,22 +89,18 @@
                         <div class="summary-items">
                             <div class="summary-item">
                                 <span>Subtotal</span>
-                                <%--<span id="subtotal">₹0.00</span>--%>
                                 <asp:Label ID="lblSubTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span>
-                                <%--<span id="deliveryFee">₹2.99</span>--%>
                                 <asp:Label ID="lblDelFee" runat="server" Text="₹100.00"></asp:Label>
                             </div>
                             <div class="summary-item">
                                 <span>Goods and Services Tax</span>
-                                <%--<span id="tax">₹0.00</span>--%>
                                 <asp:Label ID="lblTax" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                             <div class="summary-item total">
                                 <span>Grand Total</span>
-                                <%--<span id="total">₹2.99</span>--%>
                                 <asp:Label ID="lblTot" runat="server" Text="₹0.00"></asp:Label>
                             </div>
                         </div>
@@ -188,9 +111,9 @@
     </section>
 
     <!-- Order Confirmation Modal -->
-    <div id="confirmationModal" class="modal">
+   -<div id="confirmationModal" class="modal" style="display: none;">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <span class="close-modal" onclick="closeModal()">&times;</span>
             <div class="confirmation-header">
                 <div class="success-checkmark">
                     <div class="check-icon">
@@ -205,25 +128,34 @@
             <div class="confirmation-details">
                 <div class="confirmation-item">
                     <span class="label">Order Number:</span>
-                    <span id="orderNumber" class="value"></span>
+                    <span id="modalOrderNumber" class="value">ORD-<%= DateTime.Now.ToString("HHmmss") %></span>
                 </div>
                 <div class="confirmation-item">
                     <span class="label">Estimated Delivery:</span>
-                    <span id="estimatedDelivery" class="value"></span>
+                    <span id="modalDelivery" class="value">Approximately 30-45 minutes</span>
                 </div>
                 <div class="confirmation-item">
                     <span class="label">Payment Method:</span>
-                    <span id="paymentMethod" class="value"></span>
+                    <span id="modalPaymentMethod" class="value"></span>
+                </div>
+                <div class="confirmation-item">
+                    <span class="label">Shipping Address:</span>
+                    <span id="modalShippingAddress" class="value"></span>
                 </div>
             </div>
 
             <div class="confirmation-actions">
-                <a href="index.html" class="btn btn-primary">Continue Shopping</a>
-                <a href="orders.html" class="btn btn-secondary">View Orders</a>
-                <%--<a href="#" id="generateBill" class="btn btn-tertiary">Generate Bill</a>--%>
+                <a href="index.aspx" class="btn btn-primary">Continue Shopping</a>
+                <a href="order-history.aspx" class="btn btn-secondary">View Orders</a>
+            </div>
+        </div>
+    </diving</a>
+                <a href="order-history.aspx" class="btn btn-secondary">View Orders</a>
             </div>
         </div>
     </div>
+
+
     <style>
         .payment-method {
             display: flex;
@@ -236,179 +168,141 @@
             border: 1px solid #ddd;
             transition: all 0.3s ease;
         }
-    </style>
-    <script src="checkout.js"></script>
-    <link rel="stylesheet" href="checkout.css">
-    
-    <%--<style>
-        /* DataList Specific Styles */
-        .cart-items-datalist {
-            width: 100% !important;
-            display: block !important;
+
+        .payment-radio-list {
+            margin-top: 10px;
         }
 
-        .datalist-cart-item {
-            display: flex !important;
-            align-items: flex-start !important;
-            padding: 12px 0 !important;
-            border-bottom: 1px solid #f0f0f0 !important;
-            width: 100% !important;
-        }
-
-            .datalist-cart-item:last-child {
-                border-bottom: none !important;
+            .payment-radio-list label {
+                margin-left: 8px;
+                cursor: pointer;
             }
 
-        .item-info {
-            flex: 1 !important;
-            min-width: 0 !important;
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
         }
 
-        .item-name {
-            font-weight: 500 !important;
-            color: #2d3748 !important;
-            font-size: 14px !important;
-            margin-bottom: 6px !important;
-            line-height: 1.4 !important;
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
         }
 
-        .item-meta {
-            display: flex !important;
-            justify-content: space-between !important;
-            align-items: center !important;
-        }
-
-        .item-price {
-            color: #e53e3e !important;
-            font-weight: 600 !important;
-            font-size: 14px !important;
-        }
-
-        .item-quantity {
-            color: #718096 !important;
-            font-size: 12px !important;
-            background: #f7fafc !important;
-            padding: 2px 8px !important;
-            border-radius: 12px !important;
-            border: 1px solid #e2e8f0 !important;
-        }
-
-        .item-separator-light {
-            height: 1px !important;
-            background: linear-gradient(90deg, transparent, #e2e8f0, transparent) !important;
-            margin: 8px 0 !important;
-        }
-
-        /* Ensure proper spacing in checkout items container */
-        .checkout-items {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 8px;
-            margin-bottom: 20px;
-        }
-
-            /* Custom scrollbar for checkout items */
-            .checkout-items::-webkit-scrollbar {
-                width: 4px;
-            }
-
-            .checkout-items::-webkit-scrollbar-track {
-                background: #f1f1f1;
-                border-radius: 10px;
-            }
-
-            .checkout-items::-webkit-scrollbar-thumb {
-                background: #cbd5e0;
-                border-radius: 10px;
-            }
-
-                .checkout-items::-webkit-scrollbar-thumb:hover {
-                    background: #a0aec0;
-                }
-
-        /* Summary Card Styling */
-        .summary-card {
-            background: white;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
             border-radius: 12px;
-            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e0e0e0;
         }
 
-            .summary-card h3 {
-                margin-bottom: 20px;
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: #2d3748;
-                border-bottom: 2px solid #f7fafc;
-                padding-bottom: 12px;
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+            .close-modal:hover {
+                color: #000;
             }
 
-        .summary-divider {
-            height: 1px;
-            background: #e2e8f0;
-            margin: 20px 0;
+        .confirmation-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        .summary-items {
-            space-y: 12px;
+        .success-checkmark {
+            margin: 0 auto 20px;
+            width: 80px;
+            height: 80px;
         }
 
-        .summary-item {
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            border-radius: 50%;
+            box-sizing: content-box;
+            border: 4px solid #4CAF50;
+        }
+
+        .icon-line {
+            height: 5px;
+            background-color: #4CAF50;
+            display: block;
+            border-radius: 2px;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .line-tip {
+            top: 46px;
+            left: 14px;
+            width: 25px;
+            transform: rotate(45deg);
+        }
+
+        .line-long {
+            top: 38px;
+            right: 8px;
+            width: 47px;
+            transform: rotate(-45deg);
+        }
+
+        .confirmation-details {
+            margin: 25px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .confirmation-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            color: #4a5568;
-            font-size: 0.95rem;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e9ecef;
         }
 
-            .summary-item.total {
-                font-weight: 700;
-                font-size: 1.2rem;
-                color: #2d3748;
-                padding: 16px 0 0 0;
-                border-top: 2px solid #e2e8f0;
-                margin-top: 8px;
+            .confirmation-item:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
             }
 
-        .empty-cart-message {
-            text-align: center;
-            color: #a0aec0;
-            padding: 40px 20px;
-            font-style: italic;
-            font-size: 1.1rem;
+            .confirmation-item .label {
+                font-weight: 600;
+                color: #495057;
+            }
+
+            .confirmation-item .value {
+                color: #6c757d;
+                text-align: right;
+            }
+
+        .confirmation-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .summary-card {
-                padding: 16px;
-                margin-top: 20px;
-            }
-
-            .datalist-cart-item {
-                padding: 10px 0 !important;
-            }
-
-            .item-name {
-                font-size: 13px !important;
-            }
-
-            .item-price {
-                font-size: 13px !important;
-            }
-
-            .item-quantity {
-                font-size: 11px !important;
-                padding: 1px 6px !important;
-            }
-        }
-    </style>--%>
-
-
-
-    <style>
         .checkout-items {
             margin-bottom: 20px;
             max-height: 300px;
@@ -429,6 +323,12 @@
             margin-right: 15px;
         }
 
+            .checkout-item-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
         .checkout-item-details {
             flex-grow: 1;
         }
@@ -448,5 +348,97 @@
             font-size: 0.85rem;
         }
     </style>
-</asp:Content>
+ type=t/javascript">
+        function validateAndShowModal() {
+            // Validate form
+            var address = document.getElementById('<%= txtShipAdd.ClientID %>');
+            var zipCode = document.getElementById('<%= txtZipCod.ClientID %>');
+            var paymentMethod = document.querySelector('#<%= rblPayMeth.ClientID %> input:checked');
 
+            var             isValid = true;
+
+            //             Validate address
+            if (!address.value.trim()) {
+                address.style.borderColor = 'red';
+                isValid = false;
+            } else {
+                address.style.borderColor = '';
+            }
+
+            //             Validate zip code
+            if (!zipCode.value.trim() || zipCode.value.length !== 6) {
+                zipCode.style.borderColor = 'red';
+                isValid = false;
+            } else {
+                zipCode.style.borderColor = '';
+            }
+
+            //             Validate payment method
+            if (!paymentMethod) {
+                alert('Please select a payment method');
+                isValid = false;
+            }
+
+            if             (!isValid) {
+                return false; // Prevent postback
+            }
+
+            //             Get form values for modal
+            var selectedPayment = paymentMethod ? paymentMethod.nextElementSibling.textContent : '';
+
+            //             Set modal content
+            document.getElementById('modalPaymentMethod').textContent = selectedPayment;
+            document.getElementById('modalShippingAddress').textContent = address.value + ' - ' + zipCode.value;
+
+            //             Generate a simple order number based on timestamp
+            var orderNumber = 'ORD-' + new Date().getTime().toString().slice(-6);
+            document.getElementById('modalOrderNumber').textContent = orderNumber;
+
+            //             Show modal immediately
+            showModal();
+
+            //             Let the server-side click event continue
+            return true;
+        }
+
+        functio        n showModal() {
+            var modal = document.getElementById('confirmationModal');
+            if (modal) {
+                modal.style.display = 'block';
+
+                                // Add a small delay for visual effect
+                setTimeout(function () {
+                   modal.style.opacity = '1';
+                }, 10);
+            }
+        }
+
+        functio        n closeModal() {
+            var modal = document.getElementById('confirmationModal');
+            if (modal) {
+                modal.style.opacity = '0';
+                setTimeout(function () {
+                   modal.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        // Clos        e modal when clicking outside
+        window.onclick = function (event) {
+           var modal = document.getElementById('confirmationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Add         smooth transition for modal
+        document.addEventListener('DOMContentLoaded', function () {
+           var modal = document.getElementById('confirmationModal');
+            if (modal) {
+                modal.style.transition = 'opacity 0.3s ease';
+            }
+        });
+    </script>--%>
+    <link rstylesheet" href="checkout.css" />
+    <script src="checkout.js"></script>
+</asp:Content>

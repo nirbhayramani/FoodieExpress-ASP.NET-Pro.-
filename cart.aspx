@@ -128,7 +128,7 @@
                         <h3>Order Summary</h3>
                         <div class="summary-items">
                             <div class="summary-item">
-                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="₹0.00"></asp:Label>
+                                <span>Subtotal</span><asp:Label ID="lblSubTot" runat="server" Text="₹0"></asp:Label>
                             </div>
                             <div class="summary-item">
                                 <span>Delivery Fee</span><span id="deliveryFee">₹100.00</span>
@@ -140,7 +140,7 @@
                             <div class="summary-divider">
                             </div>
                             <div class="summary-item total">
-                                <span>Grand Total</span><asp:Label ID="lblFnlTot" runat="server" Text="₹0.00"></asp:Label>
+                                <span>Grand Total</span><asp:Label ID="lblFnlTot" runat="server" Text="₹0"></asp:Label>
                             </div>
                         </div>
                         <%--<div class="delivery-options">

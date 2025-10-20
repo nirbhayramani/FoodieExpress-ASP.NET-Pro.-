@@ -106,10 +106,10 @@ namespace FoodieExpress___ASP.NET_Pro.__
                 string fodesc = ds.Tables[0].Rows[0]["Fo_desc"].ToString();
                 string fodpri = ds.Tables[0].Rows[0]["Fo_Price"].ToString();
                 int quant = 1;
-                double tot = Convert.ToDouble(fodpri) * quant;
+                //double tot = Convert.ToDouble(fodpri) * quant;
                 string fodimg = ds.Tables[0].Rows[0]["Fo_Img"].ToString();
 
-                cmd = new SqlCommand("Insert into Cart_tbl (User_Cart_ID,Fod_Cart_ID,C_Fod_Name,C_Fod_Desc,C_Fod_Quantity,C_Fod_Price,C_Fod_Total,C_Fod_Img)values('" + userid + "','" + fodid + "','" + fodnm + "','" + fodesc + "','" + quant + "','" + fodpri + "','" + tot + "','" + fodimg + "')", con);
+                cmd = new SqlCommand("Insert into Cart_tbl (User_Cart_ID,Fod_Cart_ID,C_Fod_Name,C_Fod_Desc,C_Fod_Quantity,C_Fod_Price,C_Fod_Img)values('" + userid + "','" + fodid + "','" + fodnm + "','" + fodesc + "','" + quant + "','" + fodpri + "','" + fodimg + "')", con);
                 cmd.ExecuteNonQuery();
             }
         }
