@@ -1,4 +1,4 @@
-﻿// checkout.js
+// checkout.js
 
 // Checkout functionality
 class Checkout {
@@ -7,7 +7,6 @@ class Checkout {
     this.deliveryFee = 2.99;
     this.taxRate = 0.08; // 8% tax
     this.discount = 0;
-    this.currentSection = "shipping";
     this.init();
   }
 
@@ -18,179 +17,31 @@ class Checkout {
   }
 
   bindEvents() {
-    // Navigation between sections
-    document.getElementById("toPaymentBtn").addEventListener("click", () => {
-      this.validateShippingInfo() && this.showSection("payment");
-    });
-
-    document.getElementById("backToShippingBtn").addEventListener("click", () => {
-      this.showSection("shipping");
-    });
-
-    document.getElementById("toReviewBtn").addEventListener("click", () => {
-      this.validatePaymentInfo() && this.showSection("review");
-    });
-
-    document.getElementById("backToPaymentBtn").addEventListener("click", () => {
-      this.showSection("payment");
-    });
-
-    // Card number formatting (groups of 4 digits)
-    const cardNumberInput = document.getElementById("cardNumber");
-    if (cardNumberInput) {
-      cardNumberInput.addEventListener("input", (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-        let formattedValue = '';
-        
-        for (let i = 0; i < value.length; i++) {
-          if (i > 0 && i % 4 === 0) {
-            formattedValue += ' ';
-          }
-          formattedValue += value[i];
-        }
-        
-        // Limit to 16 digits (19 characters with spaces)
-        if (formattedValue.length > 19) {
-          formattedValue = formattedValue.substring(0, 19);
-        }
-        
-        e.target.value = formattedValue;
-      });
-    }
-    
-    // Expiry date validation (must be future date)
-    const expiryInput = document.getElementById("expiry");
-    if (expiryInput) {
-      expiryInput.addEventListener("input", (e) => {
-        let value = e.target.value.replace(/\D/g, '');
-        
-        // Format as MM/YY
-        if (value.length > 0) {
-          let month = value.substring(0, 2);
-          let year = value.substring(2, 4);
-          
-          // Validate month (01-12)
-          if (month.length === 1 && parseInt(month) > 1) {
-            month = '0' + month;
-          } else if (parseInt(month) > 12) {
-            month = '12';
-          } else if (parseInt(month) === 0) {
-            month = '01';
-          }
-          
-          if (value.length > 2) {
-            e.target.value = month + '/' + year;
-          } else {
-            e.target.value = month;
-          }
-          
-          // Validate expiry date is in the future
-          if (month.length === 2 && year.length === 2) {
-            const currentDate = new Date();
-            const currentYear = currentDate.getFullYear() % 100; // Get last 2 digits
-            const currentMonth = currentDate.getMonth() + 1; // 1-12
-            
-            const expMonth = parseInt(month);
-            const expYear = parseInt(year);
-            
-            // Check if date is in the past
-            if (expYear < currentYear || (expYear === currentYear && expMonth < currentMonth)) {
-              expiryInput.setCustomValidity('Expiry date must be in the future');
-            } else {
-              expiryInput.setCustomValidity('');
-            }
-          }
-        }
-      });
-      
-      // Format on blur to ensure MM/YY format
-      expiryInput.addEventListener("blur", (e) => {
-        const value = e.target.value.replace(/\D/g, '');
-        if (value.length === 3) {
-          e.target.value = '0' + value[0] + '/' + value.substring(1);
-        } else if (value.length === 4) {
-          e.target.value = value.substring(0, 2) + '/' + value.substring(2);
-        }
-      });
-    }
-
-    // Payment method toggle
-    document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
-      radio.addEventListener("change", (e) => {
-        const creditCardForm = document.getElementById("creditCardForm");
-        const paypalForm = document.getElementById("paypalForm");
-        
-        if (e.target.value === "creditCard") {
-          creditCardForm.style.display = "block";
-          paypalForm.style.display = "none";
-        } else {
-          creditCardForm.style.display = "none";
-          paypalForm.style.display = "block";
-        }
-      });
-    });
-
-    // Edit buttons in review section
-    document.querySelectorAll(".edit-btn").forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const section = e.target.dataset.section;
-        this.showSection(section);
-      });
-    });
-
     // Form submission
-    //document.getElementById("checkoutForm").addEventListener("submit", () => {
-    //  e.preventDefault();
-    //  this.placeOrder();
-    //});
+    document.getElementById("checkoutForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (this.validateCheckoutInfo()) {
+        this.placeOrder();
+      }
+    });
 
     // Modal close button
     document.querySelector(".close-modal").addEventListener("click", () => {
       document.getElementById("confirmationModal").classList.remove("active");
     });
+    
+    // Generate Bill button
+    document.getElementById("generateBill").addEventListener("click", (e) => {
+      e.preventDefault();
+      this.generateBill();
+    });
   }
 
-  showSection(section) {
-    // Update progress steps
-    const steps = document.querySelectorAll(".progress-step");
-    const lines = document.querySelectorAll(".progress-line");
-    
-    steps.forEach((step, index) => {
-      step.classList.remove("active");
-      if (lines[index]) lines[index].classList.remove("active");
-    });
-    
-    let activeIndex = 0;
-    if (section === "payment") activeIndex = 1;
-    if (section === "review") activeIndex = 2;
-    
-    for (let i = 0; i <= activeIndex; i++) {
-      steps[i].classList.add("active");
-      if (i < activeIndex && lines[i]) lines[i].classList.add("active");
-    }
-    
-    // Hide all sections and show the active one
-    document.querySelectorAll(".form-section").forEach((section) => {
-      section.classList.remove("active");
-    });
-    
-    document.getElementById(`${section}Section`).classList.add("active");
-    this.currentSection = section;
-    
-    // If showing review section, populate review data
-    if (section === "review") {
-      this.populateReviewData();
-    }
-  }
+  // Removed showSection method as we now have a single-page checkout
 
-  validateShippingInfo() {
+  validateCheckoutInfo() {
     const requiredFields = [
-      "fullName",
-      "email",
-      "phone",
       "address",
-      "city",
-      "state",
       "zipCode"
     ];
     
@@ -206,107 +57,19 @@ class Checkout {
       }
     });
     
-    // Basic email validation
-    const email = document.getElementById("email");
-    if (email.value && !this.isValidEmail(email.value)) {
-      email.style.borderColor = "#ff3860";
-      isValid = false;
-    }
-    
     return isValid;
   }
 
-  validatePaymentInfo() {
-    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-    
-    if (paymentMethod === "paypal") {
-      return true; // PayPal will handle validation
-    }
-    
-    const requiredFields = ["cardName", "cardNumber", "expiryDate", "cvv"];
-    let isValid = true;
-    
-    requiredFields.forEach((field) => {
-      const input = document.getElementById(field);
-      if (!input.value.trim()) {
-        input.style.borderColor = "#ff3860";
-        isValid = false;
-      } else {
-        input.style.borderColor = "#ddd";
-      }
-    });
-    
-    // Basic card validation (simplified for demo)
-    const cardNumber = document.getElementById("cardNumber");
-    if (cardNumber.value && !this.isValidCardNumber(cardNumber.value)) {
-      cardNumber.style.borderColor = "#ff3860";
-      isValid = false;
-    }
-    
-    return isValid;
-  }
-
-  isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-  }
-
-  isValidCardNumber(cardNumber) {
-    // Simple validation for demo purposes
-    const cleaned = cardNumber.replace(/\s+/g, "");
-    return cleaned.length >= 13 && cleaned.length <= 19 && !isNaN(cleaned);
-  }
-
-  populateReviewData() {
-    // Shipping info
-    const shippingReview = document.getElementById("shippingReview");
-    shippingReview.innerHTML = `
-      <p>${document.getElementById("fullName").value}</p>
-      <p>${document.getElementById("email").value} | ${document.getElementById("phone").value}</p>
-      <p>${document.getElementById("address").value}</p>
-      <p>${document.getElementById("city").value}, ${document.getElementById("state").value} ${document.getElementById("zipCode").value}</p>
-    `;
-    
-    // Payment info
-    const paymentReview = document.getElementById("paymentReview");
-    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-    
-    if (paymentMethod === "creditCard") {
-      const cardNumber = document.getElementById("cardNumber").value;
-      const last4 = cardNumber.slice(-4);
-      paymentReview.innerHTML = `
-        <p>Credit Card</p>
-        <p>Card ending in ${last4}</p>
-      `;
-    } else {
-      paymentReview.innerHTML = `<p>PayPal</p>`;
-    }
-    
-    // Order items
-    //const orderItemsReview = document.getElementById("orderItemsReview");
-    //if (this.cart.length === 0) {
-    //  orderItemsReview.innerHTML = "<p>Your cart is empty</p>";
-    //} else {
-    //  let itemsHtml = "";
-    //  this.cart.forEach((item) => {
-    //    itemsHtml += `
-    //      <div class="review-item">
-    //        <p>${item.quantity} x ${item.name} - ₹${(item.price * item.quantity).toFixed(2)}</p>
-    //      </div>
-    //    `;
-    //  });
-    //  orderItemsReview.innerHTML = itemsHtml;
-    //}
-  }
+  // Removed email and card validation methods as they're no longer needed
 
   displayCartItems() {
     const checkoutItems = document.getElementById("checkout-items");
     
-    //if (this.cart.length === 0) {
-    //  checkoutItems.innerHTML = "<p>Your cart is empty</p>";
-    //  //window.location.href = "cart.aspx"; // Redirect back to cart if empty
-    //  return;
-    //}
+    if (this.cart.length === 0) {
+      checkoutItems.innerHTML = "<p>Your cart is empty</p>";
+      window.location.href = "cart.html"; // Redirect back to cart if empty
+      return;
+    }
     
     let itemsHtml = "";
     this.cart.forEach((item) => {
@@ -317,14 +80,14 @@ class Checkout {
           </div>
           <div class="checkout-item-details">
             <div class="checkout-item-name">${item.name}</div>
-            <div class="checkout-item-price">₹${item.price.toFixed(2)}</div>
+            <div class="checkout-item-price">$${item.price.toFixed(2)}</div>
             <div class="checkout-item-quantity">Qty: ${item.quantity}</div>
           </div>
         </div>
       `;
     });
     
-    //checkoutItems.innerHTML = itemsHtml;
+    checkoutItems.innerHTML = itemsHtml;
     
     // Update cart count in navbar
     const cartCount = document.querySelector(".cart-count");
@@ -336,9 +99,9 @@ class Checkout {
 
   updateOrderSummary() {
     if (this.cart.length === 0) {
-      //document.getElementById("subtotal").textContent = "₹0.00";
-      //document.getElementById("tax").textContent = "₹0.00";
-      //document.getElementById("total").textContent = "₹0.00";
+      document.getElementById("subtotal").textContent = "$0.00";
+      document.getElementById("tax").textContent = "$0.00";
+      document.getElementById("total").textContent = "$0.00";
       return;
     }
     
@@ -346,18 +109,18 @@ class Checkout {
     const tax = subtotal * this.taxRate;
     const total = subtotal + tax + this.deliveryFee - this.discount;
     
-    document.getElementById("subtotal").textContent = `₹${subtotal.toFixed(2)}`;
-      document.getElementById("deliveryFee").textContent = `₹${this.deliveryFee.toFixed(2)}`;
-      document.getElementById("tax").textContent = `₹${tax.toFixed(2)}`;
+    document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById("deliveryFee").textContent = `$${this.deliveryFee.toFixed(2)}`;
+    document.getElementById("tax").textContent = `$${tax.toFixed(2)}`;
     
     if (this.discount > 0) {
       document.getElementById("discountRow").style.display = "flex";
-        document.getElementById("discount").textContent = `-₹${this.discount.toFixed(2)}`;
+      document.getElementById("discount").textContent = `-$${this.discount.toFixed(2)}`;
     } else {
       document.getElementById("discountRow").style.display = "none";
     }
     
-      document.getElementById("total").textContent = `₹${total.toFixed(2)}`;
+    document.getElementById("total").textContent = `$${total.toFixed(2)}`;
   }
 
   placeOrder() {
@@ -372,7 +135,20 @@ class Checkout {
     // Set confirmation details
     document.getElementById("orderNumber").textContent = orderNumber;
     document.getElementById("estimatedDelivery").textContent = `Today, ${formattedDeliveryTime}`;
-    document.getElementById("confirmationEmail").textContent = document.getElementById("email").value;
+    
+    // Get payment method
+    const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+    let paymentMethodText = "";
+    if (paymentMethod === "cod") {
+      paymentMethodText = "Cash on Delivery";
+    } else if (paymentMethod === "upi") {
+      paymentMethodText = "UPI Payment";
+    } else if (paymentMethod === "card") {
+      paymentMethodText = "Card Payment";
+    }
+    
+    // Set payment method in confirmation
+    document.getElementById("paymentMethod").textContent = paymentMethodText;
     
     // Show confirmation modal
     document.getElementById("confirmationModal").classList.add("active");
@@ -385,13 +161,167 @@ class Checkout {
       id: orderNumber,
       date: new Date().toISOString(),
       items: this.cart,
-        total: parseFloat(document.getElementById("total").textContent.replace("₹", "")),
-      status: "Processing"
+      total: parseFloat(document.getElementById("total").textContent.replace("$", "")),
+      status: "Processing",
+      address: document.getElementById("address").value,
+      zipCode: document.getElementById("zipCode").value,
+      paymentMethod: paymentMethodText
     };
+    
+    // Save current order for bill generation
+    localStorage.setItem("currentOrder", JSON.stringify(order));
     
     const orderHistory = JSON.parse(localStorage.getItem("orderHistory")) || [];
     orderHistory.push(order);
     localStorage.setItem("orderHistory", JSON.stringify(orderHistory));
+  }
+  
+  generateBill() {
+    // Get the current order from localStorage
+    const order = JSON.parse(localStorage.getItem("currentOrder"));
+    
+    if (!order) {
+      alert("Order information not found!");
+      return;
+    }
+    
+    // Create a new window for the bill
+    const billWindow = window.open('', '_blank', 'width=800,height=600');
+    
+    // Generate bill HTML
+    const billHTML = `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Invoice - ${order.id}</title>
+        <style>
+          body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+          }
+          .invoice-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+          }
+          .invoice-title {
+            font-size: 24px;
+            color: #764ba2;
+            margin-bottom: 5px;
+          }
+          .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+          }
+          .invoice-details div {
+            flex: 1;
+          }
+          .invoice-to {
+            margin-bottom: 20px;
+          }
+          .invoice-items {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+          }
+          .invoice-items th, .invoice-items td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+          }
+          .invoice-items th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+          }
+          .invoice-total {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 700;
+          }
+          .print-button {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+          }
+          @media print {
+            .print-button {
+              display: none;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="invoice-header">
+          <h1 class="invoice-title">INVOICE</h1>
+          <p>FoodieExpress</p>
+        </div>
+        
+        <div class="invoice-details">
+          <div>
+            <h3>Invoice To:</h3>
+            <div class="invoice-to">
+              <p><strong>Address:</strong> ${order.shippingAddress}</p>
+               <p><strong>Zip Code:</strong> ${order.zipCode}</p>
+            </div>
+          </div>
+          <div>
+            <h3>Invoice Details:</h3>
+            <p><strong>Invoice Number:</strong> INV-${order.id.substring(4)}</p>
+            <p><strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}</p>
+            <p><strong>Payment Method:</strong> ${this.getPaymentMethodText(order.paymentMethod)}</p>
+          </div>
+        </div>
+        
+        <table class="invoice-items">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${order.items.map(item => `
+              <tr>
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>$${(item.price * item.quantity).toFixed(2)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        
+        <div class="invoice-total">
+          <p>Subtotal: $${(order.total / 1.08).toFixed(2)}</p>
+          <p>Tax (8%): $${(order.total - (order.total / 1.08)).toFixed(2)}</p>
+          <p>Total: $${order.total.toFixed(2)}</p>
+        </div>
+        
+        <button class="print-button" onclick="window.print()">Print Invoice</button>
+      </body>
+      </html>
+    `;
+    
+    // Write the bill HTML to the new window
+    billWindow.document.open();
+    billWindow.document.write(billHTML);
+    billWindow.document.close();
   }
 }
 

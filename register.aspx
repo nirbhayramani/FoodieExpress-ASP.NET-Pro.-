@@ -27,7 +27,7 @@
                                     <div class="input-icon">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtfnm" runat="server" placeholder="First name" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="ReqValdFnm" runat="server" ErrorMessage="Please fill first name" ControlToValidate="txtfnm"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtfnm" runat="server" placeholder="First name" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="ReqValdFnm" runat="server" ErrorMessage="Please enter first name" ControlToValidate="txtfnm"></asp:RequiredFieldValidator>
                                     <div class="input-focus-border"></div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                                     <div class="input-icon">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtlnm" runat="server" placeholder="Last name" CssClass="form-input"></asp:TextBox>
+                                    <asp:TextBox ID="txtlnm" runat="server" placeholder="Last name" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter last name" ControlToValidate="txtlnm"></asp:RequiredFieldValidator>
                                     <div class="input-focus-border"></div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="input-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <asp:TextBox ID="txteml" runat="server" placeholder="Email address" CssClass="form-input"></asp:TextBox>
+                                <asp:TextBox ID="txteml" runat="server" placeholder="Email address" CssClass="form-input"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txteml"></asp:RegularExpressionValidator>
                                 <div class="input-focus-border"></div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                 <div class="input-icon">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                <asp:TextBox ID="txttel" runat="server" placeholder="Phone number" CssClass="form-input"></asp:TextBox>
+                                <asp:TextBox ID="txttel" runat="server" placeholder="Phone number" CssClass="form-input"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please enter a valid phone number" ControlToValidate="txttel" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
                                 <div class="input-focus-border"></div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                                 <div class="input-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                <asp:TextBox ID="txtadd" runat="server" placeholder="Delivery address" CssClass="form-input"></asp:TextBox>
+                                <asp:TextBox ID="txtadd" runat="server" placeholder="Delivery address" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a valid address"></asp:RequiredFieldValidator>
                                 <div class="input-focus-border"></div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                 <div class="input-icon">
                                     <i class="fas fa-lock"></i>
                                 </div>
-                                <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" CssClass="form-input password-input"></asp:TextBox>
+                                <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" CssClass="form-input password-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter a valid and strong password" ControlToValidate="txtpass"></asp:RequiredFieldValidator>
                                 <%--<button type="button" class="password-toggle" id="passwordToggle">
                                     <i class="fas fa-eye"></i>
                                 </button>--%>
@@ -95,7 +95,7 @@
                                 <div class="input-icon">
                                     <i class="fas fa-lock"></i>
                                 </div>
-                                <asp:TextBox ID="txtcon" runat="server" TextMode="Password" placeholder="Confirm password" CssClass="form-input password-input"></asp:TextBox>
+                                <asp:TextBox ID="txtcon" runat="server" TextMode="Password" placeholder="Confirm password" CssClass="form-input password-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please re-enter your password" ControlToValidate="txtcon"></asp:RequiredFieldValidator><asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords don't match." ControlToCompare="txtpass" ControlToValidate="txtcon"></asp:CompareValidator>
                                 <%--<button type="button" class="password-toggle" id="confirmPasswordToggle">
                                     <i class="fas fa-eye"></i>
                                 </button>--%>

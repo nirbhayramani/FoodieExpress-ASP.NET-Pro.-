@@ -45,7 +45,7 @@
                                 <h3><%# Eval("Fo_Name") %></h3>
                                 <p><%# Eval("Fo_Desc") %></p>
                                 <div class="menu-card-footer">
-                                    <span class="price">$<%# Eval("Fo_Price") %></span>
+                                    <span class="price">₹<%# Eval("Fo_Price") %></span>
                                     <asp:LinkButton ID="lnkadcart" runat="server"
                                         CommandArgument='<%# Eval("Id") %>'
                                         CssClass="btn" CommandName="cmd_cart" OnClick="lnkadcart_Click">Add To Cart</asp:LinkButton>
