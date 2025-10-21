@@ -78,8 +78,10 @@
     <Content Include="admin\admin-login.aspx" />
     <Content Include="admin\edit-category.aspx" />
     <Content Include="admin\edit-food.aspx" />
+    <Content Include="admin\edit-order.aspx" />
     <Content Include="admin\food-management.aspx" />
     <Content Include="admin\login-styles.css" />
+    <Content Include="admin\order-management.aspx" />
     <Content Include="admin\profile.aspx" />
     <Content Include="admin\user-management.aspx" />
     <Content Include="analytics.aspx" />
@@ -225,12 +227,26 @@
     <Compile Include="admin\edit-food.aspx.designer.cs">
       <DependentUpon>edit-food.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\edit-order.aspx.cs">
+      <DependentUpon>edit-order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\edit-order.aspx.designer.cs">
+      <DependentUpon>edit-order.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\food-management.aspx.cs">
       <DependentUpon>food-management.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\food-management.aspx.designer.cs">
       <DependentUpon>food-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\order-management.aspx.cs">
+      <DependentUpon>order-management.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\order-management.aspx.designer.cs">
+      <DependentUpon>order-management.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\profile.aspx.cs">
       <DependentUpon>profile.aspx</DependentUpon>

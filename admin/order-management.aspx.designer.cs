@@ -11,7 +11,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
 
 
-    public partial class food_management
+    public partial class order_management
     {
 
         /// <summary>
@@ -24,30 +24,21 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         protected global::System.Web.UI.WebControls.Button btnRep;
 
         /// <summary>
-        /// gridvufod control.
+        /// btnRepItem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gridvufod;
+        protected global::System.Web.UI.WebControls.Button btnRepItem;
 
         /// <summary>
-        /// lnkbtnprev control.
+        /// grdVuOrd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnprev;
-
-        /// <summary>
-        /// lnkbtnnxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnnxt;
+        protected global::System.Web.UI.WebControls.GridView grdVuOrd;
     }
 }

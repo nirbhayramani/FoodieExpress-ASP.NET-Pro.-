@@ -27,6 +27,10 @@
                     <i class="fas fa-users"></i>
                     <span>User Management</span>
                 </a>
+                <a href="order-management.aspx" class="sidebar-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Order Management</span>
+                </a>
                 <a href="../index.aspx" class="sidebar-item">
                     <i class="fas fa-external-link-alt"></i>
                     <span>View Website</span>
@@ -35,10 +39,11 @@
         </div>
 
         <div class="admin-main-content">
-            <div class="admin-header">
+            <div class="admin-header" style="padding-top:3.5rem;">
                 <h1>Food Management</h1>
                 <p>Manage your food items, add new dishes, and update existing ones</p>
                 <div class="header-actions">
+                    <asp:Button ID="btnRep" runat="server" Text="Export Report" class="btn btn-primary" />
                     <a href="add-food.aspx" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Add New Food
@@ -49,8 +54,8 @@
             <!-- Search and Filter -->
             <div class="search-filter-bar">
                 <%--<div class="search-box">--%>
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="search-food" placeholder="Search foods..." class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-food" placeholder="Search foods..." class="search-box">
                 <%--</div>--%>
                 <div class="filter-options">
                     <select id="category-filter">

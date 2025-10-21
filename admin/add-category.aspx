@@ -27,6 +27,10 @@
                     <i class="fas fa-users"></i>
                     <span>User Management</span>
                 </a>
+                <a href="order-management.aspx" class="sidebar-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Order Management</span>
+                </a>
                 <a href="../index.aspx" class="sidebar-item">
                     <i class="fas fa-external-link-alt"></i>
                     <span>View Website</span>

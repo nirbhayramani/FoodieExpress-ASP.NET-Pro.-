@@ -11,6 +11,10 @@
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
+                <a href="profile.aspx" class="sidebar-item">
+                    <i class="fas fa-user-cog"></i>
+                    <span>My Profile</span>
+                </a>
                 <a href="food-management.aspx" class="sidebar-item">
                     <i class="fas fa-hamburger"></i>
                     <span>Food Management</span>
@@ -23,9 +27,9 @@
                     <i class="fas fa-users"></i>
                     <span>User Management</span>
                 </a>
-                <a href="profile.aspx" class="sidebar-item">
-                    <i class="fas fa-user-cog"></i>
-                    <span>My Profile</span>
+                <a href="order-management.aspx" class="sidebar-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Order Management</span>
                 </a>
                 <a href="../index.aspx" class="sidebar-item">
                     <i class="fas fa-external-link-alt"></i>
@@ -35,7 +39,7 @@
         </div>
 
         <div class="admin-main-content">
-            <div class="admin-header">
+            <div class="admin-header" style="padding-top:4rem;">
                 <h1>User Management</h1>
                 <p>Manage your users, view user details, and handle user accounts</p>
                 <div class="header-actions">
@@ -75,7 +79,7 @@
             </div>
 
             <!-- Users Table -->
-            <div class="table-container">
+            <%--<div class="table-container">
                 <table class="admin-table" id="user-table">
                     <thead>
                         <tr>
@@ -220,10 +224,124 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div>--%>
+
+            <%--<div class="table-container admin-table">--%>
+            <%--<asp:GridView ID="grdvuUsr" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:TemplateField HeaderText="User Id">
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="First Name">
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("First_Name") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Last Name">
+                            <ItemTemplate>
+                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("Last_Name") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Email ID">
+                            <ItemTemplate>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Phone Number">
+                            <ItemTemplate>
+                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("Phone_Number") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Delivery Address">
+                            <ItemTemplate>
+                                <asp:Label ID="Label6" runat="server" Text='<%# Eval("Delivery_Address") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>--%>
+            <%--</div>--%>
+
+            <%--<div class="gridview-container">
+                <asp:GridView ID="grdvuUsr" runat="server" AutoGenerateColumns="False" CssClass="gridview-table">
+                    <Columns>
+                        <asp:TemplateField HeaderText="User ID">
+                            <ItemTemplate>
+                                <div class="user-info-cell">
+                                    <div class="user-details">
+                                        <span class="user-id"><%# Eval("Id") %></span>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="User Name">
+                            <ItemTemplate>
+                                <div class="user-info-cell">
+                                    <div class="user-details">
+                                        <span class="user-name"><%# Eval("First_Name") %> <%# Eval("Last_Name") %></span>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Email">
+                            <ItemTemplate>
+                                <asp:Label ID="Label4" runat="server" Text='<%# Eval("Email") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Phone Number">
+                            <ItemTemplate>
+                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("Phone_Number") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Delivery Address">
+                            <ItemTemplate>
+                                <asp:Label ID="Label6" runat="server" Text='<%# Eval("Delivery_Address") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </div>--%>
+
+
+            <asp:GridView ID="grdvuUsr" runat="server" AutoGenerateColumns="False" CssClass="admin-table">
+                <Columns>
+                    <asp:TemplateField HeaderText="User Id">
+                        <ItemTemplate>
+                            <asp:Label ID="lblUserId" runat="server" Text='<%# "#" + Eval("Id") %>' CssClass="user-id"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="First Name">
+                        <ItemTemplate>
+                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("First_Name") %>' CssClass="user-first-name"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Last Name">
+                        <ItemTemplate>
+                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("Last_Name") %>' CssClass="user-last-name"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Email ID">
+                        <ItemTemplate>
+                            <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>' CssClass="user-email"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Phone Number">
+                        <ItemTemplate>
+                            <asp:Label ID="lblPhone" runat="server" Text='<%# Eval("Phone_Number") %>' CssClass="user-phone"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Delivery Address">
+                        <ItemTemplate>
+                            <asp:Label ID="lblAddress" runat="server" Text='<%# Eval("Delivery_Address") %>' CssClass="user-address" Style="background: #FFF9F2; padding: 0.5rem;"></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+
 
             <!-- Pagination -->
-            <div class="pagination">
+            <%--<div class="pagination">
                 <button class="btn btn-sm" onclick="previousPage()">
                     <i class="fas fa-chevron-left"></i>
                     Previous
@@ -233,12 +351,12 @@
                     Next
                     <i class="fas fa-chevron-right"></i>
                 </button>
-            </div>
+            </div>--%>
         </div>
     </div>
 
     <!-- User Details Modal -->
-    <div id="userDetailsModal" class="modal">
+    <%--<div id="userDetailsModal" class="modal">
         <div class="modal-content modal-large">
             <div class="modal-header">
                 <h3>User Details</h3>
@@ -300,10 +418,10 @@
                 <button class="btn btn-primary" onclick="editUserFromModal()">Edit User</button>
             </div>
         </div>
-    </div>
+    </div>--%>
 
     <!-- Edit User Modal -->
-    <div id="editUserModal" class="modal">
+    <%--<div id="editUserModal" class="modal">
         <div class="modal-content modal-large">
             <div class="modal-header">
                 <h3>Edit User</h3>
@@ -367,10 +485,10 @@
                 <button class="btn btn-primary" onclick="saveUserChanges()">Save Changes</button>
             </div>
         </div>
-    </div>
+    </div>--%>
 
     <!-- Delete Confirmation Modal -->
-    <div id="deleteUserModal" class="modal">
+    <%--<div id="deleteUserModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Confirm Delete</h3>
@@ -386,9 +504,430 @@
                 <button class="btn btn-danger" onclick="confirmDeleteUser()">Delete User</button>
             </div>
         </div>
-    </div>
+    </div>--%>
 
     <script src="admin-scripts.js"></script>
+
+    <%--<style>
+        /* GridView Styling */
+        .gridview-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .gridview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+            .gridview-table th {
+                /*background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);*/
+                background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+                color: white;
+                font-weight: 600;
+                text-align: left;
+                padding: 16px 20px;
+                border-bottom: none;
+                position: relative;
+                overflow: hidden;
+            }
+
+                .gridview-table th:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: rgba(255, 255, 255, 0.3);
+                }
+
+            .gridview-table td {
+                padding: 16px 20px;
+                border-bottom: 1px solid #f0f0f0;
+                transition: all 0.3s ease;
+            }
+
+            .gridview-table tr {
+                transition: all 0.3s ease;
+            }
+
+                .gridview-table tr:hover {
+                    background-color: #f8f9ff;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                }
+
+                    .gridview-table tr:hover td {
+                        border-color: #e1e5ff;
+                    }
+
+                /* Alternating row colors */
+                .gridview-table tr:nth-child(even) {
+                    background-color: #f9fafc;
+                }
+
+                    .gridview-table tr:nth-child(even):hover {
+                        background-color: #f0f3ff;
+                    }
+
+        /* User info styling */
+        .user-info-cell {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 2px;
+        }
+
+        .user-id {
+            font-size: 12px;
+            color: #718096;
+        }
+
+        /* Badge styling */
+        .role-badge, .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: capitalize;
+            display: inline-block;
+        }
+
+            .role-badge.customer {
+                background-color: #e1f5fe;
+                color: #0288d1;
+            }
+
+            .role-badge.admin {
+                background-color: #f3e5f5;
+                color: #7b1fa2;
+            }
+
+            .role-badge.moderator {
+                background-color: #e8f5e9;
+                color: #388e3c;
+            }
+
+            .status-badge.active {
+                background-color: #e8f5e9;
+                color: #2e7d32;
+            }
+
+            .status-badge.inactive {
+                background-color: #fff3e0;
+                color: #ef6c00;
+            }
+
+            .status-badge.banned {
+                background-color: #ffebee;
+                color: #c62828;
+            }
+
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-sm {
+            padding: 6px 10px;
+            font-size: 11px;
+        }
+
+        .btn-primary {
+            background-color: #4361ee;
+            color: white;
+        }
+
+            .btn-primary:hover {
+                background-color: #3a56d4;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(67, 97, 238, 0.3);
+            }
+
+        .btn-danger {
+            background-color: #f72585;
+            color: white;
+        }
+
+            .btn-danger:hover {
+                background-color: #e11575;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
+            }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .gridview-table tr {
+            animation: slideIn 0.5s ease-out;
+            animation-fill-mode: both;
+        }
+
+            .gridview-table tr:nth-child(1) {
+                animation-delay: 0.1s;
+            }
+
+            .gridview-table tr:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .gridview-table tr:nth-child(3) {
+                animation-delay: 0.3s;
+            }
+
+            .gridview-table tr:nth-child(4) {
+                animation-delay: 0.4s;
+            }
+
+            .gridview-table tr:nth-child(5) {
+                animation-delay: 0.5s;
+            }
+
+            .gridview-table tr:nth-child(6) {
+                animation-delay: 0.6s;
+            }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .gridview-container {
+                overflow-x: auto;
+            }
+
+            .gridview-table {
+                min-width: 800px;
+            }
+
+                .gridview-table th,
+                .gridview-table td {
+                    padding: 12px 15px;
+                }
+        }
+    </style>--%>        <%--with css--%>
+
+    <style>
+        /* GridView Styling */
+        .admin-main-content {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+
+        #ContentPlaceHolder2_grdvuUsr {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+
+            #ContentPlaceHolder2_grdvuUsr th {
+                background: #f8f9fa;
+                padding: 15px 12px;
+                text-align: left;
+                font-weight: 600;
+                color: #333;
+                border-bottom: 1px solid #dee2e6;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            #ContentPlaceHolder2_grdvuUsr td {
+                padding: 15px 12px;
+                border-bottom: 1px solid #dee2e6;
+                color: #555;
+                font-size: 0.9rem;
+            }
+
+            #ContentPlaceHolder2_grdvuUsr tr:last-child td {
+                border-bottom: none;
+            }
+
+            #ContentPlaceHolder2_grdvuUsr tr:hover {
+                background-color: #f8f9fa;
+            }
+
+            /* User Info Styling */
+            #ContentPlaceHolder2_grdvuUsr td:nth-child(1) {
+                font-weight: 600;
+                color: #FF6B35;
+            }
+
+            /* Name Styling */
+            #ContentPlaceHolder2_grdvuUsr td:nth-child(2),
+            #ContentPlaceHolder2_grdvuUsr td:nth-child(3) {
+                font-weight: 500;
+                color: #333;
+            }
+
+            /* Email Styling */
+            #ContentPlaceHolder2_grdvuUsr td:nth-child(4) {
+                color: #666;
+                font-style: italic;
+            }
+
+            /* Phone Number Styling */
+            #ContentPlaceHolder2_grdvuUsr td:nth-child(5) {
+                color: #555;
+                font-family: monospace;
+            }
+
+            /* Address Styling */
+            #ContentPlaceHolder2_grdvuUsr td:nth-child(6) {
+                /* color: #666;
+                max-width: 200px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;*/
+                color: #7FB069;
+            }
+
+        /* Header Actions */
+        .header-actions {
+            margin: 20px 0;
+        }
+
+        /* Search and Filter Section */
+        .search-filter-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+            .search-box i {
+                position: absolute;
+                left: 12px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #666;
+            }
+
+            .search-box input {
+                width: 100%;
+                padding: 10px 10px 10px 35px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 0.9rem;
+            }
+
+        .filter-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+            .filter-options select {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 0.9rem;
+                background: white;
+                min-width: 120px;
+            }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #ContentPlaceHolder2_grdvuUsr {
+                font-size: 0.8rem;
+            }
+
+                #ContentPlaceHolder2_grdvuUsr th,
+                #ContentPlaceHolder2_grdvuUsr td {
+                    padding: 10px 8px;
+                }
+
+            .search-filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: auto;
+            }
+
+            .filter-options {
+                justify-content: space-between;
+            }
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>

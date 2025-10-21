@@ -27,6 +27,10 @@
                     <i class="fas fa-users"></i>
                     <span>User Management</span>
                 </a>
+                <a href="order-management.aspx" class="sidebar-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Order Management</span>
+                </a>
                 <a href="../index.aspx" class="sidebar-item">
                     <i class="fas fa-external-link-alt"></i>
                     <span>View Website</span>
@@ -72,7 +76,7 @@
                         <div class="form-group">
                             <label for="food-price">Price *</label>
                             <%--<input type="number" id="food-price" name="price" step="0.01" min="0" required>--%>
-                            <asp:TextBox ID="txtprc" runat="server" ></asp:TextBox>
+                            <asp:TextBox ID="txtprc" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="food-status">Status</label>
@@ -148,7 +152,7 @@
                             <i class="fas fa-save"></i>
                             Update Food Item
                         </button>--%>
-                        <asp:Button ID="btnupd" runat="server" Text="Update Food Item" class="btn btn-primary" OnClick="btnupd_Click"/>
+                        <asp:Button ID="btnupd" runat="server" Text="Update Food Item" class="btn btn-primary" OnClick="btnupd_Click" />
                     </div>
                 </form>
             </div>
