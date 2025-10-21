@@ -39,14 +39,15 @@
         </div>
 
         <div class="admin-main-content">
-            <div class="admin-header" style="padding-top:4rem;">
+            <div class="admin-header" style="padding-top: 4rem;">
                 <h1>User Management</h1>
                 <p>Manage your users, view user details, and handle user accounts</p>
                 <div class="header-actions">
-                    <button class="btn btn-primary" onclick="exportUsers()">
+                    <%--<button class="btn btn-primary" onclick="exportUsers()">
                         <i class="fas fa-download"></i>
                         Export Users
-                    </button>
+                    </button>--%>
+                    <asp:LinkButton ID="lnkRep" runat="server" class="btn btn-primary" OnClick="lnkRep_Click"><i class="fas fa-download"></i> Export Users</asp:LinkButton>
                 </div>
             </div>
 

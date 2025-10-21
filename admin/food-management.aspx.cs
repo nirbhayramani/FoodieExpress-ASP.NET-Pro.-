@@ -89,5 +89,22 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             ViewState["pid"] = currentPage;
             fillgrid();
         }
+
+        protected void btnRep_Click(object sender, EventArgs e)
+        {
+            getcon();
+            da = new SqlDataAdapter("select * from food_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string s = Server.MapPath("~/admin/Report Files/xmls/food_report.xml");
+            ds.WriteXmlSchema(s);
+
+            //string path = Server.MapPath("~/admin/Report Files/rpts/food_report.rpt");
+            //cr.Load(path);
+            //cr.SetDataSource(ds.Tables[0]);
+            //cr.Refresh();
+            //CrystalReportViewer1.ReportSource = cr;
+            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Food Report");
+        }
     }
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Table">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Order_Item_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="OI_Order_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="OI_Fod_Id" type="xs:int" minOccurs="0" />
+              <xs:element name="OI_Fod_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="OI_Fod_Price" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OI_Fod_Quant" type="xs:int" minOccurs="0" />
+              <xs:element name="OI_Fod_Image" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

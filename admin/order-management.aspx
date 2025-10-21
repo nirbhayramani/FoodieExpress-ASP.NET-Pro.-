@@ -43,8 +43,8 @@
                 <h1>Order Management</h1>
                 <p>Manage customer orders, update order status, and track payments</p>
                 <div class="header-actions">
-                    <asp:Button ID="btnRep" runat="server" Text="Orders Report" class="btn btn-primary" />
-                    <asp:Button ID="btnRepItem" runat="server" Text="Ordered Items Report" class="btn btn-primary" />
+                    <asp:Button ID="btnRep" runat="server" Text="Orders Report" class="btn btn-primary" OnClick="btnRep_Click" />
+                    <asp:Button ID="btnRepItem" runat="server" Text="Ordered Items Report" class="btn btn-primary" OnClick="btnRepItem_Click" />
                 </div>
             </div>
 

@@ -11,6 +11,10 @@ using System.Configuration;
 using System.Drawing;
 using System.Xml.Linq;
 
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Web.Design;
+
 namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
     public partial class category_management : System.Web.UI.Page
@@ -21,6 +25,9 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         DataSet ds;
         SqlCommand cmd;     //SQL Operations: Insert, Update, Delete
         string fnm;
+
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        static string Crypath = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -63,7 +70,19 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 
         protected void btnRep_Click(object sender, EventArgs e)
         {
+            getcon();
+            da = new SqlDataAdapter("select * from cate_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string s = Server.MapPath("~/admin/Report Files/xmls/cate_report.xml");
+            ds.WriteXmlSchema(s);
 
+            string path = Server.MapPath("~/admin/Report Files/rpts/cate_report.rpt");
+            cr.Load(path);
+            cr.SetDataSource(ds.Tables[0]);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Categories Report");
         }
     }
 }

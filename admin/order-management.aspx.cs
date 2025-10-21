@@ -62,8 +62,42 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
 
             if (e.CommandName == "cmd_edt")
             {
-                    Response.Redirect("edit-order.aspx?id=" + id);
+                Response.Redirect("edit-order.aspx?id=" + id);
             }
+        }
+
+        protected void btnRep_Click(object sender, EventArgs e)
+        {
+            getcon();
+            da = new SqlDataAdapter("select * from Order_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string s = Server.MapPath("~/admin/Report Files/xmls/orders_report.xml");
+            ds.WriteXmlSchema(s);
+
+            //string path = Server.MapPath("~/admin/Report Files/rpts/orders_report.rpt");
+            //cr.Load(path);
+            //cr.SetDataSource(ds.Tables[0]);
+            //cr.Refresh();
+            //CrystalReportViewer1.ReportSource = cr;
+            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Orders Report");
+        }
+
+        protected void btnRepItem_Click(object sender, EventArgs e)
+        {
+            getcon();
+            da = new SqlDataAdapter("select * from Order_Item_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string s = Server.MapPath("~/admin/Report Files/xmls/ordered_Item_report.xml");
+            ds.WriteXmlSchema(s);
+
+            //string path = Server.MapPath("~/admin/Report Files/rpts/ordered_Item_report.rpt");
+            //cr.Load(path);
+            //cr.SetDataSource(ds.Tables[0]);
+            //cr.Refresh();
+            //CrystalReportViewer1.ReportSource = cr;
+            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Ordered Items Report");
         }
     }
 }

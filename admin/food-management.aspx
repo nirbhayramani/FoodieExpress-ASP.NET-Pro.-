@@ -43,7 +43,7 @@
                 <h1>Food Management</h1>
                 <p>Manage your food items, add new dishes, and update existing ones</p>
                 <div class="header-actions">
-                    <asp:Button ID="btnRep" runat="server" Text="Export Report" class="btn btn-primary" />
+                    <asp:Button ID="btnRep" runat="server" Text="Export Report" class="btn btn-primary" OnClick="btnRep_Click" />
                     <a href="add-food.aspx" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Add New Food

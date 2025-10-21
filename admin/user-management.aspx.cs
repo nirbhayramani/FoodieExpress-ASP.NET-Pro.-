@@ -40,5 +40,22 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             grdvuUsr.DataSource = ds;
             grdvuUsr.DataBind();
         }
+
+        protected void lnkRep_Click(object sender, EventArgs e)
+        {
+            getcon();
+            da = new SqlDataAdapter("select * from users_tbl", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            string s = Server.MapPath("~/admin/Report Files/xmls/users_report.xml");
+            ds.WriteXmlSchema(s);
+
+            //string path = Server.MapPath("~/admin/Report Files/rpts/users_report.rpt");
+            //cr.Load(path);
+            //cr.SetDataSource(ds.Tables[0]);
+            //cr.Refresh();
+            //CrystalReportViewer1.ReportSource = cr;
+            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Users Report");
+        }
     }
 }

@@ -15,6 +15,15 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
     {
 
         /// <summary>
+        /// lnkRep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkRep;
+
+        /// <summary>
         /// grdvuUsr control.
         /// </summary>
         /// <remarks>
