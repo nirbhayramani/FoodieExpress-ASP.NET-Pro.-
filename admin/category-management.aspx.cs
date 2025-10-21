@@ -60,5 +60,10 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
                 Response.Redirect("edit-category.aspx?id=" + id);
             }
         }
+
+        protected void btnRep_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

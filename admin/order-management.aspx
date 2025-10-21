@@ -122,7 +122,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Total">
                         <ItemTemplate>
-                            <asp:Label ID="lblTotal" runat="server" Text='<%# "$" + Eval("Or_Grand_Total") %>'></asp:Label>
+                            <asp:Label ID="lblTotal" runat="server" Text='<%# "₹" + Eval("Or_Grand_Total") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Order Status">

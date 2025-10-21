@@ -39,7 +39,7 @@
         </div>
 
         <div class="admin-main-content">
-            <div class="admin-header">
+            <div class="admin-header" style="padding-top:3rem;">
                 <h1>Edit Category</h1>
                 <p>Update the category details</p>
                 <div class="header-actions">

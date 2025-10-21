@@ -20,11 +20,11 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         SqlCommand cmd;     //SQL Operations: Insert, Update, Delete
         string fnm;
         int id,catId;
-        void getcon()
-        {
-            con = new SqlConnection(s);
-            con.Open();
-        }
+            void getcon()
+            {
+                con = new SqlConnection(s);
+                con.Open();
+            }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["admin"] == null)
@@ -40,14 +40,13 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
                     fillCategory();
                     select();
                 }
-                
             }
         }
 
         void fillCategory()
         {
             getcon();
-            da = new SqlDataAdapter("Select * from cat_tbl", con);
+            da = new SqlDataAdapter("Select * from cate_tbl", con);
             ds = new DataSet();
             da.Fill(ds);
 

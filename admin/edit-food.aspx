@@ -40,7 +40,7 @@
 
 
         <div class="admin-main-content">
-            <div class="admin-header">
+            <div class="admin-header" style="padding-top:3rem;">
                 <h1>Edit Food Item</h1>
                 <p>Update the food item details</p>
                 <div class="header-actions">

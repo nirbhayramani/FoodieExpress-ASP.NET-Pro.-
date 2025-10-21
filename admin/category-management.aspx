@@ -44,7 +44,7 @@
                 <h1>Category Management</h1>
                 <p>Manage food categories, add new categories, and organize your menu</p>
                 <div class="header-actions">
-                    <asp:Button ID="btnRep" runat="server" Text="Export Report" class="btn btn-primary" />
+                    <asp:Button ID="btnRep" runat="server" Text="Export Report" class="btn btn-primary" OnClick="btnRep_Click" />
                     <a href="add-category.aspx" class="btn btn-primary">
                         <i class="fas fa-plus"></i>
                         Add New Category
