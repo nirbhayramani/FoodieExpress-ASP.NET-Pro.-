@@ -326,18 +326,18 @@
       <DependentUpon>ordered_Item_report.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="admin\Report Files\rpts\users_report.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>users_report.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="admin\user-management.aspx.cs">
       <DependentUpon>user-management.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\user-management.aspx.designer.cs">
       <DependentUpon>user-management.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\Report Files\rpts\users_report.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>users_report.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="analytics.aspx.cs">
       <DependentUpon>analytics.aspx</DependentUpon>

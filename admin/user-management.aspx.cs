@@ -9,6 +9,10 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Web.Design;
+
 namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
     public partial class user_management : System.Web.UI.Page
@@ -19,9 +23,11 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         SqlDataAdapter da;
         DataSet ds;
 
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        static string Crypath = "";
         void getcon()
         {
-            con= new SqlConnection(s);
+            con = new SqlConnection(s);
             con.Open();
         }
         protected void Page_Load(object sender, EventArgs e)
@@ -41,7 +47,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             grdvuUsr.DataBind();
         }
 
-        protected void lnkRep_Click(object sender, EventArgs e)
+        protected void btnRep_Click(object sender, EventArgs e)
         {
             getcon();
             da = new SqlDataAdapter("select * from users_tbl", con);
@@ -50,12 +56,12 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             string s = Server.MapPath("~/admin/Report Files/xmls/users_report.xml");
             ds.WriteXmlSchema(s);
 
-            //string path = Server.MapPath("~/admin/Report Files/rpts/users_report.rpt");
-            //cr.Load(path);
-            //cr.SetDataSource(ds.Tables[0]);
-            //cr.Refresh();
-            //CrystalReportViewer1.ReportSource = cr;
-            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Users Report");
+            string path = Server.MapPath("~/admin/Report Files/rpts/users_report.rpt");
+            cr.Load(path);
+            cr.SetDataSource(ds.Tables[0]);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Users Report");
         }
     }
 }

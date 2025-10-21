@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/admin.Master" AutoEventWireup="true" CodeBehind="user-management.aspx.cs" Inherits="FoodieExpress___ASP.NET_Pro.__.admin.user_management" %>
 
+<%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -47,7 +49,7 @@
                         <i class="fas fa-download"></i>
                         Export Users
                     </button>--%>
-                    <asp:LinkButton ID="lnkRep" runat="server" class="btn btn-primary" OnClick="lnkRep_Click"><i class="fas fa-download"></i> Export Users</asp:LinkButton>
+                    <asp:Button ID="btnRep" runat="server" Text="Export Users" class="btn btn-primary" OnClick="btnRep_Click" />
                 </div>
             </div>
 
@@ -929,6 +931,7 @@
             }
         }
     </style>
+    <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
 </asp:Content>

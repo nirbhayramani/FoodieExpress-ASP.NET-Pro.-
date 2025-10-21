@@ -9,6 +9,10 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Web.Design;
+
 namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
     public partial class order_management : System.Web.UI.Page
@@ -22,6 +26,8 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         string fnm;
         int row;
 
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        static string Crypath = "";
         void getcon()
         {
             con = new SqlConnection(s);
@@ -75,12 +81,12 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             string s = Server.MapPath("~/admin/Report Files/xmls/orders_report.xml");
             ds.WriteXmlSchema(s);
 
-            //string path = Server.MapPath("~/admin/Report Files/rpts/orders_report.rpt");
-            //cr.Load(path);
-            //cr.SetDataSource(ds.Tables[0]);
-            //cr.Refresh();
-            //CrystalReportViewer1.ReportSource = cr;
-            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Orders Report");
+            string path = Server.MapPath("~/admin/Report Files/rpts/orders_report.rpt");
+            cr.Load(path);
+            cr.SetDataSource(ds.Tables[0]);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Orders Report");
         }
 
         protected void btnRepItem_Click(object sender, EventArgs e)
@@ -92,12 +98,12 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             string s = Server.MapPath("~/admin/Report Files/xmls/ordered_Item_report.xml");
             ds.WriteXmlSchema(s);
 
-            //string path = Server.MapPath("~/admin/Report Files/rpts/ordered_Item_report.rpt");
-            //cr.Load(path);
-            //cr.SetDataSource(ds.Tables[0]);
-            //cr.Refresh();
-            //CrystalReportViewer1.ReportSource = cr;
-            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Ordered Items Report");
+            string path = Server.MapPath("~/admin/Report Files/rpts/ordered_Item_report.rpt");
+            cr.Load(path);
+            cr.SetDataSource(ds.Tables[0]);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Ordered Items Report");
         }
     }
 }

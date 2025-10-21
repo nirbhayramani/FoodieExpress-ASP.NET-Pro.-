@@ -9,6 +9,10 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Web.Design;
+
 namespace FoodieExpress___ASP.NET_Pro.__.admin
 {
     public partial class food_management : System.Web.UI.Page
@@ -22,6 +26,8 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         string fnm;
         int row;
 
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+        static string Crypath = "";
         void getcon()
         {
             con = new SqlConnection(s);
@@ -99,12 +105,12 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             string s = Server.MapPath("~/admin/Report Files/xmls/food_report.xml");
             ds.WriteXmlSchema(s);
 
-            //string path = Server.MapPath("~/admin/Report Files/rpts/food_report.rpt");
-            //cr.Load(path);
-            //cr.SetDataSource(ds.Tables[0]);
-            //cr.Refresh();
-            //CrystalReportViewer1.ReportSource = cr;
-            //cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Food Report");
+            string path = Server.MapPath("~/admin/Report Files/rpts/food_report.rpt");
+            cr.Load(path);
+            cr.SetDataSource(ds.Tables[0]);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, "Food Report");
         }
     }
 }
