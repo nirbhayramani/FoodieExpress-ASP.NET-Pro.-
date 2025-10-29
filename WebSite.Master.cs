@@ -15,6 +15,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
             if (Session["username"] != null)
             {
                 btnlog.Text = "Logout";
+                lnkProf.Visible = true;
                 //lnklog.Text = "Logout";
             }
         }
@@ -30,6 +31,11 @@ namespace FoodieExpress___ASP.NET_Pro.__
                 Session.Abandon();
                 Response.Redirect("login.aspx");
             }
+        }
+
+        protected void lnkProf_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("my-profile.aspx");
         }
 
         //protected void lnklog_Click(object sender, EventArgs e)

@@ -26,36 +26,51 @@
                 <div class="profile-card">
                     <div class="profile-header">
                         <div class="profile-avatar">
-                            <i class="fas fa-user"></i>
+                            <%--<i class="fas fa-user"></i>--%>
+                            <asp:Image ID="imgProf" runat="server" ImageUrl="~/data/userPro_pics/donw.jpg" Style="width: 80px; height: 80px; border-radius: 50%; background: #ddd; display: flex; align-items: center; justify-content: center;" />
                         </div>
                         <div class="profile-info">
-                            <h2>John Doe</h2>
-                            <p>john.doe@example.com</p>
+                            <h2>
+                                <asp:Label ID="lblNm" runat="server" Text="Label"></asp:Label></h2>
+                            <p>
+                                <asp:Label ID="lblEml" runat="server" Text="Label"></asp:Label>
+                            </p>
                         </div>
                     </div>
                     <div class="profile-form">
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" value="John">
+                            <%--<input type="text" id="firstName" value="John">--%>
+                            <asp:TextBox ID="txtFnm" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" value="Doe">
+                            <%--<input type="text" id="lastName" value="Doe">--%>
+                            <asp:TextBox ID="txtLnm" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" value="john.doe@example.com">
+                            <%--<input type="email" id="email" value="john.doe@example.com">--%>
+                            <asp:TextBox ID="txtEml" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="tel" id="phone" value="(555) 123-4567">
+                            <%--<input type="tel" id="phone" value="(555) 123-4567">--%>
+                            <asp:TextBox ID="txtTel" runat="server"></asp:TextBox>
                         </div>
                         <div class="form-group full">
                             <label for="address">Address</label>
-                            <input type="text" id="address" value="123 Main St, Anytown, USA">
+                            <%--<input type="text" id="address" value="123 Main St, Anytown, USA">--%>
+                            <asp:TextBox ID="txtAdd" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group full">
+                            <label for="profilePicture">Change Profile Picture</label>
+                            <%--<input type="file" id="profilePicture" accept="image/*"
+                                onchange="previewProfileImage(this)">--%>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn-save">Save Changes</button>
+                            <%--<button type="button" class="btn-save">Save Changes</button>--%>
+                            <asp:Button ID="btnSv" runat="server" Text="Save Changes" class="btn-save" Style="width: 156.11px;" />
                         </div>
                     </div>
                     <%--                    <asp:DataList ID="DtLsProf" runat="server">
@@ -84,30 +99,128 @@
                             <p style="margin-bottom: 5px; font-weight: 500;">Password</p>
                             <p style="color: #666; font-size: 14px;">Update your password to keep your account secure</p>
                         </div>
-                        <a href="change-password.html" class="btn-save" style="text-decoration: none; display: inline-block; text-align: center;">Change Password</a>
+                        <a href="change-password.aspx" class="btn-save" style="text-decoration: none; display: inline-block; text-align: center;">Change Password</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <style>.profile-hero { padding: 70px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
-        .profile-hero .container { display:flex; align-items:center; justify-content:space-between; }
-        .profile-title { font-size: 2rem; font-weight: 700; }
-        .profile-section { padding: 60px 0; background: var(--bg-secondary); }
-        .profile-card { background: var(--bg-card); border-radius: 12px; box-shadow: var(--card-shadow); padding: 20px; margin-bottom: 20px; }
-        .profile-header { display:flex; align-items:center; gap: 20px; margin-bottom: 20px; }
-        .profile-avatar { width: 80px; height: 80px; border-radius: 50%; background: #ddd; display: flex; align-items: center; justify-content: center; }
-        .profile-avatar i { font-size: 40px; color: #888; }
-        .profile-info h2 { margin: 0 0 5px 0; color: var(--text-color); }
-        .profile-info p { margin: 0; color: var(--text-color-light); }
-        .profile-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        .review-card { background: var(--bg-card); border-radius: 12px; box-shadow: var(--card-shadow); padding: 16px; margin-bottom: 16px; }
-        .review-header { display:flex; align-items:center; justify-content: space-between; margin-bottom: 8px; }
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; color: var(--text-color); }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; }
-        .form-group.full { grid-column: span 2; }
-        .btn-save { background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }</style>
+    <style>
+        .profile-hero {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #ff8c42 0%, #ff6b35 50%, #e74c3c 100%);
+            color: #fff;
+        }
+
+            .profile-hero .container {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 90px;
+            }
+
+        .profile-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .profile-section {
+            padding: 60px 0;
+            background: var(--bg-secondary);
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .profile-avatar i {
+                font-size: 40px;
+                color: #888;
+            }
+
+        .profile-info h2 {
+            margin: 0 0 5px 0;
+            color: var(--text-color);
+        }
+
+        .profile-info p {
+            margin: 0;
+            color: var(--text-color-light);
+        }
+
+        .profile-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 500;
+                color: var(--text-color);
+            }
+
+            .form-group input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid var(--border-color);
+                border-radius: 6px;
+            }
+
+            .form-group.full {
+                grid-column: span 2;
+            }
+
+        .btn-save {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+    </style>
     <%--<style>
         .profile-hero {
             padding: 70px 0;
