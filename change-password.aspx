@@ -38,15 +38,22 @@
                 <form id="changePasswordForm">
                     <div class="form-group">
                         <label for="currentPassword">Current Password</label>
-                        <input type="password" id="currentPassword" required>
+                        <%--<input type="password" id="currentPassword" required>--%>
+                        <asp:TextBox ID="txtCurrPwd" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RVCurrPwd" runat="server" ErrorMessage="Please enter your current password." Style="color: red;" ControlToValidate="txtCurrPwd"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label for="newPassword">New Password</label>
-                        <input type="password" id="newPassword" required>
+                        <%--<input type="password" id="newPassword" required>--%>
+                        <asp:TextBox ID="txtNewPwd" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RVNewPwd" runat="server" ErrorMessage="Please enter a valid password." Style="color: red;" ControlToValidate="txtNewPwd"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword">Confirm New Password</label>
-                        <input type="password" id="confirmPassword" required>
+                        <%--<input type="password" id="confirmPassword" required>--%>
+                        <asp:TextBox ID="txtConfirmPwd" runat="server"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RVConfirmPwd" runat="server" ErrorMessage="Please confirm your new password." Style="color: red;" ControlToValidate="txtConfirmPwd"></asp:RequiredFieldValidator><br />
+                        <asp:CompareValidator ID="CVPwd" runat="server" ErrorMessage="Password don't match." Style="color: red;" ControlToCompare="txtNewPwd" ControlToValidate="txtConfirmPwd"></asp:CompareValidator>
                     </div>
                     <div class="password-requirements">
                         <h4>Password Requirements</h4>
@@ -58,8 +65,10 @@
                             <li>Include at least one special character</li>
                         </ul>
                     </div>
-                    <div class="form-group" style="margin-top: 20px;">
-                        <button type="button" id="savePasswordBtn" class="btn-save">Update Password</button>
+                    <div class="form-group" style="margin-top: 50px;">
+                        <%--<button type="button" id="savePasswordBtn" class="btn-save">Update Password</button>--%>
+                        <%--<asp:Button ID="btnSavePwd" runat="server" Text="Update Password" CssClass="btn-save" OnClick="btnSavePwd_Click" />--%>
+                        <asp:LinkButton ID="lnkSvPwd" runat="server" CssClass="btn-save" OnClick="btnSavePwd_Click">Update Password</asp:LinkButton>
                         <a href="profile.html" class="btn-cancel">Cancel</a>
                     </div>
                 </form>
@@ -90,14 +99,22 @@
             background: var(--bg-secondary);
         }
 
+        .review-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
         .password-card {
             background: var(--bg-card);
             border-radius: 12px;
             box-shadow: var(--card-shadow);
             padding: 20px;
             margin-bottom: 20px;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 700px;
+/*            margin: 0 auto;*/
         }
 
         .form-group {
@@ -125,6 +142,7 @@
             padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
+            text-decoration: none;
         }
 
         .btn-cancel {

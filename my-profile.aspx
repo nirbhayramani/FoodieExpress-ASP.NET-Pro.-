@@ -67,10 +67,12 @@
                             <label for="profilePicture">Change Profile Picture</label>
                             <%--<input type="file" id="profilePicture" accept="image/*"
                                 onchange="previewProfileImage(this)">--%>
+                            <asp:FileUpload ID="fuProf" runat="server" AllowMultiple="false" />
                         </div>
                         <div class="form-group">
                             <%--<button type="button" class="btn-save">Save Changes</button>--%>
-                            <asp:Button ID="btnSv" runat="server" Text="Save Changes" class="btn-save" Style="width: 156.11px;" />
+                            <asp:Button ID="btnSv" runat="server" Text="Save Changes" class="btn-save" Style="width: 156.11px;" OnClick="btnSv_Click" />
+                            <asp:Label ID="lblMsg" runat="server" Text="Label" Visible="false"></asp:Label>
                         </div>
                     </div>
                     <%--                    <asp:DataList ID="DtLsProf" runat="server">

@@ -33,7 +33,10 @@ namespace FoodieExpress___ASP.NET_Pro.__
             {
                 Response.Redirect("login.aspx");
             }
-            fillFlds();
+            if (!IsPostBack)
+            {
+                fillFlds();
+            }
         }
 
         void fillFlds()
@@ -50,6 +53,41 @@ namespace FoodieExpress___ASP.NET_Pro.__
             txtEml.Text = ds.Tables[0].Rows[0]["Email"].ToString();
             txtAdd.Text = ds.Tables[0].Rows[0]["Delivery_Address"].ToString();
             txtTel.Text = ds.Tables[0].Rows[0]["Phone_Number"].ToString();
+        }
+
+        void imgUpload()
+        {
+            if (fuProf.HasFile)
+            {
+                fnm = "~/data/userProf_pics/" + fuProf.FileName;
+                fuProf.SaveAs(Server.MapPath(fnm));
+            }
+            else
+            {
+                fnm = imgProf.ImageUrl;
+            }
+        }
+        protected void btnSv_Click(object sender, EventArgs e)
+        {
+            getcon();
+            imgUpload();
+
+            cmd = new SqlCommand("Update users_tbl set First_Name='" + txtFnm.Text.ToString() + "', Last_Name='" + txtLnm.Text.ToString() + "', Email='" + txtEml.Text.ToString() + "', Delivery_Address='" + txtAdd.Text.ToString() + "', Phone_Number='" + txtTel.Text.ToString() + "', Prof_Image='" + fnm + "' where Email='" + Session["username"].ToString() + "'", con);
+            i = cmd.ExecuteNonQuery();
+            if (i > 0)
+            {
+                if(Session["username"].ToString() != txtEml.Text.ToString())
+                {
+                    Session["username"] = txtEml.Text.ToString();
+                }
+
+                //lblMsg.Text = "Profile Updated Successfully.";
+                fillFlds();
+            }
+            else
+            {
+                lblMsg.Text = "Error in Updating Profile. Please try again.";
+            }
         }
     }
 }

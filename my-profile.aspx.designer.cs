@@ -87,6 +87,15 @@ namespace FoodieExpress___ASP.NET_Pro.__
         protected global::System.Web.UI.WebControls.TextBox txtAdd;
 
         /// <summary>
+        /// fuProf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuProf;
+
+        /// <summary>
         /// btnSv control.
         /// </summary>
         /// <remarks>
@@ -94,5 +103,14 @@ namespace FoodieExpress___ASP.NET_Pro.__
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSv;
+
+        /// <summary>
+        /// lblMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMsg;
     }
 }

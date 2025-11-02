@@ -1274,7 +1274,7 @@
     <Content Include="checkout.css" />
     <Content Include="checkout.js" />
     <Content Include="contact.aspx" />
-    <Content Include="data\userPro_pics\donw.jpg" />
+    <Content Include="data\userProf_pics\donw.jpg" />
     <Content Include="dish-details.aspx" />
     <Content Include="images\bbq_chicken_pizza.jpeg" />
     <Content Include="images\beef-tenderloin.jpg" />
@@ -1326,7 +1326,7 @@
     <Content Include="images\spring_rolls.jpg" />
     <Content Include="images\tandoori_paneer_pizza.jpg" />
     <Content Include="images\tiramisu.jpg" />
-    <Content Include="data\userPro_pics\user-icon.jpg" />
+    <Content Include="data\userProf_pics\user-icon.jpg" />
     <Content Include="images\vegetable_khichdi.jpg" />
     <Content Include="images\Veggie Burger.jpg" />
     <Content Include="images\veg_supreme_pizza.jpg" />

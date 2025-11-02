@@ -39,6 +39,7 @@
                             <asp:Label ID="lblCrt" runat="server" Text="Label"></asp:Label>
                             </span></a>
                             <asp:Button ID="btnlog" runat="server" Text="Login" CssClass="btn btn-sm" OnClick="btnlog_Click" />
+                            <%--<asp:LinkButton ID="lnklog" runat="server" Text="Login" CssClass="btn btn-sm" OnClick="lnklog_Click"></asp:LinkButton>--%>
                         </div>
                         <div class="hamburger">
                             <span></span><span></span><span></span>

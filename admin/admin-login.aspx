@@ -45,7 +45,7 @@
                             <a href="../login.aspx" class="btn btn-outline btn-sm">User Login</a>
                         </div>
                     </form>
-                    <asp:Label ID="lblmsg" runat="server" Text="Label" Visible="False"></asp:Label>
+                    <asp:Label ID="lblmsg" runat="server" Text="Label" style="color:red;" Visible="False"></asp:Label>
                 </div>
                 <div class="admin-login-footer">
                     <small class="muted">If you forgot your password. Please contact your system administrator.</small>
