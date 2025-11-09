@@ -7,7 +7,7 @@
     <div class="admin-container">
         <div class="admin-sidebar">
             <div class="sidebar-menu">
-                <a href="index.aspx" class="sidebar-item active">
+                <a href="dashboard.aspx" class="sidebar-item active">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
@@ -52,7 +52,7 @@
                     </div>
                     <div class="stat-content">
                         <%--<h3 id="total-foods">0</h3>--%>
-                        <asp:Label ID="lbltfo" runat="server" Text="Label" Style="font-size: 2rem; font-weight: 600; color: #333; margin-bottom: 0.25rem;"></asp:Label>
+                        <asp:Label ID="lbltfod" runat="server" Text="Label" Style="font-size: 2rem; font-weight: 600; color: #333; margin-bottom: 0.25rem;"></asp:Label>
                         <p>Total Foods</p>
                     </div>
                 </div>
@@ -71,7 +71,8 @@
                         <i class="fas fa-shopping-cart"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 id="total-orders">0</h3>
+                        <%--<h3 id="total-orders">0</h3>--%>
+                        <asp:Label ID="lblTotOrd" runat="server" Text="Label" Style="font-size: 2rem; font-weight: 600; color: #333; margin-bottom: 0.25rem;"></asp:Label>
                         <p>Total Orders</p>
                     </div>
                 </div>
@@ -80,7 +81,8 @@
                         <i class="fas fa-dollar-sign"></i>
                     </div>
                     <div class="stat-content">
-                        <h3 id="total-revenue">$0</h3>
+                        <%--<h3 id="total-revenue">$0</h3>--%>
+                        <asp:Label ID="lblTotRev" runat="server" Text="Label" Style="font-size: 2rem; font-weight: 600; color: #333; margin-bottom: 0.25rem;"></asp:Label>
                         <p>Total Revenue</p>
                     </div>
                 </div>

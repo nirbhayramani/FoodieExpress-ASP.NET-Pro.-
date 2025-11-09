@@ -6,7 +6,7 @@
     <div class="admin-container">
         <div class="admin-sidebar">
             <div class="sidebar-menu">
-                <a href="index.aspx" class="sidebar-item">
+                <a href="dashboard.aspx" class="sidebar-item">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>

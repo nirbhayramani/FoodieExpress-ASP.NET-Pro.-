@@ -15,13 +15,13 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
     {
 
         /// <summary>
-        /// lbltfo control.
+        /// lbltfod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltfo;
+        protected global::System.Web.UI.WebControls.Label lbltfod;
 
         /// <summary>
         /// lbltuser control.
@@ -31,5 +31,23 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltuser;
+
+        /// <summary>
+        /// lblTotOrd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotOrd;
+
+        /// <summary>
+        /// lblTotRev control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotRev;
     }
 }

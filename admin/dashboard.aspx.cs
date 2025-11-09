@@ -29,6 +29,8 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             }
             lbltotfod();
             lbltotuser();
+            lbltotorder();
+            lbltotRev();
         }
         void getcon()
         {
@@ -46,7 +48,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             cmd.ExecuteNonQuery();
             totfod = Convert.ToInt32(cmd.ExecuteScalar());
 
-            lbltfo.Text = totfod.ToString();
+            lbltfod.Text = totfod.ToString();
         }
 
         void lbltotuser()
@@ -56,6 +58,22 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             totuse = Convert.ToInt32(cmd.ExecuteScalar());
 
             lbltuser.Text = totuse.ToString();
+        }
+
+        void lbltotorder()
+        {
+            cmd = new SqlCommand("SELECT count(Or_Order_Id) FROM Order_tbl", con);
+            cmd.ExecuteNonQuery();
+            totuse = Convert.ToInt32(cmd.ExecuteScalar());
+            lblTotOrd.Text = totuse.ToString();
+        }
+
+        void lbltotRev()
+        {
+            cmd = new SqlCommand("SELECT sum(Or_Grand_Total) FROM Order_tbl", con);
+            cmd.ExecuteNonQuery();
+            totuse = Convert.ToInt32(cmd.ExecuteScalar());
+            lblTotRev.Text = totuse.ToString();
         }
     }
 }

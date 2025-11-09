@@ -1275,6 +1275,7 @@
     <Content Include="checkout.js" />
     <Content Include="contact.aspx" />
     <Content Include="data\userProf_pics\donw.jpg" />
+    <Content Include="data\userProf_pics\HeadChef.jpg" />
     <Content Include="dish-details.aspx" />
     <Content Include="images\bbq_chicken_pizza.jpeg" />
     <Content Include="images\beef-tenderloin.jpg" />
@@ -1287,7 +1288,6 @@
     <Content Include="images\Chef Antonio.jpeg" />
     <Content Include="images\Chef Sofia.jpg" />
     <Content Include="images\Chef%27s Special.jpg" />
-    <Content Include="images\Chef%27s Special.png" />
     <Content Include="images\chicken_curry.jpeg" />
     <Content Include="images\chicken_hakka_noodles.jpeg" />
     <Content Include="images\Chocolate Cake.png" />

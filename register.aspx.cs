@@ -47,7 +47,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
                 
                 getcon();
 
-                cmd = new SqlCommand("insert into users_tbl(First_Name,Last_Name,Email,Phone_Number,Delivery_Address,Password) values('" + txtfnm.Text + "','" + txtlnm.Text + "','" + txteml.Text + "','" + txttel.Text + "','" + txtadd.Text + "','" + txtpass.Text + "','data/userProf_pics/user-icon.jpg')", con);
+                cmd = new SqlCommand("insert into users_tbl(First_Name,Last_Name,Email,Phone_Number,Delivery_Address,Password,Prof_Image,Role) values('" + txtfnm.Text + "','" + txtlnm.Text + "','" + txteml.Text + "','" + txttel.Text + "','" + txtadd.Text + "','" + txtpass.Text + "','data/userProf_pics/user-icon.jpg','user')", con);
                 cmd.ExecuteNonQuery();
                 clear();
                 

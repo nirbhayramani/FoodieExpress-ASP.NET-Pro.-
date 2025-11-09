@@ -39,14 +39,22 @@ namespace FoodieExpress___ASP.NET_Pro.__
             getcon();
             if (txteml.Text != null && txtpass.Text != null)
             {
-                cmd = new SqlCommand("SELECT count(*) FROM users_tbl WHERE Email='" + txteml.Text + "' AND Password='" + txtpass.Text + "'", con);
-                cmd.ExecuteNonQuery();
-                i = Convert.ToInt32(cmd.ExecuteScalar());
+                da = new SqlDataAdapter("SELECT * FROM users_tbl WHERE Email='" + txteml.Text + "'", con);
+                ds = new DataSet();
+                da.Fill(ds);
 
-                if (i > 0)
+                if (ds.Tables[0].Rows[0]["Email"].ToString()==txteml.Text && ds.Tables[0].Rows[0]["Password"].ToString() == txtpass.Text)
                 {
-                    Session["username"] = txteml.Text;
-                    Response.Redirect("index.aspx");
+                    if (ds.Tables[0].Rows[0]["Role"].ToString() == "admin")
+                    {
+                        Session["admin"] = txteml.Text;
+                        Response.Redirect("admin/dashboard.aspx");
+                    }
+                    else
+                    {
+                        Session["username"] = txteml.Text;
+                        Response.Redirect("index.aspx");
+                    }
                 }
                 else
                 {
