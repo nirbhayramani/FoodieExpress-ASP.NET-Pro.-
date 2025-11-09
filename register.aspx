@@ -27,18 +27,21 @@
                                     <div class="input-icon">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtfnm" runat="server" placeholder="First name" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="ReqValdFnm" runat="server" ErrorMessage="Please enter first name" ControlToValidate="txtfnm" style="color:red;"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtfnm" runat="server" placeholder="First name" CssClass="form-input">
+                                    </asp:TextBox>
                                     <div class="input-focus-border"></div>
                                 </div>
+                                <asp:RequiredFieldValidator ID="ReqValdFnm" runat="server" ErrorMessage="Please enter first name" ControlToValidate="txtfnm" Style="color: red; font-size: 14px;"></asp:RequiredFieldValidator>
                             </div>
                             <div class="form-group">
                                 <div class="input-wrapper">
                                     <div class="input-icon">
                                         <i class="fas fa-user"></i>
                                     </div>
-                                    <asp:TextBox ID="txtlnm" runat="server" placeholder="Last name" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter last name" ControlToValidate="txtlnm" style="color:red;"></asp:RequiredFieldValidator>
+                                    <asp:TextBox ID="txtlnm" runat="server" placeholder="Last name" CssClass="form-input"></asp:TextBox>
                                     <div class="input-focus-border"></div>
                                 </div>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter last name" ControlToValidate="txtlnm" Style="color: red; font-size: 14px;"></asp:RequiredFieldValidator>
                             </div>
                         </div>
                         <div class="form-group">
@@ -46,27 +49,30 @@
                                 <div class="input-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <asp:TextBox ID="txteml" runat="server" placeholder="Email address" CssClass="form-input"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txteml" style="color:red;"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txteml" runat="server" placeholder="Email address" CssClass="form-input"></asp:TextBox>
                                 <div class="input-focus-border"></div>
                             </div>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Please enter a valid email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txteml" Style="color: red;"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <div class="input-wrapper">
                                 <div class="input-icon">
                                     <i class="fas fa-phone"></i>
                                 </div>
-                                <asp:TextBox ID="txttel" runat="server" placeholder="Phone number" CssClass="form-input" TextMode="Number" MaxLength="6"></asp:TextBox><asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please enter a valid phone number" style="color:red;" ControlToValidate="txttel" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
+                                <asp:TextBox ID="txttel" runat="server" placeholder="Phone number" CssClass="form-input" TextMode="Number" MaxLength="6"></asp:TextBox>
                                 <div class="input-focus-border"></div>
                             </div>
+                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Please enter a valid phone number" Style="color: red;" ControlToValidate="txttel" ValidationExpression="^\d{10}$"></asp:RegularExpressionValidator>
                         </div>
                         <div class="form-group">
                             <div class="input-wrapper">
                                 <div class="input-icon">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
-                                <asp:TextBox ID="txtadd" runat="server" placeholder="Delivery address" CssClass="form-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a valid address" style="color:red;"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtadd" runat="server" placeholder="Delivery address" CssClass="form-input"></asp:TextBox>
                                 <div class="input-focus-border"></div>
                             </div>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please enter a valid address" ControlToValidate="txtadd" Style="color: red;"></asp:RequiredFieldValidator>
                         </div>
 
                         <!-- Password Field with Toggle -->
@@ -75,12 +81,13 @@
                                 <div class="input-icon">
                                     <i class="fas fa-lock"></i>
                                 </div>
-                                <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" CssClass="form-input password-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter a valid and strong password" ControlToValidate="txtpass" style="color:red;"></asp:RequiredFieldValidator>
+                                <asp:TextBox ID="txtpass" runat="server" TextMode="Password" placeholder="Password" CssClass="form-input password-input"></asp:TextBox>
                                 <%--<button type="button" class="password-toggle" id="passwordToggle">
                                     <i class="fas fa-eye"></i>
                                 </button>--%>
                                 <div class="input-focus-border"></div>
                             </div>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter a valid and strong password" ControlToValidate="txtpass" Style="color: red;"></asp:RequiredFieldValidator>
                             <%--<div class="password-strength">
                                 <div class="strength-bar">
                                     <div class="strength-fill" id="strengthFill"></div>
@@ -95,17 +102,18 @@
                                 <div class="input-icon">
                                     <i class="fas fa-lock"></i>
                                 </div>
-                                <asp:TextBox ID="txtcon" runat="server" TextMode="Password" placeholder="Confirm password" CssClass="form-input password-input"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please re-enter your password" ControlToValidate="txtcon"></asp:RequiredFieldValidator><asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords don't match." ControlToCompare="txtpass" ControlToValidate="txtcon"></asp:CompareValidator>
+                                <asp:TextBox ID="txtcon" runat="server" TextMode="Password" placeholder="Confirm password" CssClass="form-input password-input"></asp:TextBox>
                                 <%--<button type="button" class="password-toggle" id="confirmPasswordToggle">
                                     <i class="fas fa-eye"></i>
                                 </button>--%>
                                 <div class="input-focus-border"></div>
                             </div>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords don't match." ControlToCompare="txtpass" ControlToValidate="txtcon"></asp:CompareValidator>
                         </div>
 
                         <div class="form-options">
                             <label class="modern-checkbox terms-checkbox" id="termsLabel">
-                                <input type="checkbox" name="terms" id="terms" required>
+                                <input type="checkbox" name="terms" id="terms" checked required>
                                 <span class="checkmark"></span>
                                 <span class="label-text">
                                     <strong>I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a></strong>

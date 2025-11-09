@@ -99,7 +99,7 @@ class Checkout {
 
     updateOrderSummary() {
         if (this.cart.length === 0) {
-            document.getElementById("subtotal").textContent = "$0.00";
+            //document.getElementById("subtotal").textContent = "$0.00";
             document.getElementById("tax").textContent = "$0.00";
             document.getElementById("total").textContent = "$0.00";
             return;

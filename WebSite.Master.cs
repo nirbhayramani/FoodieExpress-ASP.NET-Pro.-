@@ -15,7 +15,7 @@ namespace FoodieExpress___ASP.NET_Pro.__
             if (Session["username"] != null)
             {
                 btnlog.Text = "Logout";
-                //lnkProf.Visible = true;
+                lnkProf.Visible = true;
                 //lnklog.Text = "Logout";
             }
         }

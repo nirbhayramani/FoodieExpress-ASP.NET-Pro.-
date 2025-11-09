@@ -44,9 +44,10 @@ namespace FoodieExpress___ASP.NET_Pro.__
         {
             if (btncre.Text == "Create Account")
             {
+                
                 getcon();
 
-                cmd = new SqlCommand("insert into users_tbl(First_Name,Last_Name,Email,Phone_Number,Delivery_Address,Password) values('" + txtfnm.Text + "','" + txtlnm.Text + "','" + txteml.Text + "','" + txttel.Text + "','" + txtadd.Text + "','" + txtpass.Text + "','data/userPro_pics/user-icon.jpg')", con);
+                cmd = new SqlCommand("insert into users_tbl(First_Name,Last_Name,Email,Phone_Number,Delivery_Address,Password) values('" + txtfnm.Text + "','" + txtlnm.Text + "','" + txteml.Text + "','" + txttel.Text + "','" + txtadd.Text + "','" + txtpass.Text + "','data/userProf_pics/user-icon.jpg')", con);
                 cmd.ExecuteNonQuery();
                 clear();
                 
