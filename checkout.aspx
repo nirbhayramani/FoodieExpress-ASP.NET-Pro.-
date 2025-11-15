@@ -7,7 +7,7 @@
     <section class="checkout-hero">
         <div class="container">
             <div class="checkout-hero-content">
-                <h1 class="checkout-hero-title">Checkout</h1>
+                <h1 class="checkout-hero-title" style="padding-top: 90px;">Checkout</h1>
                 <p class="checkout-hero-subtitle">Complete your order</p>
             </div>
         </div>
@@ -111,7 +111,7 @@
     </section>
 
     <!-- Order Confirmation Modal -->
-   -<div id="confirmationModal" class="modal" style="display: none;">
+    -<div id="confirmationModal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <div class="confirmation-header">
@@ -149,12 +149,7 @@
                 <a href="order-history.aspx" class="btn btn-secondary">View Orders</a>
             </div>
         </div>
-    </diving</a>
-                <a href="order-history.aspx" class="btn btn-secondary">View Orders</a>
-            </div>
-        </div>
     </div>
-
 
     <style>
         .payment-method {
@@ -348,16 +343,16 @@
             font-size: 0.85rem;
         }
     </style>
- type=t/javascript">
+    <script>
         function validateAndShowModal() {
             // Validate form
             var address = document.getElementById('<%= txtShipAdd.ClientID %>');
             var zipCode = document.getElementById('<%= txtZipCod.ClientID %>');
             var paymentMethod = document.querySelector('#<%= rblPayMeth.ClientID %> input:checked');
 
-            var             isValid = true;
+            var isValid = true;
 
-            //             Validate address
+            //  Validate address
             if (!address.value.trim()) {
                 address.style.borderColor = 'red';
                 isValid = false;
@@ -365,7 +360,7 @@
                 address.style.borderColor = '';
             }
 
-            //             Validate zip code
+            //  Validate zip code
             if (!zipCode.value.trim() || zipCode.value.length !== 6) {
                 zipCode.style.borderColor = 'red';
                 isValid = false;
@@ -373,72 +368,72 @@
                 zipCode.style.borderColor = '';
             }
 
-            //             Validate payment method
+            //  Validate payment method
             if (!paymentMethod) {
                 alert('Please select a payment method');
                 isValid = false;
             }
 
-            if             (!isValid) {
+            if (!isValid) {
                 return false; // Prevent postback
             }
 
-            //             Get form values for modal
+            //  Get form values for modal
             var selectedPayment = paymentMethod ? paymentMethod.nextElementSibling.textContent : '';
 
-            //             Set modal content
+            //  Set modal content
             document.getElementById('modalPaymentMethod').textContent = selectedPayment;
             document.getElementById('modalShippingAddress').textContent = address.value + ' - ' + zipCode.value;
 
-            //             Generate a simple order number based on timestamp
+            //  Generate a simple order number based on timestamp
             var orderNumber = 'ORD-' + new Date().getTime().toString().slice(-6);
             document.getElementById('modalOrderNumber').textContent = orderNumber;
 
-            //             Show modal immediately
+            //  Show modal immediately
             showModal();
 
-            //             Let the server-side click event continue
+            //  Let the server-side click event continue
             return true;
         }
 
-        functio        n showModal() {
+        function showModal() {
             var modal = document.getElementById('confirmationModal');
             if (modal) {
                 modal.style.display = 'block';
 
-                                // Add a small delay for visual effect
+                // Add a small delay for visual effect
                 setTimeout(function () {
-                   modal.style.opacity = '1';
+                    modal.style.opacity = '1';
                 }, 10);
             }
         }
 
-        functio        n closeModal() {
+        function closeModal() {
             var modal = document.getElementById('confirmationModal');
             if (modal) {
                 modal.style.opacity = '0';
                 setTimeout(function () {
-                   modal.style.display = 'none';
+                    modal.style.display = 'none';
                 }, 300);
             }
         }
 
-        // Clos        e modal when clicking outside
+        // Close modal when clicking outside
         window.onclick = function (event) {
-           var modal = document.getElementById('confirmationModal');
+            var modal = document.getElementById('confirmationModal');
             if (event.target === modal) {
                 closeModal();
             }
         }
 
-        // Add         smooth transition for modal
+        // Add smooth transition for modal
         document.addEventListener('DOMContentLoaded', function () {
-           var modal = document.getElementById('confirmationModal');
+            var modal = document.getElementById('confirmationModal');
             if (modal) {
                 modal.style.transition = 'opacity 0.3s ease';
             }
         });
-    </script>--%>
-    <link rstylesheet" href="checkout.css" />
-    <script src="checkout.js"></script>
+    </script>
+    <link rel="stylesheet" href="checkout.css" />
+    <%--<script src="checkout.js"></script>--%>
 </asp:Content>

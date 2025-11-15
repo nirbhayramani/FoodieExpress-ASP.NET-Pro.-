@@ -66,17 +66,17 @@
                     </button>--%>
                         <asp:Button ID="btnlogin" runat="server" Text="Sign In" CssClass="modern-login-btn btn-text" OnClick="btnlogin_Click" />
                     </form>
-                    <div class="divider">
+                    <%--<div class="divider">
                         <span>or continue with</span>
-                    </div>
-                    <div class="social-login">
+                    </div>--%>
+                    <%--<div class="social-login">
                         <button class="social-btn google-btn">
                             <i class="fab fa-google"></i><span>Google</span>
                         </button>
                         <button class="social-btn facebook-btn">
                             <i class="fab fa-facebook-f"></i><span>Facebook</span>
                         </button>
-                    </div>
+                    </div>--%>
                     <div class="login-footer">
                         <p>
                             Don't have an account? <a href="register.aspx">Sign up</a>

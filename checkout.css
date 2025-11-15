@@ -12,6 +12,7 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 10px;
+  padding-top: 90px;
 }
 
 .checkout-hero-subtitle {
@@ -581,12 +582,6 @@ textarea:focus {
   border-radius: 8px;
   font-weight: 600;
   transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  color: white;
-  border: none;
 }
 
 .btn-secondary {

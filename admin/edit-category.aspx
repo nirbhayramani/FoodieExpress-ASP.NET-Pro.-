@@ -231,7 +231,7 @@
                 document.getElementById('category-color').value = sampleCategory.color;
                 document.getElementById('category-status').value = sampleCategory.status;
                 document.getElementById('sort-order').value = sampleCategory.sortOrder;
-                document.getElementById('is-featured').checked = sampleCategory.isFeatured;
+                //document.getElementById('is-featured').checked = sampleCategory.isFeatured;
                 document.getElementById('show-on-menu').checked = sampleCategory.showOnMenu;
 
                 // Set current image
@@ -250,7 +250,7 @@
                 .replace(/\s+/g, '-')
                 .replace(/-+/g, '-')
                 .trim();
-            document.getElementById('category-slug').value = slug;
+            //document.getElementById('category-slug').value = slug;
         });
 
         // Handle form submission

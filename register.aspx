@@ -108,12 +108,12 @@
                                 </button>--%>
                                 <div class="input-focus-border"></div>
                             </div>
-                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords don't match." ControlToCompare="txtpass" ControlToValidate="txtcon"></asp:CompareValidator>
+                            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Both passwords don't match." ControlToCompare="txtpass" ControlToValidate="txtcon" Style="color: red;"></asp:CompareValidator>
                         </div>
 
                         <div class="form-options">
                             <label class="modern-checkbox terms-checkbox" id="termsLabel">
-                                <input type="checkbox" name="terms" id="terms" checked required>
+                                <input type="checkbox" name="terms" id="terms" required>
                                 <span class="checkmark"></span>
                                 <span class="label-text">
                                     <strong>I agree to the <a href="#" class="terms-link">Terms & Conditions</a> and <a href="#" class="terms-link">Privacy Policy</a></strong>
@@ -130,18 +130,18 @@
                         <asp:Button ID="btncre" runat="server" Text="Create Account" CssClass="modern-register-btn" OnClick="btncre_Click" />
                     </form>
 
-                    <div class="divider">
+                    <%--<div class="divider">
                         <span>or sign up with</span>
-                    </div>
+                    </div>--%>
 
-                    <div class="social-register">
+                    <%--<div class="social-register">
                         <button type="button" class="social-btn google-btn">
                             <i class="fab fa-google"></i><span>Google</span>
                         </button>
                         <button type="button" class="social-btn facebook-btn">
                             <i class="fab fa-facebook-f"></i><span>Facebook</span>
                         </button>
-                    </div>
+                    </div>--%>
 
                     <div class="register-footer">
                         <p>Already have an account? <a href="login.aspx">Sign in</a></p>

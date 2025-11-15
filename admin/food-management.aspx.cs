@@ -50,7 +50,7 @@ namespace FoodieExpress___ASP.NET_Pro.__.admin
             row = ds.Tables[0].Rows.Count;
 
             pg.AllowPaging = true;
-            pg.PageSize = 2;
+            pg.PageSize = 7;
             pg.CurrentPageIndex = Convert.ToInt32(ViewState["pid"]);
 
             pg.DataSource = ds.Tables[0].DefaultView;
